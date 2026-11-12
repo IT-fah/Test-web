@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT Facilities Dept. — อุปกรณ์เสริม</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Prompt:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:#d65a5a; --blue-mid:#e06a6a; --blue-light:#f28b82; --blue-pale:#fdecea;
+      --green:#2e7d32; --green-light:#43a047; --orange:#e65100; --red:#c62828;
+      --gray-bg:#fdf6f5; --gray-border:#ecd9d7; --gray-text:#8a6e6c; --text:#2b1d1d;
+      --shadow-sm:0 1px 6px rgba(214,90,90,.10);
+      --shadow-md:0 4px 20px rgba(214,90,90,.13);
+      --shadow-lg:0 8px 40px rgba(214,90,90,.18);
+    }
+
+    body { font-family:'Sarabun',sans-serif; background:var(--gray-bg); color:var(--text); min-height:100vh; }
+
+    /* ── Topnav ── */
+    .sites-topnav {
+      background:#fff; border-bottom:1px solid #e0e0e0;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 28px; height:64px; position:sticky; top:0; z-index:100;
+      box-shadow:0 1px 4px rgba(0,0,0,.08);
+    }
+    .site-title { font-family:'Prompt',sans-serif; font-size:1.15rem; font-weight:700; color:var(--blue); display:flex; align-items:center; gap:10px; }
+    .icon-wrap { width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,var(--blue),var(--blue-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.05rem; }
+    .nav-links { display:flex; gap:4px; align-items:center; }
+    .nav-link { padding:7px 16px; border-radius:20px; font-size:.88rem; font-weight:600; color:var(--gray-text); cursor:pointer; transition:all .18s; text-decoration:none; }
+    .nav-link:hover, .nav-link.active { background:var(--blue-pale); color:var(--blue); }
+
+    /* ── Hero ── */
+    .hero {
+      background:linear-gradient(135deg,#b94a4a 0%,#d65a5a 40%,#e57373 75%,#f4a29b 100%);
+      padding:56px 40px 52px; text-align:center; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-logo { width:90px; height:90px; border-radius:20px; background:rgba(255,255,255,.15); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,.3); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:2.4rem; box-shadow:0 8px 32px rgba(0,0,0,.2); position:relative; }
+    .hero h1 { font-family:'Prompt',sans-serif; font-size:2rem; font-weight:800; color:#fff; margin-bottom:8px; text-shadow:0 2px 12px rgba(0,0,0,.2); position:relative; }
+    .hero-sub { font-size:1rem; color:rgba(255,255,255,.85); position:relative; }
+    .hero-badges { display:flex; justify-content:center; gap:10px; margin-top:18px; flex-wrap:wrap; position:relative; }
+    .hero-badge { background:rgba(255,255,255,.15); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.25); color:#fff; padding:5px 16px; border-radius:20px; font-size:.82rem; font-weight:600; }
+
+    /* ── Contact bar ── */
+    .contact-bar { background:#fff; border-bottom:2px solid var(--blue-pale); display:flex; align-items:center; justify-content:center; gap:32px; padding:14px 32px; flex-wrap:wrap; }
+    .contact-item { display:flex; align-items:center; gap:8px; font-size:.88rem; }
+    .ci-icon { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.95rem; }
+    .ci-blue{background:#fdecea;color:var(--blue)} .ci-green{background:#e8f5e9;color:var(--green)} .ci-orange{background:#fff3e0;color:var(--orange)}
+    .divider { width:1px; height:28px; background:#e0e0e0; }
+
+    /* ── Main ── */
+    .main-content { max-width:1100px; margin:0 auto; padding:32px 24px 60px; }
+    .section-title { font-family:'Prompt',sans-serif; font-size:1.05rem; font-weight:700; color:var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+    .section-title::after { content:''; flex:1; height:2px; background:linear-gradient(to right,var(--blue-pale),transparent); margin-left:8px; }
+
+    /* ── Info cards ── */
+    .info-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(235px,1fr)); gap:16px; margin-bottom:28px; }
+    .info-card {
+      background:#fff; border-radius:12px; box-shadow:var(--shadow-sm);
+      padding:16px 18px; border-left:4px solid var(--c, var(--blue));
+      display:flex; flex-direction:column; gap:3px; cursor:pointer;
+      transition:transform .15s, box-shadow .15s; position:relative;
+    }
+    .info-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .info-card .ic-top { display:flex; align-items:center; gap:10px; }
+    .info-card .ic-emoji { width:38px; height:38px; border-radius:10px; background:color-mix(in srgb, var(--c, var(--blue)) 12%, white); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .info-card .ic-label { font-size:.86rem; font-weight:700; color:var(--text); line-height:1.25; }
+    .info-card .ic-value { font-family:'Prompt',sans-serif; font-size:1.9rem; font-weight:700; color:var(--c, var(--blue)); margin-top:4px; }
+    .info-card .ic-sub { font-size:.78rem; color:var(--gray-text); }
+    .info-card .ic-hint { font-size:.72rem; color:var(--blue-light); font-weight:600; margin-top:2px; }
+
+    /* ── Toolbar ── */
+    .data-toolbar { background:#fff; border-radius:12px; box-shadow:var(--shadow-sm); padding:14px 20px; margin-bottom:16px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 18px; border-radius:8px; font-family:'Sarabun',sans-serif; font-size:.88rem; font-weight:600; cursor:pointer; border:none; transition:all .18s; white-space:nowrap; }
+    .btn:disabled { opacity:.6; cursor:not-allowed; }
+    .btn-blue{background:var(--blue);color:#fff} .btn-blue:hover{background:#c24848}
+    .btn-green{background:var(--green-light);color:#fff} .btn-green:hover{background:var(--green)}
+    .btn-outline{background:#fff;color:var(--blue);border:1.5px solid var(--blue)} .btn-outline:hover{background:var(--blue-pale)}
+    .btn-gray{background:#f0f0f0;color:#555;border:1px solid #ddd} .btn-gray:hover{background:#e0e0e0}
+    .btn-red{background:var(--red);color:#fff} .btn-red:hover{background:#b71c1c}
+    .btn-send{background:#fff;color:var(--blue);border:1.5px solid var(--blue)} .btn-send:hover{background:var(--blue-pale)}
+    .btn-send.on{background:var(--blue);color:#fff}
+    .search-box { display:flex; align-items:center; gap:8px; margin-left:auto; }
+    .search-input { padding:8px 14px; border-radius:8px; border:1.5px solid var(--gray-border); font-family:'Sarabun',sans-serif; font-size:.88rem; outline:none; transition:border .15s; min-width:220px; background:#fffafa; }
+    .search-input:focus { border-color:var(--blue); background:#fff; }
+
+    /* ── แถบโหมดส่งเครื่อง (เลือกหลายเครื่อง) ── */
+    .bulk-bar { display:none; align-items:center; gap:10px; flex-wrap:wrap; background:var(--blue-pale); border:1.5px dashed var(--blue); border-radius:12px; padding:12px 18px; margin-bottom:16px; font-size:.9rem; }
+    .bulk-bar.active { display:flex; animation:fadeIn .18s ease; }
+    .bulk-bar .bulk-text { flex:1; min-width:220px; line-height:1.5; }
+    .bulk-bar .bulk-count { font-family:'Prompt',sans-serif; font-weight:800; color:var(--blue); font-size:1.05rem; }
+    .bulk-cb { width:18px; height:18px; accent-color:var(--blue); cursor:pointer; vertical-align:middle; }
+    .bulk-cb:disabled { cursor:not-allowed; opacity:.4; }
+    tbody tr.sel { background:#ffe9e7 !important; }
+    tbody tr.bulk-row { cursor:pointer; }
+    tbody tr.bulk-off { cursor:default; opacity:.55; }
+    .sent-mark { font-size:.7rem; color:var(--gray-text); display:block; }
+
+    /* ── Table ── */
+    .table-card { background:#fff; border-radius:12px; box-shadow:var(--shadow-sm); overflow:hidden; }
+    .table-scroll { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; min-width:1100px; }
+    thead { background:linear-gradient(90deg,var(--blue),var(--blue-mid)); color:#fff; }
+    thead th { padding:13px 16px; text-align:left; font-size:.88rem; font-weight:600; white-space:nowrap; }
+    thead th.sortable { cursor:pointer; user-select:none; transition:background .15s; }
+    thead th.sortable:hover { background:rgba(255,255,255,.15); }
+    .sort-icon { display:inline-flex; flex-direction:column; line-height:1; font-size:.65rem; opacity:.5; gap:1px; margin-left:6px; vertical-align:middle; }
+    thead th.sort-asc, thead th.sort-desc { background:rgba(255,255,255,.18); }
+    thead th.sort-asc .sort-icon, thead th.sort-desc .sort-icon { opacity:1; }
+    thead th.sort-asc .arrow-down, thead th.sort-desc .arrow-up { opacity:.3; }
+    tbody tr { border-bottom:1px solid #f8e6e4; transition:background .12s; }
+    tbody tr:last-child { border-bottom:none; }
+    tbody tr:nth-child(even) { background:#fffafa; }
+    tbody tr:hover { background:#fff5f4; }
+    td { padding:13px 16px; font-size:.88rem; vertical-align:middle; }
+    .empty-state { text-align:center; padding:56px 20px; color:var(--gray-text); }
+    .empty-icon { font-size:2.5rem; margin-bottom:12px; opacity:.5; }
+    .type-tag { display:inline-block; padding:3px 10px; border-radius:6px; font-size:.8rem; font-weight:700; background:#fdecea; color:var(--blue); white-space:nowrap; }
+    .cap-tag { display:inline-block; margin-left:6px; padding:3px 9px; border-radius:6px; font-size:.78rem; font-weight:700; background:#efebe9; color:#6d4c41; white-space:nowrap; }
+
+    /* ── Chips ── */
+    .chip { display:inline-flex; align-items:center; gap:4px; padding:3px 12px; border-radius:20px; font-size:.78rem; font-weight:700; white-space:nowrap; }
+    .chip-green{background:#e8f5e9;color:var(--green)} .chip-red{background:#ffebee;color:var(--red)}
+    .chip-orange{background:#fff3e0;color:var(--orange)} .chip-blue{background:var(--blue-pale);color:var(--blue)}
+
+    /* ── 3-dot dropdown ── */
+    .action-wrap { position:relative; display:inline-block; }
+    .btn-dots { width:34px; height:34px; border-radius:8px; background:#fff1f0; color:var(--blue); border:1.5px solid var(--gray-border); cursor:pointer; font-size:1.25rem; font-weight:900; display:flex; align-items:center; justify-content:center; transition:all .15s; line-height:1; padding-bottom:3px; }
+    .btn-dots:hover { background:var(--blue-pale); border-color:var(--blue); }
+    .btn-dots.open { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .dropdown-menu { display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border-radius:10px; box-shadow:0 6px 28px rgba(214,90,90,.18); border:1px solid #f6dcda; min-width:152px; z-index:300; overflow:hidden; }
+    .dropdown-menu.open { display:block; animation:ddFadeIn .15s ease; }
+    @keyframes ddFadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+    .dropdown-item { display:flex; align-items:center; gap:10px; padding:10px 14px; font-size:.87rem; font-weight:600; color:var(--text); cursor:pointer; border:none; background:none; width:100%; text-align:left; font-family:'Sarabun',sans-serif; border-bottom:1px solid #fbeceb; }
+    .dropdown-item:last-child { border-bottom:none; }
+    .dropdown-item:hover { background:var(--blue-pale); }
+    .dropdown-item.del { color:var(--red); } .dropdown-item.del:hover { background:#ffebee; }
+    .di-icon { width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:.85rem; flex-shrink:0; }
+    .di-red{background:#ffebee} .di-orange{background:#fff3e0} .di-blue{background:#fdecea}
+
+    /* ── Modals ── */
+    .modal-overlay, .confirm-overlay { display:none; position:fixed; inset:0; background:rgba(13,30,60,.45); backdrop-filter:blur(4px); align-items:center; justify-content:center; }
+    .modal-overlay.active, .confirm-overlay.active { display:flex; animation:fadeIn .18s ease; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes slideUp { from{transform:translateY(28px);opacity:0} to{transform:translateY(0);opacity:1} }
+    #modalOverlay { z-index:500; } #listOverlay { z-index:500; } #confirmOverlay { z-index:600; } #sendOverlay { z-index:600; } #bulkSendOverlay { z-index:600; }
+    .modal { background:#fff; border-radius:14px; box-shadow:var(--shadow-lg); width:600px; max-width:95vw; animation:slideUp .22s cubic-bezier(.4,0,.2,1); overflow:hidden; }
+    .list-modal { width:900px; }
+    .modal-header { background:linear-gradient(90deg,var(--blue),var(--blue-mid)); color:#fff; padding:16px 22px; display:flex; align-items:center; justify-content:space-between; font-family:'Prompt',sans-serif; font-size:1rem; font-weight:700; }
+    .modal-close { background:none; border:none; color:#fff; font-size:1.3rem; cursor:pointer; padding:2px 7px; border-radius:5px; }
+    .modal-close:hover { background:rgba(255,255,255,.2); }
+    .modal-body { padding:24px 22px 16px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .form-group { display:flex; flex-direction:column; gap:5px; }
+    .form-group.full { grid-column:1 / -1; }
+    .form-group label { font-size:.85rem; font-weight:600; color:#5a2a2a; }
+    .req { color:var(--red); }
+    .form-control { padding:9px 12px; border:1.5px solid var(--gray-border); border-radius:8px; font-family:'Sarabun',sans-serif; font-size:.88rem; color:var(--text); outline:none; transition:border .15s, box-shadow .15s; background:#fffafa; }
+    .form-control:focus { border-color:var(--blue); background:#fff; box-shadow:0 0 0 3px rgba(214,90,90,.1); }
+    .modal-body { max-height:70vh; overflow-y:auto; }
+    .dev-list { max-height:300px; overflow-y:auto; padding:2px 2px 0; }
+    .dev-row { display:grid; grid-template-columns:150px 1fr 40px 36px; gap:8px; margin-bottom:10px; padding-bottom:10px; border-bottom:1px dashed var(--gray-border); }
+    .dev-row:last-child { border-bottom:none; }
+    .dev-extra { grid-column:1 / -1; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .dev-extra .dev-cond { width:150px; }
+    .dev-cap-wrap { display:flex; gap:6px; align-items:center; }
+    .dev-cap-wrap .dev-cap { width:130px; }
+    .dev-cap-wrap .dev-capunit { width:80px; }
+    .dev-del { border:1.5px solid var(--gray-border); background:#fff; border-radius:8px; color:var(--red); cursor:pointer; font-weight:700; }
+    .dev-del:hover { background:#ffebee; }
+    .dev-count { font-weight:500; color:var(--gray-text); margin-left:6px; }
+    .dev-hint { font-size:.76rem; color:var(--gray-text); }
+    .btn-sm { padding:6px 14px; font-size:.84rem; align-self:flex-start; margin-top:2px; }
+    .modal-footer { padding:12px 22px 20px; display:flex; gap:8px; }
+
+    .confirm-box { background:#fff; border-radius:14px; box-shadow:var(--shadow-lg); width:400px; max-width:92vw; overflow:hidden; animation:slideUp .2s cubic-bezier(.4,0,.2,1); }
+    .confirm-header { color:#fff; padding:14px 20px; font-family:'Prompt',sans-serif; font-size:.95rem; font-weight:700; background:linear-gradient(90deg,var(--red),#e53935); }
+    .confirm-header.blue { background:linear-gradient(90deg,var(--blue),var(--blue-mid)); }
+    .confirm-body { padding:20px 22px 10px; font-size:.9rem; line-height:1.6; }
+    .target-name { font-weight:700; color:var(--red); }
+    .confirm-footer { padding:10px 22px 18px; display:flex; gap:8px; }
+
+    .list-summary { display:flex; align-items:center; gap:10px; margin-bottom:14px; font-size:.95rem; font-weight:600; }
+    .list-count { font-family:'Prompt',sans-serif; font-size:1.5rem; font-weight:800; color:var(--blue); }
+    .list-scroll { max-height:52vh; overflow:auto; border:1px solid var(--gray-border); border-radius:10px; }
+    .list-table { width:100%; border-collapse:collapse; min-width:720px; }
+    .list-table th { position:sticky; top:0; background:var(--blue-pale); color:var(--blue); padding:10px 12px; font-size:.82rem; text-align:left; white-space:nowrap; }
+    .list-table td { padding:10px 12px; font-size:.86rem; border-top:1px solid #f8e6e4; }
+
+    .site-footer { background:#3a2425; color:#d1a8a6; text-align:center; padding:20px 24px; font-size:.82rem; line-height:1.7; }
+    .site-footer strong { color:#fdecea; }
+
+    /* ── Popup สรุป (หลังเพิ่ม / แก้ไข / ส่งเครื่อง) ── */
+    #doneOverlay { z-index:650; }
+    .done-box { width:440px; }
+    .done-head { background:linear-gradient(90deg,var(--green),var(--green-light)); color:#fff; padding:14px 20px; font-family:'Prompt',sans-serif; font-size:.95rem; font-weight:700; }
+    .done-body { padding:16px 20px 6px; max-height:56vh; overflow-y:auto; }
+    .sum-text { background:#fffafa; border:1px solid var(--gray-border); border-radius:10px; padding:14px 16px; font-family:'Sarabun',sans-serif; font-size:.93rem; line-height:1.75; white-space:pre-wrap; word-break:break-word; color:var(--text); }
+    .done-footer { padding:10px 20px 18px; display:flex; gap:8px; }
+    .done-footer .btn { flex:1; justify-content:center; }
+    @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+    /* ── Popup ข้อผิดพลาด ── */
+    #errOverlay { z-index:800; }
+    .err-msg { white-space:pre-line; }
+
+    /* ── ช่องกรอกในหน้าส่งเครื่อง ── */
+    .send-fields { margin-top:14px; display:flex; flex-direction:column; gap:10px; text-align:left; }
+    .send-fields label { font-size:.85rem; font-weight:600; color:#5a2a2a; display:flex; flex-direction:column; gap:5px; }
+    .bulk-list { margin-top:8px; max-height:150px; overflow-y:auto; background:#fffafa; border:1px solid var(--gray-border); border-radius:10px; padding:8px 12px; font-size:.84rem; line-height:1.7; }
+
+    /* ── Barcode scanner (ขนาดเล็กลง) ── */
+    .dev-scan { border:1.5px solid var(--blue); background:var(--blue-pale); border-radius:8px; cursor:pointer; font-size:1.05rem; }
+    .dev-scan:hover { background:#fbd9d5; }
+    #scanOverlay { z-index:700; }
+    .scan-box { width:340px; }
+    .scan-body { padding:12px 14px 4px; }
+    .scan-wrap { position:relative; width:100%; max-width:310px; margin:0 auto; border-radius:10px; overflow:hidden; background:#1a1010; -webkit-tap-highlight-color:transparent; }
+    #scanReader { width:100%; min-height:120px; max-height:240px; cursor:crosshair; }
+    #scanReader video { max-height:240px !important; object-fit:cover; }
+    .focus-ring { position:absolute; width:60px; height:60px; margin:-30px 0 0 -30px; border:2px solid #ffeb3b; border-radius:50%; pointer-events:none; opacity:0; transform:scale(1.5); transition:transform .22s ease, opacity .22s ease; z-index:5; box-shadow:0 0 0 1px rgba(0,0,0,.35); }
+    .focus-ring.show { opacity:1; transform:scale(1); }
+    .focus-ring.fail { border-color:#ff7043; }
+    .scan-tools { margin-top:8px; padding:8px 10px; background:#fffafa; border:1px solid var(--gray-border); border-radius:10px; display:none; flex-direction:column; gap:6px; }
+    .tool-row { display:flex; align-items:center; gap:8px; font-size:.8rem; }
+    .tool-row > span:first-child { white-space:nowrap; min-width:54px; font-weight:600; color:#5a2a2a; }
+    .tool-row input[type=range] { flex:1; min-width:0; accent-color:var(--blue); }
+    .tool-val { min-width:34px; text-align:right; color:var(--gray-text); font-size:.76rem; }
+    .scan-actions { margin-top:8px; display:flex; flex-direction:column; gap:6px; }
+    .scan-actions .btn { justify-content:center; width:100%; padding:9px 12px; }
+    .scan-results { margin-top:8px; display:none; flex-direction:column; gap:6px; }
+    .scan-results .res-title { font-size:.8rem; font-weight:700; color:#5a2a2a; }
+    .code-chip { display:flex; justify-content:space-between; align-items:center; gap:8px; width:100%; text-align:left; padding:8px 10px; border-radius:8px; border:1.5px solid var(--blue); background:var(--blue-pale); cursor:pointer; font-family:'Sarabun',sans-serif; font-size:.86rem; font-weight:700; word-break:break-all; }
+    .code-chip small { font-weight:500; color:var(--gray-text); white-space:nowrap; }
+    .code-chip:hover { background:#fbd9d5; }
+    .btn-xs { padding:4px 10px; font-size:.76rem; border-radius:6px; }
+    .btn-xs.on { background:#ffeb3b; color:#333; border-color:#fbc02d; }
+    .scan-msg { margin-top:8px; font-size:.82rem; color:var(--gray-text); text-align:center; min-height:1.3em; }
+    .scan-msg.bad { color:var(--red); font-weight:600; }
+    .scan-cont { display:flex; align-items:center; gap:8px; margin-top:8px; font-size:.8rem; cursor:pointer; }
+    @media (max-width:640px) { .dev-row { grid-template-columns:1fr 40px 36px; } .dev-row .dev-type { grid-column:1 / -1; } }
+    @media (max-width:640px) { .form-grid { grid-template-columns:1fr; } .search-box { margin-left:0; width:100%; } .search-input { flex:1; min-width:0; } .dev-extra .dev-cond { width:100%; } }
+
+    /* ══ รองรับโทรศัพท์ ══ */
+    @media (max-width:720px) {
+      html { -webkit-text-size-adjust:100%; }
+      .sites-topnav { padding:0 12px; height:54px; }
+      .site-title { font-size:.92rem; gap:8px; }
+      .icon-wrap { width:32px; height:32px; font-size:.95rem; }
+      .nav-link { padding:6px 10px; font-size:.78rem; }
+      .nav-links .nav-link:nth-child(5) { display:none; }
+      .hero { padding:28px 16px 26px; }
+      .hero-logo { width:64px; height:64px; font-size:1.8rem; margin-bottom:12px; }
+      .hero h1 { font-size:1.4rem; }
+      .hero-sub { font-size:.88rem; }
+      .hero-badges { gap:6px; margin-top:14px; }
+      .hero-badge { padding:4px 11px; font-size:.74rem; }
+      .contact-bar { flex-direction:column; align-items:flex-start; gap:10px; padding:12px 16px; }
+      .contact-bar .divider { display:none; }
+      .contact-item { font-size:.84rem; flex-wrap:wrap; }
+      .main-content { padding:18px 12px 40px; }
+      .section-title { font-size:.98rem; }
+      .info-cards { grid-template-columns:1fr 1fr; gap:10px; }
+      .info-card { padding:12px; }
+      .info-card .ic-emoji { width:32px; height:32px; font-size:1rem; }
+      .info-card .ic-label { font-size:.78rem; }
+      .info-card .ic-value { font-size:1.5rem; }
+      .info-card .ic-sub { font-size:.72rem; }
+
+      .data-toolbar { padding:12px; gap:8px; }
+      .data-toolbar > .btn { flex:1 1 calc(50% - 8px); justify-content:center; padding:10px 8px; }
+      .search-box { order:9; width:100%; margin-left:0; }
+      .search-input { flex:1; min-width:0; }
+      .bulk-bar { padding:12px; }
+      .bulk-bar .bulk-text { min-width:100%; }
+      .bulk-bar .btn { flex:1; justify-content:center; }
+
+      /* ตาราง → การ์ดต่อรายการ */
+      .table-card { background:transparent; box-shadow:none; overflow:visible; }
+      .table-scroll { overflow:visible; }
+      table { min-width:0 !important; display:block; }
+      thead { display:none; }
+      tbody { display:block; }
+      tbody tr { display:block; position:relative; background:#fff !important; border:1px solid var(--gray-border); border-radius:12px; box-shadow:var(--shadow-sm); padding:10px 14px; margin-bottom:10px; }
+      tbody tr.sel { background:#ffe9e7 !important; border-color:var(--blue); }
+      tbody td { display:block; padding:0; }
+      tbody td[data-label] { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:6px 0; border-bottom:1px dashed #f3dedc; text-align:right; font-size:.88rem; word-break:break-word; }
+      tbody td[data-label]::before { content:attr(data-label); font-weight:700; color:var(--gray-text); font-size:.78rem; text-align:left; flex-shrink:0; }
+      tbody td.cell-act { position:absolute; top:6px; right:8px; border:none; }
+      tbody td.cell-act + td, tbody td:last-child { border-bottom:none; }
+      tbody td[data-label="ลำดับ"], tbody td[data-label="เลือก"] { padding-right:46px; }
+      .bulk-cb { width:22px; height:22px; }
+      .dropdown-menu { min-width:170px; }
+      .btn-dots { width:38px; height:38px; }
+
+      /* popup */
+      .modal { width:100%; max-width:96vw; }
+      .modal-body { padding:18px 14px 10px; max-height:68vh; }
+      .modal-footer, .confirm-footer, .done-footer { flex-wrap:wrap; }
+      .modal-footer .btn, .confirm-footer .btn { flex:1; justify-content:center; padding:11px 12px; }
+      .confirm-box, .done-box, .scan-box { width:96vw; max-width:96vw; }
+      .done-body { padding:14px; }
+      .list-modal { width:96vw; }
+      .list-scroll { max-height:56vh; }
+      .dev-row { grid-template-columns:1fr 44px 40px; }
+      .dev-row .dev-type { grid-column:1 / -1; }
+      .dev-extra .dev-cond { flex:1; width:auto; }
+      .dev-cap-wrap { flex:1; }
+      .dev-cap-wrap .dev-cap { width:100%; }
+      /* กัน iOS ซูมเข้าเองตอนแตะช่องพิมพ์ */
+      input.form-control, select.form-control, .search-input { font-size:16px; }
+      .site-footer { padding:18px 14px; font-size:.78rem; }
+    }
+    @media (max-width:380px) {
+      .info-cards { grid-template-columns:1fr; }
+      .data-toolbar > .btn { flex:1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<nav class="sites-topnav">
+  <div class="site-title"><div class="icon-wrap">💻</div>IT Facilities Dept.</div>
+  <div class="nav-links">
+    <a class="nav-link" id="navHome" href="https://it-fah.github.io/FAH888/" target="_top">หน้าแรก</a>
+    <a class="nav-link active" href="accessories อุปกรณ์เสริม.html" target="_top">อุปกรณ์เสริม</a>
+    <a class="nav-link" href="store เครื่องหน้าร้าน.html" target="_top">เครื่องหน้าร้าน</a>
+    <a class="nav-link" href="dashboard.html">แดชบอร์ด</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="hero-logo">🔌</div>
+  <h1>อุปกรณ์เสริม</h1>
+  
+  
+</div>
+
+<!-- ── Contact bar ── -->
+<div class="contact-bar">
+  <div class="contact-item"><div class="ci-icon ci-blue">📞</div><span><strong>Tel :</strong> . 7442</span><span style="color:#999;font-size:.8rem">(office hours)</span></div>
+  <div class="divider"></div>
+  <div class="contact-item"><div class="ci-icon ci-green">📱</div><span><strong>Hotline :</strong> 083-989-0894, 083-989-1551</span></div>
+  <div class="divider"></div>
+  <div class="contact-item"><div class="ci-icon ci-orange">🕐</div><span><strong>เวลาทำการ :</strong> 09:00 – 18:00 น.</span></div>
+</div>
+
+<!-- ── Main ── -->
+<div class="main-content">
+
+  <div class="section-title">📊 ภาพรวมอุปกรณ์เสริม</div>
+  <div class="info-cards" id="infoCards"></div>
+
+  <div class="section-title">📋 รายการอุปกรณ์เสริม</div>
+
+  <div class="data-toolbar">
+    <button class="btn btn-outline" id="showAllBtn">📦 ข้อมูลทั้งหมด</button>
+    <button class="btn btn-green" id="openModal">➕ เพิ่มอุปกรณ์</button>
+    <button class="btn btn-send" id="bulkSendBtn">📤 ส่งเครื่อง</button>
+    <button class="btn btn-gray" id="reloadBtn">🔄 โหลดข้อมูลใหม่</button>
+    <div class="search-box">
+      <input class="search-input" id="searchInput" type="text" placeholder="ค้นหาประเภท / รหัส / ผู้ดำเนินการ..." autocomplete="off"/>
+      <button class="btn btn-blue" id="searchBtn">🔍 ค้นหา</button>
+    </div>
+  </div>
+
+  <!-- แถบโหมดส่งเครื่อง -->
+  <div class="bulk-bar" id="bulkBar">
+    <div class="bulk-text">📤 <strong>โหมดส่งเครื่อง</strong> — ติ๊กเลือกเครื่องที่จะส่ง (ใช้ช่องค้นหาได้ รายการที่ติ๊กไว้จะไม่หาย) · เลือกแล้ว <span class="bulk-count" id="bulkCount">0</span> เครื่อง</div>
+    <button class="btn btn-blue" id="bulkConfirmBtn" disabled>✅ ยืนยันเครื่องที่เลือก</button>
+    <button class="btn btn-gray" id="bulkCancelBtn">ยกเลิก</button>
+  </div>
+
+  <div class="table-card">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th id="thNum" style="width:52px">#</th>
+            <th class="sortable" data-key="date">วันที่รับ<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="sentDate">วันที่ส่ง<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="type">ประเภท<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="condition">ลักษณะ<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="serial">S/N<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="status">สถานะ<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="operator">ผู้ดำเนินการ<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="receiver">ผู้รับเครื่อง<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th class="sortable" data-key="sender">คนส่ง<span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+            <th style="text-align:center;min-width:60px">จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <strong>IT Facilities Department</strong><br>
+  Tel : 02-017-7777 Ext. 7442 &nbsp;|&nbsp; Hotline : 083-989-0894, 083-989-1551<br>
+  เวลาทำการ 09:00 – 18:00 น.
+</footer>
+
+<!-- ══ LIST MODAL (กดการ์ด) ══ -->
+<div class="modal-overlay" id="listOverlay">
+  <div class="modal list-modal">
+    <div class="modal-header"><span id="listTitle">รายการ</span><button class="modal-close" id="closeList">✕</button></div>
+    <div class="modal-body">
+      <div class="list-summary"><span>จำนวน</span><span class="list-count" id="listCount">0</span><span>รายการ</span></div>
+      <div class="list-scroll">
+        <table class="list-table">
+          <thead><tr><th>#</th><th>วันที่รับ</th><th>วันที่ส่ง</th><th>S/N</th><th>ลักษณะ</th><th>ความจุ</th><th>สถานะ</th></tr></thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-gray" id="closeList2">ปิด</button></div>
+  </div>
+</div>
+
+<!-- ══ ADD / EDIT MODAL ══ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header"><span id="modalTitle">➕ เพิ่มอุปกรณ์เสริม</span><button class="modal-close" id="closeModal">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>รายการอุปกรณ์ <span id="devCount" class="dev-count"></span></label>
+          <div class="dev-list" id="devList"></div>
+          <button type="button" class="btn btn-outline btn-sm" id="addDevRow">➕ เพิ่มอีกเครื่อง</button>
+          <div class="dev-hint" id="devHint">💡 กด Enter ในช่องรหัสเพื่อเพิ่มเครื่องถัดไป หรือวางรหัสหลายบรรทัดลงในช่องเดียวได้</div>
+        </div>
+        <div class="form-group full" id="sentDateGroup" style="display:none">
+          <label>วันที่ส่ง <span class="dev-count">(เว้นว่าง = ยังไม่ได้ส่ง)</span></label>
+          <input class="form-control" id="f-sentdate" type="date"/>
+        </div>
+        <div class="form-group">
+          <label>สถานะ</label>
+          <select class="form-control" id="f-status">
+            <option value="">-- เลือกสถานะ --</option>
+            <option>กำลังรอดำเนินการ</option>
+            <option>ดำเนินการเสร็จแล้ว</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ผู้ดำเนินการ</label>
+          <input class="form-control" id="f-operator" type="text" placeholder="ชื่อผู้ดำเนินการ" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label>ผู้รับเครื่อง <span class="req">*</span></label>
+          <input class="form-control" id="f-receiver" type="text" placeholder="ชื่อผู้รับเครื่อง" autocomplete="off"/>
+        </div>
+        <div class="form-group" id="senderGroup" style="display:none">
+          <label id="senderLabel">คนส่ง</label>
+          <input class="form-control" id="f-senderEdit" type="text" placeholder="ชื่อคนส่งเครื่อง" autocomplete="off"/>
+        </div>
+        <div class="form-group full" id="noteGroup">
+          <label>หมายเหตุ <span class="dev-count">(ไม่บังคับ · แสดงในสรุปและปุ่มคัดลอกเท่านั้น ไม่ได้บันทึกลงชีท)</span></label>
+          <input class="form-control" id="f-note" type="text" autocomplete="off"/>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-green" id="saveBtn">➕ เพิ่มอุปกรณ์</button>
+      <button class="btn btn-gray" id="closeModal2">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ POPUP สรุป (หลังเพิ่มข้อมูล / แก้ไขข้อมูล / ส่งเครื่อง) ══ -->
+<div class="confirm-overlay" id="doneOverlay">
+  <div class="confirm-box done-box">
+    <div class="done-head" id="doneTitle">📦 สรุปการรับอุปกรณ์เสริม</div>
+    <div class="done-body"><div class="sum-text" id="doneText"></div></div>
+    <div class="done-footer">
+      <button class="btn btn-blue" id="copyBtn">📋 คัดลอก</button>
+      <button class="btn btn-green" id="doneCloseBtn">ตกลง</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ POPUP ข้อผิดพลาด ══ -->
+<div class="confirm-overlay" id="errOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header" id="errTitle">⚠️ เกิดข้อผิดพลาด</div>
+    <div class="confirm-body"><div class="err-msg" id="errMsg"></div></div>
+    <div class="confirm-footer"><button class="btn btn-red" id="errCloseBtn">ตกลง</button></div>
+  </div>
+</div>
+
+<!-- ══ SEND MACHINE (ทีละเครื่อง จากเมนู ⋮) ══ -->
+<div class="confirm-overlay" id="sendOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header blue">📤 ส่งเครื่อง</div>
+    <div class="confirm-body" style="padding-bottom:16px">
+      <p style="margin-bottom:14px;color:var(--gray-text);font-size:.88rem">ยืนยันการส่งเครื่องสำหรับ</p>
+      <p style="font-weight:700;font-size:.95rem" id="sendName"></p>
+      <p style="margin-top:10px;font-size:.85rem;color:var(--gray-text)">รหัส / S/N: <strong id="sendSerial"></strong></p>
+      <p id="sendNote" style="margin-top:10px;font-size:.85rem"></p>
+      <div class="send-fields">
+        <label><span>ผู้ส่ง <span class="req">*</span></span>
+          <input class="form-control" id="f-sender" type="text" placeholder="ชื่อผู้ส่งเครื่อง" autocomplete="off"/>
+        </label>
+        <label>หมายเหตุ <span class="dev-count" style="margin-left:0">(ไม่บังคับ)</span>
+          <input class="form-control" id="f-sendnote" type="text" autocomplete="off"/>
+        </label>
+      </div>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-blue" id="confirmSendBtn">📤 ยืนยันส่งเครื่อง</button>
+      <button class="btn btn-gray" id="cancelSendBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEND MACHINE หลายเครื่อง (จากปุ่ม ส่งเครื่อง ในแถบเครื่องมือ) ══ -->
+<div class="confirm-overlay" id="bulkSendOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header blue">📤 ส่งเครื่อง <span id="bulkSendN"></span></div>
+    <div class="confirm-body" style="padding-bottom:16px">
+      <p style="color:var(--gray-text);font-size:.88rem">รายการที่จะส่ง</p>
+      <div class="bulk-list" id="bulkSendList"></div>
+      <p style="margin-top:10px;font-size:.85rem;color:var(--gray-text)">จะบันทึกวันที่ส่งเป็นวันนี้ (<span id="bulkSendDate"></span>)</p>
+      <div class="send-fields">
+        <label><span>ผู้ส่ง <span class="req">*</span></span>
+          <input class="form-control" id="f-bulkSender" type="text" placeholder="ชื่อผู้ส่งเครื่อง" autocomplete="off"/>
+        </label>
+        <label><span>ผู้ดำเนินการ <span class="req" id="bulkOpReq">*</span></span>
+          <input class="form-control" id="f-bulkOperator" type="text" placeholder="ชื่อผู้ดำเนินการ" autocomplete="off"/>
+          <span class="dev-hint" id="bulkOpHint"></span>
+        </label>
+      </div>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-blue" id="bulkSendOkBtn">📤 ยืนยันส่งเครื่อง</button>
+      <button class="btn btn-gray" id="bulkSendCancelBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BARCODE SCANNER ══ -->
+<div class="confirm-overlay" id="scanOverlay">
+  <div class="confirm-box scan-box">
+    <div class="confirm-header blue">📷 สแกนบาร์โค้ด S/N</div>
+    <div class="scan-body">
+      <div class="scan-wrap" id="scanWrap">
+        <div id="scanReader"></div>
+        <div class="focus-ring" id="focusRing"></div>
+      </div>
+      <div id="scanMsg" class="scan-msg">กำลังเปิดกล้อง...</div>
+      <div class="scan-tools" id="scanTools">
+        <div class="tool-row" id="zoomRow" style="display:none">
+          <span>🔍 ซูม</span>
+          <input type="range" id="zoomSlider" min="1" max="1" step="0.1" value="1"/>
+          <span class="tool-val" id="zoomVal">1x</span>
+        </div>
+        <div class="tool-row" id="focusRow" style="display:none">
+          <span>🎯 โฟกัส</span>
+          <input type="range" id="focusSlider" min="0" max="1" step="0.01" value="0"/>
+          <button type="button" class="btn btn-outline btn-xs" id="autoFocusBtn">อัตโนมัติ</button>
+        </div>
+        <div class="tool-row" id="torchRow" style="display:none">
+          <span>🔦 ไฟฉาย</span>
+          <button type="button" class="btn btn-gray btn-xs" id="torchBtn">เปิด</button>
+        </div>
+      </div>
+      <div class="scan-actions">
+        <button type="button" class="btn btn-blue" id="grabBtn">📸 จับภาพนี้แล้วสแกน (แม่นกว่า)</button>
+        <button type="button" class="btn btn-outline" id="photoBtn">🖼️ ถ่ายด้วยกล้องเครื่อง / เลือกรูป</button>
+        <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none"/>
+      </div>
+      <div class="scan-results" id="scanResults"></div>
+      <label class="scan-cont"><input type="checkbox" id="scanContinuous"/> สแกนต่อเนื่อง (เพิ่มแถวใหม่ให้อัตโนมัติ)</label>
+    </div>
+    <div class="confirm-footer"><button class="btn btn-gray" id="closeScanBtn">ปิดกล้อง</button></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js"></script>
+<!-- ══ CONFIRM DELETE ══ -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header">🗑️ ยืนยันการลบข้อมูล</div>
+    <div class="confirm-body">
+      คุณต้องการลบ<br><span class="target-name" id="confirmName"></span><br>
+      ออกจากระบบ? <strong>การดำเนินการนี้ไม่สามารถย้อนกลับได้</strong>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-red" id="confirmDeleteBtn">🗑️ ยืนยันลบข้อมูล</button>
+      <button class="btn btn-gray" id="cancelDeleteBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ══════════════════════════════════════════════════════════════════════════
+  //  CONFIG  ← แก้ตรงนี้
+  // ══════════════════════════════════════════════════════════════════════════
+  // ใส่ URL ของ Apps Script (เหมือนหน้าแรก) ถ้าปล่อยว่าง ระบบจะใช้ "ข้อมูลตัวอย่าง" ให้ดูหน้าตาก่อน
+  const API_URL  = 'https://script.google.com/macros/s/AKfycbwwQjOMhglAY5SAxmlTWxIh0f93Md_-EtA_TdK8OPjYoJHCLLxwtHHMxAsVtYv-sCNZMA/exec';
+  const SHEET    = 'accessories';          // ชื่อแท็บชีทที่เก็บอุปกรณ์เสริม
+  const HOME_URL = 'https://it-fah.github.io/FAH888/';
+
+  // ประเภทอุปกรณ์ = ชื่อการ์ดในภาพรวม
+  const TYPES = [
+    { name:'DVR 8CH 4T',        icon:'📹', color:'#d65a5a' },
+    { name:'DVR 16CH 6T',       icon:'🎥', color:'#b0413e' },
+    { name:'Access Point(TP)',  icon:'📡', color:'#e08a5b' },
+    { name:'Access Point(OMD)', icon:'📶', color:'#d4a04a' },
+    { name:'Box VPN',           icon:'🔐', color:'#a05a8a' },
+    { name:'Router SIM',        icon:'📱', color:'#e57399' },
+    { name:'Harddisk',          icon:'💾', color:'#8d6e63' }
+  ];
+  const HDD_TYPE   = 'Harddisk';            // ประเภทที่ต้องกรอกความจุ
+  const CONDITIONS = ['ใหม่', 'เก่า'];       // ลักษณะอุปกรณ์
+
+  const navHomeEl = document.getElementById('navHome');
+  if (navHomeEl) navHomeEl.href = HOME_URL;
+
+  let tableData = [];
+  let sortKey = null, sortDir = null;
+  let searchTerm = '';
+  let typeFilter = '';
+  let editingIdx = null, pendingDeleteIdx = null;
+
+  // โหมดส่งเครื่องหลายเครื่อง
+  let bulkMode = false;
+  const bulkSel = new Set();      // เก็บ index จริงใน tableData (ไม่หายเมื่อค้นหา/เรียงใหม่)
+  let visibleRows = [];           // แถวที่แสดงอยู่ตอนนี้ (ใช้กับ "เลือกทั้งหมด")
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function escHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function statusChip(s) {
+    const t = escHtml(s) || '—';
+    if (s === 'กำลังรอดำเนินการ')   return `<span class="chip chip-orange">⏳ ${t}</span>`;
+    if (s === 'ดำเนินการเสร็จแล้ว') return `<span class="chip chip-green">✅ ${t}</span>`;
+    return `<span class="chip chip-blue">${t}</span>`;
+  }
+  function condChip(c) {
+    if (c === 'ใหม่') return `<span class="chip chip-green">🆕 ใหม่</span>`;
+    if (c === 'เก่า') return `<span class="chip chip-orange">♻️ เก่า</span>`;
+    return '—';
+  }
+  function formatDate(v, blank) {
+    if (!v) return blank === undefined ? '—' : blank;
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(v));
+    const d = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date(v);
+    if (isNaN(d.getTime())) return escHtml(v);
+    return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+  }
+  function toInputDate(v) {
+    if (!v) return '';
+    if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
+    const d = new Date(v);
+    if (isNaN(d.getTime())) return '';
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function todayStr() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function showMsg(icon, msg) {
+    document.getElementById('tableBody').innerHTML =
+      `<tr><td colspan="11"><div class="empty-state"><div class="empty-icon">${icon}</div><p>${msg}</p></div></td></tr>`;
+  }
+
+  // ── Popup ข้อผิดพลาด (แทน alert) ─────────────────────────────────────────
+  function showError(title, msg) {
+    document.getElementById('errTitle').textContent = '⚠️ ' + title;
+    document.getElementById('errMsg').textContent = msg;
+    document.getElementById('errOverlay').classList.add('active');
+  }
+  function closeErr() { document.getElementById('errOverlay').classList.remove('active'); }
+  document.getElementById('errCloseBtn').addEventListener('click', closeErr);
+  document.getElementById('errOverlay').addEventListener('click', e => { if (e.target.id === 'errOverlay') closeErr(); });
+
+  // ── API (มีโหมดตัวอย่างเมื่อไม่ได้ใส่ API_URL) ────────────────────────────
+  function sampleData() {
+    const d = new Date().toISOString();
+    return [
+      { date:d, type:'DVR 8CH 4T',        condition:'ใหม่', capacity:'',      serial:'DV8-0001', sentDate:d,  status:'ดำเนินการเสร็จแล้ว', operator:'สมชาย' },
+      { date:d, type:'DVR 8CH 4T',        condition:'เก่า', capacity:'',      serial:'DV8-0002', sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมชาย' },
+      { date:d, type:'DVR 16CH 6T',       condition:'ใหม่', capacity:'',      serial:'DV16-0001',sentDate:d,  status:'ดำเนินการเสร็จแล้ว', operator:'สมหญิง' },
+      { date:d, type:'Access Point(TP)',  condition:'ใหม่', capacity:'',      serial:'TP-0101',  sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมหญิง' },
+      { date:d, type:'Access Point(TP)',  condition:'เก่า', capacity:'',      serial:'TP-0102',  sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมชาย' },
+      { date:d, type:'Access Point(OMD)', condition:'ใหม่', capacity:'',      serial:'OMD-0001', sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมชาย' },
+      { date:d, type:'Box VPN',           condition:'เก่า', capacity:'',      serial:'VPN-0001', sentDate:d,  status:'ดำเนินการเสร็จแล้ว', operator:'สมหญิง' },
+      { date:d, type:'Router SIM',        condition:'ใหม่', capacity:'',      serial:'RS-0001',  sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมชาย' },
+      { date:d, type:'Harddisk',          condition:'ใหม่', capacity:'4 TB',  serial:'HDD-0001', sentDate:'', status:'ดำเนินการเสร็จแล้ว', operator:'สมชาย' },
+      { date:d, type:'Harddisk',          condition:'เก่า', capacity:'500 GB',serial:'HDD-0002', sentDate:'', status:'กำลังรอดำเนินการ',   operator:'สมหญิง' }
+    ];
+  }
+
+  async function apiPost(body) {
+    if (!API_URL) {                       // โหมดตัวอย่าง: แก้ข้อมูลในหน้าเว็บอย่างเดียว
+      if (body.action === 'add')    tableData.push({ ...body });
+      if (body.action === 'edit')   tableData[body.rowIndex] = { ...tableData[body.rowIndex], ...body };
+      if (body.action === 'delete') tableData[body.rowIndex].deleted = true;
+      return;
+    }
+    const res  = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ ...body, sheet: SHEET }) });
+    const json = await res.json();
+    if (json.status !== 'ok') throw new Error(json.message || 'error');
+  }
+
+  async function loadData() {
+    if (!API_URL) { if (!tableData.length) tableData = sampleData(); renderAll(); return; }
+    showMsg('<span style="display:inline-block;animation:spin 1s linear infinite">⏳</span>', 'กำลังโหลดข้อมูลจาก Google Sheets...');
+    try {
+      const res  = await fetch(`${API_URL}?sheet=${encodeURIComponent(SHEET)}`);
+      const json = await res.json();
+      if (json.status !== 'ok') throw new Error(json.message || 'error');
+      tableData = json.data.map(r => ({
+        date: r.date || '', type: r.type || '', condition: r.condition || '', capacity: r.capacity || '',
+        serial: r.serial || '', sentDate: r.sentDate || '', status: r.status || '', operator: r.operator || '',
+        receiver: r.receiver || '', sender: r.sender || '',
+        deleted: r.deleted === true
+      }));
+      renderAll();
+    } catch (err) { showMsg('⚠️', `โหลดข้อมูลไม่สำเร็จ: <small style="color:#e53935">${escHtml(err.message)}</small>`); }
+  }
+
+  // ── Cards ─────────────────────────────────────────────────────────────────
+  function renderCards() {
+    const active = tableData.filter(r => !r.deleted);
+    document.getElementById('infoCards').innerHTML = TYPES.map((t, i) => {
+      const items = active.filter(r => r.type === t.name);
+      const wait = items.filter(r => r.status === 'กำลังรอดำเนินการ').length;
+      const done = items.filter(r => r.status === 'ดำเนินการเสร็จแล้ว').length;
+      return `<div class="info-card" style="--c:${t.color}" onclick="openTypeList(${i})">
+        <div class="ic-top"><div class="ic-emoji">${t.icon}</div><div class="ic-label">${escHtml(t.name)}</div></div>
+        <div class="ic-value">${items.length}</div>
+        <div class="ic-sub">รอดำเนินการ ${wait} · เสร็จแล้ว ${done}</div>
+        <div class="ic-hint">👆 คลิกดูรายการ</div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Table ─────────────────────────────────────────────────────────────────
+  function renderTable() {
+    const q = searchTerm.toLowerCase();
+    let rows = tableData.map((r, origIdx) => ({ ...r, origIdx })).filter(r => !r.deleted)
+      .filter(r => !typeFilter || r.type === typeFilter)
+      .filter(r => !q || [r.type, r.serial, r.operator, r.receiver, r.sender, r.condition, r.capacity].some(v => String(v || '').toLowerCase().includes(q)));
+
+    if (sortKey) {
+      rows.sort((a, b) => {
+        let va = a[sortKey] || '', vb = b[sortKey] || '';
+        if (sortKey === 'date' || sortKey === 'sentDate') {
+          const ta = va ? new Date(va).getTime() : NaN, tb = vb ? new Date(vb).getTime() : NaN;
+          if (isNaN(ta) && isNaN(tb)) return 0;
+          if (isNaN(ta)) return 1;
+          if (isNaN(tb)) return -1;
+          return sortDir === 'asc' ? ta - tb : tb - ta;
+        }
+        va = String(va).toLowerCase(); vb = String(vb).toLowerCase();
+        return (va < vb ? -1 : va > vb ? 1 : 0) * (sortDir === 'asc' ? 1 : -1);
+      });
+    }
+
+    visibleRows = rows;
+    renderNumHeader();
+
+    if (!rows.length) { showMsg('📭', typeFilter ? `ไม่พบข้อมูลของ ${escHtml(typeFilter)}` : 'ไม่พบข้อมูล'); updateBulkBar(); return; }
+
+    document.getElementById('tableBody').innerHTML = rows.map((r, i) => {
+      const selectable = !r.sentDate;                 // ส่งแล้วจะเลือกซ้ำไม่ได้ในโหมดนี้
+      const checked = bulkSel.has(r.origIdx);
+      const firstCell = bulkMode
+        ? `<input type="checkbox" class="bulk-cb" ${selectable ? '' : 'disabled'} ${checked && selectable ? 'checked' : ''} title="${selectable ? 'เลือกเครื่องนี้' : 'ส่งไปแล้ว'}"/>`
+        : String(i + 1);
+      const trCls = bulkMode ? (selectable ? 'bulk-row' : 'bulk-off') + (checked && selectable ? ' sel' : '') : '';
+      return `<tr data-idx="${r.origIdx}" class="${trCls}">
+      <td data-label="${bulkMode ? 'เลือก' : 'ลำดับ'}">${firstCell}</td>
+      <td data-label="วันที่รับ">${formatDate(r.date)}</td>
+      <td data-label="วันที่ส่ง">${formatDate(r.sentDate, '—')}</td>
+      <td data-label="ประเภท"><span class="type-tag">${escHtml(r.type) || '—'}</span>${r.capacity ? `<span class="cap-tag">${escHtml(r.capacity)}</span>` : ''}</td>
+      <td data-label="ลักษณะ">${condChip(r.condition)}</td>
+      <td data-label="S/N">${escHtml(r.serial) || '—'}</td>
+      <td data-label="สถานะ">${statusChip(r.status)}</td>
+      <td data-label="ผู้ดำเนินการ">${escHtml(r.operator) || '—'}</td>
+      <td data-label="ผู้รับเครื่อง">${escHtml(r.receiver) || '—'}</td>
+      <td data-label="คนส่ง">${escHtml(r.sender) || '—'}</td>
+      <td class="cell-act" style="text-align:center">
+        <div class="action-wrap">
+          <button class="btn-dots" onclick="toggleDropdown(${r.origIdx}, event)" title="จัดการ">⋮</button>
+          <div class="dropdown-menu" id="dd-${r.origIdx}">
+            <button class="dropdown-item" onclick="closeAllDropdowns(); askSend(${r.origIdx})"><span class="di-icon di-blue">📤</span> ส่งเครื่อง</button>
+            <button class="dropdown-item" onclick="closeAllDropdowns(); openEdit(${r.origIdx})"><span class="di-icon di-orange">✏️</span> แก้ไขข้อมูล</button>
+            <button class="dropdown-item del" onclick="closeAllDropdowns(); askDelete(${r.origIdx})"><span class="di-icon di-red">🗑️</span> ลบข้อมูล</button>
+          </div>
+        </div>
+      </td>
+    </tr>`;
+    }).join('');
+    updateBulkBar();
+  }
+
+  function renderAll() { renderCards(); renderTable(); }
+
+  // หัวคอลัมน์ "#" → ในโหมดส่งเครื่องกลายเป็นช่องติ๊ก "เลือกทั้งหมดที่แสดงอยู่"
+  function renderNumHeader() {
+    const th = document.getElementById('thNum');
+    if (bulkMode) {
+      th.innerHTML = '<input type="checkbox" class="bulk-cb" id="bulkAll" title="เลือกทั้งหมดที่แสดงอยู่"/>';
+      document.getElementById('bulkAll').addEventListener('change', e => {
+        visibleRows.forEach(r => { if (r.sentDate) return; e.target.checked ? bulkSel.add(r.origIdx) : bulkSel.delete(r.origIdx); });
+        renderTable();
+      });
+    } else {
+      th.textContent = '#';
+    }
+  }
+
+  // ── โหมดส่งเครื่องหลายเครื่อง ─────────────────────────────────────────────
+  function updateBulkBar() {
+    // นับเฉพาะที่ยังเลือกได้จริง
+    for (const i of [...bulkSel]) { const r = tableData[i]; if (!r || r.deleted || r.sentDate) bulkSel.delete(i); }
+    document.getElementById('bulkCount').textContent = bulkSel.size;
+    document.getElementById('bulkConfirmBtn').disabled = bulkSel.size === 0;
+    const all = document.getElementById('bulkAll');
+    if (all) {
+      const sel = visibleRows.filter(r => !r.sentDate);
+      all.checked = sel.length > 0 && sel.every(r => bulkSel.has(r.origIdx));
+    }
+  }
+  function setBulkMode(on) {
+    bulkMode = on;
+    if (!on) bulkSel.clear();
+    document.getElementById('bulkBar').classList.toggle('active', on);
+    const b = document.getElementById('bulkSendBtn');
+    b.classList.toggle('on', on);
+    b.innerHTML = on ? '✖ ยกเลิกส่งเครื่อง' : '📤 ส่งเครื่อง';
+    closeAllDropdowns();
+    renderTable();
+  }
+  document.getElementById('bulkSendBtn').addEventListener('click', () => setBulkMode(!bulkMode));
+  document.getElementById('bulkCancelBtn').addEventListener('click', () => setBulkMode(false));
+
+  // ติ๊ก/เลิกติ๊ก (กดที่แถวก็ได้)
+  document.getElementById('tableBody').addEventListener('click', e => {
+    if (!bulkMode) return;
+    if (e.target.closest('.action-wrap')) return;
+    const tr = e.target.closest('tr[data-idx]');
+    if (!tr) return;
+    const cb = tr.querySelector('.bulk-cb');
+    if (!cb || cb.disabled) return;
+    if (e.target !== cb) cb.checked = !cb.checked;
+    const idx = +tr.dataset.idx;
+    if (cb.checked) bulkSel.add(idx); else bulkSel.delete(idx);
+    tr.classList.toggle('sel', cb.checked);
+    updateBulkBar();
+  });
+
+  // กดยืนยันเครื่องที่เลือก → popup ใส่ผู้ส่ง + ผู้ดำเนินการ
+  const bulkSendOverlay = document.getElementById('bulkSendOverlay');
+  document.getElementById('bulkConfirmBtn').addEventListener('click', () => {
+    if (!bulkSel.size) return;
+    const items = [...bulkSel].sort((a, b) => a - b).map(i => tableData[i]);
+    document.getElementById('bulkSendN').textContent = `(${items.length} เครื่อง)`;
+    document.getElementById('bulkSendList').innerHTML = items.map((r, n) =>
+      `${n + 1}. <strong>${escHtml(r.type)}${r.capacity ? ' ' + escHtml(r.capacity) : ''}</strong> — ${escHtml(r.serial) || '—'}`).join('<br>');
+    document.getElementById('bulkSendDate').textContent = formatDate(todayStr());
+    document.getElementById('f-bulkSender').value = '';
+    document.getElementById('f-bulkOperator').value = '';
+    // ผู้ดำเนินการ: เครื่องที่มีชื่ออยู่แล้วจะไม่ถูกเขียนทับ · ช่องนี้ใช้เติมให้เฉพาะเครื่องที่ยังว่าง
+    const noOp = items.filter(r => !hasOp(r)).length;
+    document.getElementById('bulkOpReq').style.display = noOp ? '' : 'none';
+    document.getElementById('bulkOpHint').textContent = noOp === 0
+      ? 'ทุกเครื่องมีผู้ดำเนินการอยู่แล้ว — ใช้ชื่อเดิม ไม่ต้องกรอก'
+      : (noOp === items.length ? '' : `มี ${noOp} เครื่องที่ยังไม่มีผู้ดำเนินการ จะเติมชื่อนี้ให้เฉพาะเครื่องเหล่านั้น (เครื่องที่มีชื่ออยู่แล้วใช้ชื่อเดิม)`);
+    bulkSendOverlay.classList.add('active');
+    setTimeout(() => document.getElementById('f-bulkSender').focus(), 120);
+  });
+  function hasOp(r) { return !!(r.operator && String(r.operator).trim() && r.operator !== '—'); }
+  function closeBulkSend() { bulkSendOverlay.classList.remove('active'); }
+  document.getElementById('bulkSendCancelBtn').addEventListener('click', closeBulkSend);
+  bulkSendOverlay.addEventListener('click', e => { if (e.target === bulkSendOverlay) closeBulkSend(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBulkSend(); });
+  ['f-bulkSender', 'f-bulkOperator'].forEach(id => document.getElementById(id).addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    if (id === 'f-bulkSender') document.getElementById('f-bulkOperator').focus();
+    else document.getElementById('bulkSendOkBtn').click();
+  }));
+
+  document.getElementById('bulkSendOkBtn').addEventListener('click', async () => {
+    const sender = document.getElementById('f-bulkSender').value.trim();
+    const operator = document.getElementById('f-bulkOperator').value.trim();
+    if (!sender)   { showError('ส่งอุปกรณ์ไม่สำเร็จ', 'กรุณากรอกชื่อผู้ส่ง'); document.getElementById('f-bulkSender').focus(); return; }
+    const idxs = [...bulkSel].sort((a, b) => a - b);
+    const needOp = idxs.filter(i => !hasOp(tableData[i])).length;
+    if (needOp && !operator) { showError('ส่งอุปกรณ์ไม่สำเร็จ', `มี ${needOp} เครื่องที่ยังไม่มีผู้ดำเนินการ กรุณากรอกชื่อผู้ดำเนินการ`); document.getElementById('f-bulkOperator').focus(); return; }
+    const sendDate = todayStr();
+    const btn = document.getElementById('bulkSendOkBtn');
+    btn.disabled = true;
+    const sentItems = [];
+    try {
+      for (const i of idxs) {
+        btn.textContent = `⏳ กำลังบันทึก ${sentItems.length + 1}/${idxs.length}`;
+        const r = { ...tableData[i] };
+        await apiPost({
+          action: 'edit', rowIndex: i,
+          date: r.date, type: r.type, condition: r.condition || '', capacity: r.capacity || '',
+          serial: r.serial, sentDate: sendDate,
+          status: r.status || '', operator: hasOp(r) ? r.operator : operator,   // มีชื่อเดิมอยู่แล้วไม่เขียนทับ
+          receiver: r.receiver || '', sender
+        });
+        sentItems.push({ idx: i, type: r.type, capacity: r.capacity || '', serial: r.serial });
+        bulkSel.delete(i);
+      }
+      closeBulkSend();
+      setBulkMode(false);
+      await loadData();
+      showSummary('send', sentItems, sender, sendDate, '');
+    } catch (err) {
+      if (sentItems.length) {
+        closeBulkSend();
+        await loadData();
+        showError('ส่งอุปกรณ์ไม่สำเร็จทั้งหมด', `ส่งสำเร็จ ${sentItems.length} จาก ${idxs.length} เครื่อง แล้วเกิดข้อผิดพลาด: ${err.message}\nเครื่องที่เหลือยังถูกเลือกไว้ กดยืนยันอีกครั้งเพื่อลองใหม่`);
+      } else {
+        showError('ส่งอุปกรณ์ไม่สำเร็จ', err.message);
+      }
+    } finally { btn.disabled = false; btn.innerHTML = '📤 ยืนยันส่งเครื่อง'; }
+  });
+
+  // ── Dropdown ──────────────────────────────────────────────────────────────
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-menu.open').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.btn-dots.open').forEach(b => b.classList.remove('open'));
+  }
+  function toggleDropdown(idx, e) {
+    e.stopPropagation();
+    const dd = document.getElementById('dd-' + idx), btn = e.currentTarget, was = dd.classList.contains('open');
+    closeAllDropdowns();
+    if (!was) { dd.classList.add('open'); btn.classList.add('open'); }
+  }
+  document.addEventListener('click', closeAllDropdowns);
+
+  // ── Sort / Search / Toolbar ───────────────────────────────────────────────
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.dataset.key;
+      if (sortKey === k) { if (sortDir === 'asc') sortDir = 'desc'; else { sortKey = sortDir = null; } }
+      else { sortKey = k; sortDir = 'asc'; }
+      document.querySelectorAll('thead th.sortable').forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+        if (h.dataset.key === sortKey) h.classList.add(sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+      });
+      renderTable();
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => { searchTerm = searchInput.value.trim(); renderTable(); });
+  document.getElementById('searchBtn').addEventListener('click', () => { searchTerm = searchInput.value.trim(); renderTable(); });
+  document.getElementById('showAllBtn').addEventListener('click', () => {
+    typeFilter = ''; searchTerm = ''; searchInput.value = ''; renderTable();
+  });
+  document.getElementById('reloadBtn').addEventListener('click', () => {
+    sortKey = sortDir = null; typeFilter = ''; searchTerm = ''; searchInput.value = '';
+    document.querySelectorAll('thead th.sortable').forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+    loadData();
+  });
+
+  // ── List modal (กดการ์ด) ──────────────────────────────────────────────────
+  function openTypeList(i) {
+    const t = TYPES[i];
+    const rows = tableData.filter(r => !r.deleted && r.type === t.name);
+    document.getElementById('listTitle').textContent = `${t.icon} ${t.name}`;
+    document.getElementById('listCount').textContent = rows.length;
+    document.getElementById('listBody').innerHTML = rows.length === 0
+      ? `<tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📭</div><p>ยังไม่มีอุปกรณ์ในหมวดนี้</p></div></td></tr>`
+      : rows.map((r, n) => `<tr>
+          <td>${n + 1}</td><td>${formatDate(r.date)}</td><td>${formatDate(r.sentDate, '')}</td>
+          <td>${escHtml(r.serial) || '—'}</td><td>${condChip(r.condition)}</td><td>${escHtml(r.capacity) || '—'}</td><td>${statusChip(r.status)}</td>
+        </tr>`).join('');
+    document.getElementById('listOverlay').classList.add('active');
+  }
+  function closeList() { document.getElementById('listOverlay').classList.remove('active'); }
+  document.getElementById('closeList').addEventListener('click', closeList);
+  document.getElementById('closeList2').addEventListener('click', closeList);
+  document.getElementById('listOverlay').addEventListener('click', e => { if (e.target.id === 'listOverlay') closeList(); });
+
+  // ── Add / Edit modal ──────────────────────────────────────────────────────
+  const modalOverlay = document.getElementById('modalOverlay');
+  const devList = document.getElementById('devList');
+  const saveBtnEl = document.getElementById('saveBtn');
+
+  function typeOptionsHtml(sel) {
+    return '<option value="">-- ประเภท --</option>' +
+      TYPES.map(t => `<option${t.name === sel ? ' selected' : ''}>${escHtml(t.name)}</option>`).join('');
+  }
+  function condOptionsHtml(sel) {
+    return '<option value="">-- ลักษณะอุปกรณ์ --</option>' +
+      CONDITIONS.map(c => `<option${c === sel ? ' selected' : ''}>${escHtml(c)}</option>`).join('');
+  }
+  function lastRow() {
+    const rows = devList.querySelectorAll('.dev-row');
+    return rows.length ? rows[rows.length - 1] : null;
+  }
+  // แสดง/ซ่อนช่องความจุตามประเภท
+  function syncCap(row) {
+    const isHdd = row.querySelector('.dev-type').value === HDD_TYPE;
+    row.querySelector('.dev-cap-wrap').style.display = isHdd ? 'flex' : 'none';
+  }
+  function parseCap(s) {
+    const m = /^\s*([\d.]+)\s*(GB|TB)\s*$/i.exec(String(s || ''));
+    return m ? { num: m[1], unit: m[2].toUpperCase() } : { num: '', unit: 'TB' };
+  }
+  function updateDevUi() {
+    const isEdit = editingIdx !== null;
+    const rows = devList.querySelectorAll('.dev-row');
+    rows.forEach(r => { r.querySelector('.dev-del').style.display = (isEdit || rows.length <= 1) ? 'none' : ''; });
+    document.getElementById('addDevRow').style.display = isEdit ? 'none' : '';
+    document.getElementById('devHint').style.display   = isEdit ? 'none' : '';
+    document.getElementById('sentDateGroup').style.display = isEdit ? '' : 'none';
+    document.getElementById('noteGroup').style.display = isEdit ? 'none' : '';
+    document.getElementById('senderGroup').style.display = isEdit ? '' : 'none';
+    const hasSent = !!document.getElementById('f-sentdate').value;
+    document.getElementById('senderLabel').innerHTML = 'คนส่ง' + (hasSent ? ' <span class="req">*</span>' : '');
+    const filled = [...devList.querySelectorAll('.dev-serial')].filter(i => i.value.trim()).length;
+    document.getElementById('devCount').textContent = isEdit ? '' : `(${filled} เครื่อง)`;
+    if (!saveBtnEl.disabled) {
+      saveBtnEl.innerHTML = isEdit ? '💾 บันทึกการแก้ไข' : (filled > 1 ? `➕ เพิ่ม ${filled} เครื่อง` : '➕ เพิ่มอุปกรณ์');
+    }
+  }
+  // addDevRow(ประเภท, S/N, โฟกัส?, ลักษณะ, ความจุ)
+  function addDevRow(type, serial, focus, cond, cap) {
+    const row = document.createElement('div');
+    row.className = 'dev-row';
+    const c = parseCap(cap);
+    row.innerHTML = `<select class="form-control dev-type">${typeOptionsHtml(type || '')}</select>` +
+      `<input class="form-control dev-serial" type="text" placeholder="รหัส / S/N" autocomplete="off"/>` +
+      `<button type="button" class="dev-scan" title="สแกนบาร์โค้ด">📷</button>` +
+      `<button type="button" class="dev-del" title="ลบแถวนี้">✕</button>` +
+      `<div class="dev-extra">` +
+        `<select class="form-control dev-cond">${condOptionsHtml(cond || '')}</select>` +
+        `<span class="dev-cap-wrap" style="display:none">` +
+          `<input class="form-control dev-cap" type="number" min="0" step="any" placeholder="ความจุ เช่น 4"/>` +
+          `<select class="form-control dev-capunit"><option${c.unit === 'GB' ? ' selected' : ''}>GB</option><option${c.unit === 'TB' ? ' selected' : ''}>TB</option></select>` +
+        `</span>` +
+      `</div>`;
+    row.querySelector('.dev-serial').value = serial || '';
+    row.querySelector('.dev-cap').value = c.num;
+    devList.appendChild(row);
+    syncCap(row);
+    updateDevUi();
+    if (focus) { row.querySelector('.dev-serial').focus(); row.scrollIntoView({ block: 'nearest' }); }
+    return row;
+  }
+  // สร้างแถวใหม่โดยคัดลอกประเภท / ลักษณะ / ความจุ จากแถวก่อนหน้า
+  function addDevRowLike(src, focus) {
+    if (!src) return addDevRow('', '', focus);
+    return addDevRow(
+      src.querySelector('.dev-type').value, '', focus,
+      src.querySelector('.dev-cond').value,
+      src.querySelector('.dev-cap').value ? src.querySelector('.dev-cap').value + ' ' + src.querySelector('.dev-capunit').value : ''
+    );
+  }
+
+  document.getElementById('addDevRow').addEventListener('click', () => addDevRowLike(lastRow(), true));
+
+  devList.addEventListener('click', e => {
+    const scanBtn = e.target.closest('.dev-scan');
+    if (scanBtn) { openScan(scanBtn.closest('.dev-row')); return; }
+    const del = e.target.closest('.dev-del');
+    if (!del) return;
+    del.closest('.dev-row').remove();
+    updateDevUi();
+  });
+  devList.addEventListener('change', e => { if (e.target.classList.contains('dev-type')) syncCap(e.target.closest('.dev-row')); });
+  devList.addEventListener('input', e => { if (e.target.classList.contains('dev-serial')) updateDevUi(); });
+  devList.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || !e.target.classList.contains('dev-serial')) return;
+    e.preventDefault();
+    if (editingIdx !== null || !e.target.value.trim()) return;
+    const rows = [...devList.querySelectorAll('.dev-row')];
+    const cur = e.target.closest('.dev-row');
+    const next = rows[rows.indexOf(cur) + 1];
+    if (next) next.querySelector('.dev-serial').focus();
+    else addDevRowLike(cur, true);
+  });
+  // วางหลายบรรทัด → แตกเป็นหลายแถวอัตโนมัติ
+  devList.addEventListener('paste', e => {
+    if (editingIdx !== null || !e.target.classList.contains('dev-serial')) return;
+    const text = (e.clipboardData || window.clipboardData).getData('text');
+    const parts = text.split(/[\r\n,;\t]+/).map(x => x.trim()).filter(Boolean);
+    if (parts.length < 2) return;
+    e.preventDefault();
+    const cur = e.target.closest('.dev-row');
+    e.target.value = parts[0];
+    let anchor = cur;
+    parts.slice(1).forEach(sn => {
+      const r = addDevRowLike(cur, false);
+      r.querySelector('.dev-serial').value = sn;
+      anchor.after(r);
+      anchor = r;
+    });
+    updateDevUi();
+  });
+
+  function resetModal() {
+    editingIdx = null;
+    document.getElementById('modalTitle').textContent = '➕ เพิ่มอุปกรณ์เสริม';
+    document.getElementById('saveBtn').innerHTML = '➕ เพิ่มอุปกรณ์';
+    document.querySelectorAll('#f-status option[data-legacy]').forEach(o => o.remove());
+    ['f-sentdate','f-status','f-operator','f-receiver','f-senderEdit','f-note'].forEach(id => document.getElementById(id).value = '');
+    devList.innerHTML = '';
+    addDevRow('', '', false);
+  }
+  function closeModalFn() {
+    closeScan();
+    resetModal(); modalOverlay.classList.remove('active');
+  }
+
+  resetModal();
+  document.getElementById('f-sentdate').addEventListener('input', updateDevUi);   // มีวันที่ส่ง → ช่องคนส่งกลายเป็นบังคับ
+  document.getElementById('openModal').addEventListener('click', () => {
+    resetModal(); modalOverlay.classList.add('active');
+    setTimeout(() => { const f = devList.querySelector('.dev-serial'); if (f) f.focus(); }, 120);
+  });
+  document.getElementById('closeModal').addEventListener('click', closeModalFn);
+  document.getElementById('closeModal2').addEventListener('click', closeModalFn);
+  modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModalFn(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModalFn(); closeList(); } });
+
+  function openEdit(idx) {
+    editingIdx = idx;
+    const r = tableData[idx];
+    devList.innerHTML = '';
+    addDevRow(r.type || '', r.serial || '', false, r.condition || '', r.capacity || '');
+    document.getElementById('f-sentdate').value = toInputDate(r.sentDate);
+    const stSel = document.getElementById('f-status');
+    stSel.value = r.status || '';
+    if (r.status && stSel.value !== r.status) {
+      const o = document.createElement('option'); o.textContent = r.status; o.dataset.legacy = '1';
+      stSel.appendChild(o); stSel.value = r.status;
+    }
+    document.getElementById('f-operator').value = (r.operator && r.operator !== '—') ? r.operator : '';
+    document.getElementById('f-receiver').value = r.receiver || '';
+    document.getElementById('f-senderEdit').value = r.sender || '';
+    document.getElementById('modalTitle').textContent = '✏️ แก้ไขข้อมูล';
+    document.getElementById('saveBtn').innerHTML = '💾 บันทึกการแก้ไข';
+    updateDevUi();
+    modalOverlay.classList.add('active');
+  }
+
+  document.getElementById('saveBtn').addEventListener('click', async () => {
+    const isEdit = editingIdx !== null;
+    let items = [...devList.querySelectorAll('.dev-row')].map(el => {
+      const type = el.querySelector('.dev-type').value;
+      const capNum = el.querySelector('.dev-cap').value.trim();
+      return {
+        el, type,
+        serial: el.querySelector('.dev-serial').value.trim(),
+        condition: el.querySelector('.dev-cond').value,
+        capNum,
+        capacity: (type === HDD_TYPE && capNum) ? `${capNum} ${el.querySelector('.dev-capunit').value}` : ''
+      };
+    });
+    if (!isEdit) items = items.filter(x => x.serial);
+    const ERR_T = 'บันทึกไม่สำเร็จ';
+    if (!items.length) { showError(ERR_T, 'กรุณากรอกรหัส / S/N อย่างน้อย 1 เครื่อง'); return; }
+    for (let i = 0; i < items.length; i++) {
+      const x = items[i];
+      if (!x.type || !x.serial) { showError(ERR_T, `รายการที่ ${i + 1}: กรุณาเลือกประเภทและกรอกรหัส / S/N ให้ครบ`); return; }
+      if (!x.condition) { showError(ERR_T, `รายการที่ ${i + 1}: กรุณาเลือกลักษณะอุปกรณ์ (ใหม่ / เก่า)`); return; }
+      if (x.type === HDD_TYPE && !(parseFloat(x.capNum) > 0)) { showError(ERR_T, `รายการที่ ${i + 1}: Harddisk ต้องกรอกความจุ`); return; }
+    }
+
+    // บังคับกรอกชื่อ: เพิ่มใหม่ต้องมี "ผู้รับเครื่อง" · ถ้ามีวันที่ส่ง (แก้ไข) ต้องมี "คนส่ง"
+    const operator = document.getElementById('f-operator').value.trim();
+    const receiver = document.getElementById('f-receiver').value.trim();
+    const senderName = document.getElementById('f-senderEdit').value.trim();
+    if (!isEdit && !receiver) {
+      showError(ERR_T, 'กรุณากรอกชื่อผู้รับเครื่อง');
+      document.getElementById('f-receiver').focus();
+      return;
+    }
+    if (isEdit && document.getElementById('f-sentdate').value && !senderName) {
+      showError('ส่งอุปกรณ์ไม่สำเร็จ', 'มีวันที่ส่งแล้ว กรุณากรอกชื่อคนส่งด้วย');
+      document.getElementById('f-senderEdit').focus();
+      return;
+    }
+
+    const seen = new Set();
+    for (const x of items) {
+      const k = (x.type + '|' + x.serial).toLowerCase();
+      if (seen.has(k)) { showError(ERR_T, `รหัส ${x.serial} (${x.type}) ซ้ำกันในรายการที่กรอก`); return; }
+      seen.add(k);
+    }
+    if (!isEdit) {
+      const dups = items.filter(x => tableData.some(r => !r.deleted && r.type === x.type && String(r.serial).toLowerCase() === x.serial.toLowerCase()));
+      if (dups.length && !confirm(`มีรหัสเหล่านี้ในระบบอยู่แล้ว:\n${dups.map(d => d.serial).join(', ')}\n\nต้องการเพิ่มซ้ำหรือไม่?`)) return;
+    }
+
+    const common = {
+      sentDate: document.getElementById('f-sentdate').value || '',
+      status:   document.getElementById('f-status').value || '—',
+      operator, receiver,
+      sender: senderName
+    };
+    const note = document.getElementById('f-note').value.trim();
+
+    const btn = saveBtnEl;
+    btn.disabled = true;
+    let done = 0;
+    try {
+      if (isEdit) {
+        btn.textContent = '⏳ กำลังบันทึก...';
+        await apiPost({ action: 'edit', rowIndex: editingIdx, date: tableData[editingIdx].date, type: items[0].type, condition: items[0].condition, capacity: items[0].capacity, serial: items[0].serial, ...common });
+      } else {
+        const now = new Date().toISOString();
+        for (const it of items) {
+          btn.textContent = `⏳ กำลังบันทึก ${done + 1}/${items.length}`;
+          await apiPost({ action: 'add', date: now, type: it.type, condition: it.condition, capacity: it.capacity, serial: it.serial, ...common });
+          done++;
+        }
+      }
+      closeModalFn();
+      await loadData();
+      if (!isEdit) {
+        showSummary('add', items, receiver, new Date().toISOString(), note);
+      } else {
+        showSummary('edit',
+          [{ type: items[0].type, capacity: items[0].capacity, serial: items[0].serial }],
+          receiver, common.sentDate, '',
+          { condition: items[0].condition, status: common.status, operator, receiver, sender: senderName, sentDate: common.sentDate });
+      }
+    } catch (err) {
+      if (done > 0) {
+        items.slice(0, done).forEach(x => x.el.remove());
+        showError(ERR_T, `บันทึกสำเร็จ ${done} จาก ${items.length} เครื่อง แล้วเกิดข้อผิดพลาด: ${err.message}\nแถวที่เหลือยังอยู่ในฟอร์ม กดบันทึกอีกครั้งเพื่อลองใหม่`);
+        await loadData();
+      } else {
+        showError(ERR_T, err.message);
+      }
+    } finally { btn.disabled = false; updateDevUi(); }
+  });
+
+  // ── Popup สรุป + ปุ่มคัดลอก ───────────────────────────────────────────────
+  //  mode: 'add' = สรุปการรับ · 'send' = สรุปการส่ง · 'edit' = สรุปการแก้ไข
+  function buildSummary(mode, items, person, dateIso, note, extra) {
+    const isSend = mode === 'send', isEdit = mode === 'edit';
+    // จัดกลุ่มตามชนิด (+ความจุ) ให้ S/N ของชนิดเดียวกันอยู่ด้วยกัน
+    const groups = [];
+    items.forEach(x => {
+      const name = x.type + (x.capacity ? ` ${x.capacity}` : '');
+      let g = groups.find(k => k.name === name);
+      if (!g) { g = { name, serials: [] }; groups.push(g); }
+      g.serials.push(x.serial);
+    });
+    const dateTxt = formatDate(dateIso).replace(/&[a-z#0-9]+;/g, '');
+    const lines = [isEdit ? '✏️ สรุปการแก้ไขอุปกรณ์เสริม' : isSend ? '📦 สรุปการส่งอุปกรณ์เสริม' : '📦 สรุปการรับอุปกรณ์เสริม', ''];
+    groups.forEach((g, i) => {
+      lines.push(`${i + 1}. ${g.name}`);                 // เลขข้อกับชื่อชนิดอยู่บรรทัดเดียวกัน ไม่เว้นบรรทัด
+      g.serials.forEach(sn => lines.push(`SN: ${sn}`));
+      if (isEdit) {
+        const e = extra || {};
+        if (e.condition) lines.push(`ลักษณะ: ${e.condition}`);
+        lines.push(`สถานะ: ${e.status || '-'}`);
+        lines.push(`ผู้ดำเนินการ: ${e.operator || '-'}`);
+        lines.push(`ผู้รับ: ${e.receiver || '-'}`);
+        if (e.sentDate) {
+          lines.push(`ผู้ส่ง: ${e.sender || '-'}`);
+          lines.push(`วันที่ส่ง: ${formatDate(e.sentDate).replace(/&[a-z#0-9]+;/g, '')}`);
+        }
+      } else {
+        lines.push(`${isSend ? 'ผู้ส่ง' : 'ผู้รับ'}: ${person}`);
+        lines.push(`${isSend ? 'วันที่ส่ง' : 'วันที่รับ'}: ${dateTxt}`);
+        lines.push(`หมายเหตุ: ${note || '-'}`);
+      }
+      lines.push('');
+    });
+    return lines.join('\n').trim();
+  }
+  let summaryText = '';
+  function showSummary(mode, items, person, dateIso, note, extra) {
+    summaryText = buildSummary(mode, items, person, dateIso, note, extra);
+    const idx = summaryText.indexOf('\n');
+    document.getElementById('doneTitle').textContent = summaryText.slice(0, idx);
+    document.getElementById('doneText').textContent = summaryText.slice(idx + 1).replace(/^\n/, '');
+    document.getElementById('copyBtn').innerHTML = '📋 คัดลอก';
+    document.getElementById('doneOverlay').classList.add('active');
+  }
+  function closeDone() { document.getElementById('doneOverlay').classList.remove('active'); }
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove(); return ok;
+    } catch (e) { return false; }
+  }
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const cb = document.getElementById('copyBtn');
+    const ok = await copyText(summaryText);
+    cb.innerHTML = ok ? '✅ คัดลอกแล้ว' : '⚠️ คัดลอกไม่ได้';
+    setTimeout(() => { cb.innerHTML = '📋 คัดลอก'; }, 2000);
+  });
+  document.getElementById('doneCloseBtn').addEventListener('click', closeDone);
+  document.getElementById('doneOverlay').addEventListener('click', e => { if (e.target.id === 'doneOverlay') closeDone(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDone(); });
+
+  // ── Delete ────────────────────────────────────────────────────────────────
+  function askDelete(idx) {
+    pendingDeleteIdx = idx;
+    const r = tableData[idx];
+    document.getElementById('confirmName').textContent = `${r.type || ''} (${r.serial || ''})`;
+    document.getElementById('confirmOverlay').classList.add('active');
+  }
+  function closeConfirm() { pendingDeleteIdx = null; document.getElementById('confirmOverlay').classList.remove('active'); }
+  document.getElementById('cancelDeleteBtn').addEventListener('click', closeConfirm);
+  document.getElementById('confirmOverlay').addEventListener('click', e => { if (e.target.id === 'confirmOverlay') closeConfirm(); });
+  document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+    if (pendingDeleteIdx === null) return;
+    const btn = document.getElementById('confirmDeleteBtn');
+    btn.disabled = true; btn.textContent = '⏳ กำลังลบ...';
+    try {
+      await apiPost({ action: 'delete', rowIndex: pendingDeleteIdx });
+      closeConfirm();
+      await loadData();
+    } catch (err) { showError('ลบไม่สำเร็จ', err.message); }
+    finally { btn.disabled = false; btn.innerHTML = '🗑️ ยืนยันลบข้อมูล'; }
+  });
+
+  // ── Send machine (ทีละเครื่อง จากเมนู ⋮) ──────────────────────────────────
+  let pendingSendIdx = null;
+  function askSend(idx) {
+    pendingSendIdx = idx;
+    const r = tableData[idx];
+    document.getElementById('sendName').textContent   = (r.type || '—') + (r.capacity ? ` (${r.capacity})` : '');
+    document.getElementById('sendSerial').textContent = r.serial || '—';
+    document.getElementById('sendNote').innerHTML = r.sentDate
+      ? `<span style="color:var(--orange);font-weight:600">⚠️ ส่งไปแล้วเมื่อ ${formatDate(r.sentDate)} · ถ้ายืนยันจะเปลี่ยนเป็นวันนี้</span>`
+      : `<span style="color:var(--gray-text)">จะบันทึกวันที่ส่งเป็นวันนี้ (${formatDate(todayStr())})</span>`;
+    document.getElementById('f-sender').value = '';     // ต้องกรอกชื่อผู้ส่งใหม่ทุกครั้ง
+    document.getElementById('f-sendnote').value = '';
+    document.getElementById('sendOverlay').classList.add('active');
+    setTimeout(() => document.getElementById('f-sender').focus(), 120);
+  }
+  function closeSend() { pendingSendIdx = null; document.getElementById('sendOverlay').classList.remove('active'); }
+  document.getElementById('cancelSendBtn').addEventListener('click', closeSend);
+  document.getElementById('sendOverlay').addEventListener('click', e => { if (e.target.id === 'sendOverlay') closeSend(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSend(); });
+  document.getElementById('confirmSendBtn').addEventListener('click', async () => {
+    if (pendingSendIdx === null) return;
+    const sender = document.getElementById('f-sender').value.trim();
+    if (!sender) {
+      showError('ส่งอุปกรณ์ไม่สำเร็จ', 'กรุณากรอกชื่อผู้ส่ง');
+      document.getElementById('f-sender').focus();
+      return;
+    }
+    const note = document.getElementById('f-sendnote').value.trim();
+    const btn = document.getElementById('confirmSendBtn');
+    btn.disabled = true; btn.textContent = '⏳ กำลังบันทึก...';
+    try {
+      const r = { ...tableData[pendingSendIdx] };
+      const sendDate = todayStr();
+      await apiPost({
+        action: 'edit', rowIndex: pendingSendIdx,
+        date: r.date, type: r.type, condition: r.condition || '', capacity: r.capacity || '',
+        serial: r.serial, sentDate: sendDate,
+        status: r.status || '', operator: r.operator || '',
+        receiver: r.receiver || '', sender                // เก็บคนส่งแยกคอลัมน์ ไม่ทับผู้รับ/ผู้ดำเนินการ
+      });
+      closeSend();
+      await loadData();
+      showSummary('send', [{ type: r.type, capacity: r.capacity || '', serial: r.serial }], sender, sendDate, note);
+    } catch (err) { showError('ส่งอุปกรณ์ไม่สำเร็จ', err.message); }
+    finally { btn.disabled = false; btn.innerHTML = '📤 ยืนยันส่งเครื่อง'; }
+  });
+
+  // ── Barcode scanner (กล้องสแกน S/N) — ขนาดกล้องเล็กลง ────────────────────
+  const scanOverlay = document.getElementById('scanOverlay');
+  const scanMsg = document.getElementById('scanMsg');
+  let scanner = null, scanRow = null, lastCode = '', lastAt = 0, scanCount = 0, scanStarting = false;
+
+  function setScanMsg(t, bad) { scanMsg.textContent = t; scanMsg.classList.toggle('bad', !!bad); }
+
+  // ── ปรับภาพกล้อง: แตะเพื่อโฟกัส / ซูม / โฟกัสมือ / ไฟฉาย ──
+  //  (ใช้ได้เท่าที่กล้อง+เบราว์เซอร์รองรับ — Chrome บน Android รองรับครบ, iPhone Safari รองรับน้อยกว่า)
+  const scanWrap = document.getElementById('scanWrap'), focusRing = document.getElementById('focusRing');
+  const scanTools = document.getElementById('scanTools');
+  const zoomRow = document.getElementById('zoomRow'), zoomSlider = document.getElementById('zoomSlider'), zoomVal = document.getElementById('zoomVal');
+  const focusRow = document.getElementById('focusRow'), focusSlider = document.getElementById('focusSlider');
+  const torchRow = document.getElementById('torchRow'), torchBtn = document.getElementById('torchBtn');
+  let scanCaps = {}, torchOn = false, focusTimer = null, ringTimer = null;
+
+  function getTrack() {
+    const v = document.querySelector('#scanReader video');
+    const st = v && v.srcObject;
+    return (st && st.getVideoTracks && st.getVideoTracks()[0]) || null;
+  }
+  async function applyAdv(obj) {
+    const t = getTrack();
+    if (!t || !t.applyConstraints) return false;
+    try { await t.applyConstraints({ advanced: [obj] }); return true; } catch (e) { return false; }
+  }
+  function initScanTools() {
+    zoomRow.style.display = focusRow.style.display = torchRow.style.display = 'none';
+    scanTools.style.display = 'none';
+    torchOn = false; torchBtn.textContent = 'เปิด'; torchBtn.classList.remove('on');
+    const t = getTrack();
+    scanCaps = (t && t.getCapabilities) ? t.getCapabilities() : {};
+    const st = (t && t.getSettings) ? t.getSettings() : {};
+    const modes = scanCaps.focusMode || [];
+    let any = false;
+    if (scanCaps.zoom && scanCaps.zoom.max > scanCaps.zoom.min) {
+      zoomSlider.min = scanCaps.zoom.min; zoomSlider.max = scanCaps.zoom.max; zoomSlider.step = scanCaps.zoom.step || 0.1;
+      zoomSlider.value = st.zoom || scanCaps.zoom.min;
+      zoomVal.textContent = (+zoomSlider.value).toFixed(1) + 'x';
+      zoomRow.style.display = 'flex'; any = true;
+    }
+    if (scanCaps.focusDistance && modes.includes('manual')) {
+      focusSlider.min = scanCaps.focusDistance.min; focusSlider.max = scanCaps.focusDistance.max; focusSlider.step = scanCaps.focusDistance.step || 0.01;
+      focusSlider.value = st.focusDistance || scanCaps.focusDistance.min;
+      focusRow.style.display = 'flex'; any = true;
+    }
+    if (scanCaps.torch) { torchRow.style.display = 'flex'; any = true; }
+    if (any) scanTools.style.display = 'flex';
+    if (modes.includes('continuous')) applyAdv({ focusMode: 'continuous' });
+  }
+  function showRing(x, y, ok) {
+    focusRing.style.left = x + 'px'; focusRing.style.top = y + 'px';
+    focusRing.classList.toggle('fail', !ok);
+    focusRing.classList.remove('show'); void focusRing.offsetWidth; focusRing.classList.add('show');
+    clearTimeout(ringTimer); ringTimer = setTimeout(() => focusRing.classList.remove('show'), 1200);
+  }
+  async function tapFocus(e) {
+    const video = document.querySelector('#scanReader video');
+    if (!video || !getTrack()) return;
+    const wr = scanWrap.getBoundingClientRect(), vr = video.getBoundingClientRect();
+    const nx = Math.min(1, Math.max(0, (e.clientX - vr.left) / vr.width));
+    const ny = Math.min(1, Math.max(0, (e.clientY - vr.top) / vr.height));
+    const modes = scanCaps.focusMode || [];
+    let ok = false;
+    if (modes.includes('single-shot') || modes.includes('continuous')) {
+      const adv = { focusMode: modes.includes('single-shot') ? 'single-shot' : 'continuous' };
+      if (scanCaps.pointsOfInterest) adv.pointsOfInterest = [{ x: nx, y: ny }];
+      ok = await applyAdv(adv);
+      if (!ok && adv.pointsOfInterest) { delete adv.pointsOfInterest; ok = await applyAdv(adv); }
+      if (ok && adv.focusMode === 'single-shot' && modes.includes('continuous')) {
+        clearTimeout(focusTimer);
+        focusTimer = setTimeout(() => applyAdv({ focusMode: 'continuous' }), 1800);
+      }
+    }
+    showRing(e.clientX - wr.left, e.clientY - wr.top, ok);
+    if (ok) setScanMsg('🎯 กำลังโฟกัส... ถือนิ่งๆ สักครู่');
+    else setScanMsg('เครื่องนี้ไม่รองรับสั่งโฟกัสจากหน้าเว็บ — ลองถือให้ห่างจากสติกเกอร์ประมาณ 15–25 ซม. แล้วรอให้ภาพชัด', true);
+  }
+  scanWrap.addEventListener('click', tapFocus);
+  zoomSlider.addEventListener('input', () => {
+    zoomVal.textContent = (+zoomSlider.value).toFixed(1) + 'x';
+    applyAdv({ zoom: +zoomSlider.value });
+  });
+  focusSlider.addEventListener('input', async () => {
+    clearTimeout(focusTimer);
+    if (!(await applyAdv({ focusMode: 'manual', focusDistance: +focusSlider.value }))) setScanMsg('ปรับโฟกัสมือไม่ได้บนกล้องนี้ — กด "อัตโนมัติ"', true);
+  });
+  document.getElementById('autoFocusBtn').addEventListener('click', () => {
+    clearTimeout(focusTimer); applyAdv({ focusMode: 'continuous' }); setScanMsg('กลับเป็นโฟกัสอัตโนมัติแล้ว');
+  });
+  torchBtn.addEventListener('click', async () => {
+    const want = !torchOn;
+    if (await applyAdv({ torch: want })) { torchOn = want; torchBtn.textContent = torchOn ? 'ปิด' : 'เปิด'; torchBtn.classList.toggle('on', torchOn); }
+    else setScanMsg('เปิดไฟฉายไม่ได้บนกล้องนี้', true);
+  });
+
+  async function openScan(row) {
+    if (scanStarting || scanner) return;
+    scanRow = row; scanCount = 0; lastCode = ''; lastAt = 0;
+    if (typeof showResults === 'function') showResults([]);
+    scanOverlay.classList.add('active');
+    if (typeof Html5Qrcode === 'undefined') { setScanMsg('โหลดตัวสแกนไม่สำเร็จ (ตรวจอินเทอร์เน็ต) — พิมพ์ S/N เองได้', true); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setScanMsg('เปิดกล้องไม่ได้ — หน้านี้ต้องเปิดผ่าน https:// และเบราว์เซอร์ต้องรองรับกล้อง', true); return;
+    }
+    setScanMsg('กำลังเปิดกล้อง...');
+    scanStarting = true;
+    const F = window.Html5QrcodeSupportedFormats;
+    const inst = new Html5Qrcode('scanReader', {
+      verbose: false,
+      formatsToSupport: [F.CODE_128, F.CODE_39, F.CODE_93, F.EAN_13, F.EAN_8, F.UPC_A, F.UPC_E, F.ITF, F.CODABAR, F.QR_CODE, F.DATA_MATRIX],
+      experimentalFeatures: { useBarCodeDetectorIfSupported: true }
+    });
+    scanner = inst;
+    const baseCfg = { fps: 12, aspectRatio: 1.333 };   // ไม่กำหนด qrbox = สแกนทั้งเฟรม (บาร์โค้ดเล็กบนสติกเกอร์จะไม่หลุดกรอบ)
+    try {
+      try {
+        // ขอภาพความละเอียดสูง (บาร์โค้ดเล็กต้องใช้ภาพละเอียด) + โฟกัสต่อเนื่อง
+        await inst.start(
+          { facingMode: 'environment' },
+          { ...baseCfg, videoConstraints: {
+              facingMode: { ideal: 'environment' },
+              width: { ideal: 1920 }, height: { ideal: 1080 },
+              advanced: [{ focusMode: 'continuous' }]
+          } },
+          onScanOk, () => {}
+        );
+      } catch (e1) {
+        if (/NotAllowed|Permission|NotFound|NotReadable/i.test((e1 && e1.name) || String(e1))) throw e1;
+        await inst.start({ facingMode: 'environment' }, baseCfg, onScanOk, () => {});
+      }
+      if (!scanOverlay.classList.contains('active')) { try { await inst.stop(); } catch (e) {} return; }
+      initScanTools();
+      setScanMsg('แตะที่ภาพเพื่อโฟกัส · ถ้าสแกนสดไม่ติด กด "จับภาพนี้แล้วสแกน"');
+    } catch (err) {
+      if (scanner === inst) scanner = null;
+      const n = (err && err.name) || String(err);
+      setScanMsg(/NotAllowed|Permission/i.test(n) ? 'ไม่ได้อนุญาตให้ใช้กล้อง — กดไอคอนกุญแจข้างช่อง URL แล้วอนุญาตกล้อง'
+               : /NotFound|Devices/i.test(n)      ? 'ไม่พบกล้องในอุปกรณ์นี้'
+               : /NotReadable|Abort/i.test(n)     ? 'กล้องถูกใช้งานโดยแอปอื่นอยู่'
+               : 'เปิดกล้องไม่สำเร็จ: ' + n, true);
+    } finally { scanStarting = false; }
+  }
+
+  async function closeScan() {
+    scanOverlay.classList.remove('active');
+    clearTimeout(focusTimer); clearTimeout(ringTimer);
+    focusRing.classList.remove('show'); scanTools.style.display = 'none'; scanCaps = {}; torchOn = false;
+    const s = scanner; scanner = null; scanRow = null;
+    if (s) { try { await s.stop(); } catch (e) {} try { s.clear(); } catch (e) {} }
+    document.getElementById('scanReader').innerHTML = '';
+  }
+
+  function onScanOk(text) {
+    const code = String(text || '').trim();
+    const now = Date.now();
+    if (!code || !scanRow || !scanRow.isConnected) return;
+    if (code === lastCode && now - lastAt < 2000) return;
+    lastCode = code; lastAt = now;
+    const inp = scanRow.querySelector('.dev-serial');
+    const dup = [...devList.querySelectorAll('.dev-serial')].some(i => i !== inp && i.value.trim().toLowerCase() === code.toLowerCase());
+    if (dup) { setScanMsg(`⚠️ ${code} ซ้ำกับที่สแกนไว้แล้ว`, true); return; }
+    inp.value = code;
+    scanCount++;
+    if (navigator.vibrate) navigator.vibrate(60);
+    updateDevUi();
+    if (document.getElementById('scanContinuous').checked && editingIdx === null) {
+      scanRow = addDevRowLike(scanRow, false);
+      scanRow.scrollIntoView({ block: 'nearest' });
+      setScanMsg(`✅ ${code} · สแกนแล้ว ${scanCount} เครื่อง — สแกนเครื่องถัดไปได้เลย`);
+    } else {
+      closeScan(); inp.focus();
+    }
+  }
+
+  // ── ถอดรหัสจากภาพนิ่ง (ความละเอียดเต็ม) ──────────────────────────────────
+  //  1) BarcodeDetector ของเบราว์เซอร์ (ถ้ามี)  2) ZXing แบบซอยภาพเป็นช่วงๆ + ขยาย เพื่อจับบาร์โค้ดเล็กบนสติกเกอร์
+  const scanResults = document.getElementById('scanResults');
+  const grabBtn = document.getElementById('grabBtn'), photoBtn = document.getElementById('photoBtn'), photoInput = document.getElementById('photoInput');
+  const tick = () => new Promise(r => setTimeout(r, 0));
+
+  function makeCanvas(w, h) { const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c; }
+  function fitCanvas(src, sw, sh, maxSide) {          // ย่อถ้าใหญ่เกิน (กันเครื่องค้าง) แต่ไม่ย่อจนเล็ก
+    const k = Math.min(1, maxSide / Math.max(sw, sh));
+    const c = makeCanvas(sw * k, sh * k);
+    c.getContext('2d').drawImage(src, 0, 0, c.width, c.height);
+    return c;
+  }
+  async function decodeCanvas(base) {
+    const found = new Map();
+    const add = (t, f) => { t = String(t || '').trim(); if (t && !found.has(t)) found.set(t, f || ''); };
+
+    if ('BarcodeDetector' in window) {
+      try { (await new BarcodeDetector().detect(base)).forEach(r => add(r.rawValue, r.format)); } catch (e) {}
+    }
+    if (typeof ZXing !== 'undefined') {
+      const Z = ZXing, hints = new Map();
+      hints.set(Z.DecodeHintType.TRY_HARDER, true);
+      hints.set(Z.DecodeHintType.POSSIBLE_FORMATS, [Z.BarcodeFormat.CODE_128, Z.BarcodeFormat.CODE_39, Z.BarcodeFormat.CODE_93,
+        Z.BarcodeFormat.EAN_13, Z.BarcodeFormat.EAN_8, Z.BarcodeFormat.UPC_A, Z.BarcodeFormat.UPC_E, Z.BarcodeFormat.ITF,
+        Z.BarcodeFormat.CODABAR, Z.BarcodeFormat.QR_CODE, Z.BarcodeFormat.DATA_MATRIX]);
+      const reader = new Z.MultiFormatReader(); reader.setHints(hints);
+      const tryCanvas = c => {
+        for (const B of [Z.HybridBinarizer, Z.GlobalHistogramBinarizer]) {
+          try {
+            const bm = new Z.BinaryBitmap(new B(new Z.HTMLCanvasElementLuminanceSource(c)));
+            const r = reader.decode(bm);
+            add(r.getText(), Z.BarcodeFormat[r.getBarcodeFormat()]);
+            return;
+          } catch (e) {}
+        }
+      };
+      const W = base.width, H = base.height;
+      for (const n of [1, 2, 3, 4]) {                    // ทั้งภาพ → ซอย 2×2 → 3×3 → 4×4 (ช่องซ้อนกัน)
+        const ww = n === 1 ? W : Math.min(W, (W / n) * 1.6), hh = n === 1 ? H : Math.min(H, (H / n) * 1.6);
+        for (let iy = 0; iy < n; iy++) for (let ix = 0; ix < n; ix++) {
+          const x = n === 1 ? 0 : (W - ww) * ix / (n - 1), y = n === 1 ? 0 : (H - hh) * iy / (n - 1);
+          const k = Math.min(3, Math.max(1, 1000 / ww));   // ขยายช่องเล็กให้บาร์โค้ดหนาพอ
+          const c = makeCanvas(ww * k, hh * k);
+          const g = c.getContext('2d'); g.imageSmoothingEnabled = true;
+          g.drawImage(base, x, y, ww, hh, 0, 0, c.width, c.height);
+          tryCanvas(c);
+          await tick();
+        }
+      }
+    }
+    return [...found].map(([text, format]) => ({ text, format }));
+  }
+
+  function showResults(list) {
+    scanResults.innerHTML = '';
+    scanResults.style.display = 'none';
+    if (!list.length) return;
+    scanResults.style.display = 'flex';
+    const t = document.createElement('div'); t.className = 'res-title'; t.textContent = `พบ ${list.length} รหัส — แตะอันที่เป็น S/N`;
+    scanResults.appendChild(t);
+    list.forEach(r => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'code-chip';
+      b.innerHTML = `<span>${escHtml(r.text)}</span><small>${escHtml(String(r.format).replace(/_/g, ' '))}</small>`;
+      b.addEventListener('click', () => { lastCode = ''; onScanOk(r.text); if (scanOverlay.classList.contains('active')) scanResults.style.display = 'none'; });
+      scanResults.appendChild(b);
+    });
+  }
+
+  async function runDecode(canvas) {
+    setScanMsg('⏳ กำลังอ่านบาร์โค้ดจากภาพ...');
+    grabBtn.disabled = photoBtn.disabled = true;
+    try {
+      const list = await decodeCanvas(canvas);
+      if (!scanOverlay.classList.contains('active')) return;
+      if (!list.length) {
+        showResults([]);
+        setScanMsg('อ่านไม่ได้ — ถือห่างสติกเกอร์ ~15–25 ซม. ให้บาร์โค้ดชัดและไม่สะท้อนแสง (เปิดไฟฉาย/หลบแสงสะท้อน) แล้วลองใหม่', true);
+      } else if (list.length === 1) {
+        showResults([]);
+        lastCode = ''; onScanOk(list[0].text);
+      } else {
+        setScanMsg('พบหลายบาร์โค้ดบนสติกเกอร์ — เลือกอันที่เป็น S/N');
+        showResults(list);
+      }
+    } catch (err) {
+      setScanMsg('อ่านภาพไม่สำเร็จ: ' + (err && err.message || err), true);
+    } finally { grabBtn.disabled = photoBtn.disabled = false; }
+  }
+
+  // จับภาพจากกล้องที่เปิดอยู่ (พยายามใช้ภาพถ่ายความละเอียดเต็มของเซนเซอร์ก่อน)
+  grabBtn.addEventListener('click', async () => {
+    const video = document.querySelector('#scanReader video');
+    if (!video || !video.videoWidth) { setScanMsg('กล้องยังไม่พร้อม', true); return; }
+    showResults([]);
+    setScanMsg('📸 กำลังจับภาพ... ถือนิ่งๆ');
+    let canvas = null;
+    const track = getTrack();
+    if (track && 'ImageCapture' in window) {
+      try {
+        const blob = await Promise.race([new ImageCapture(track).takePhoto(), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))]);
+        const bmp = await createImageBitmap(blob);
+        canvas = fitCanvas(bmp, bmp.width, bmp.height, 2600);
+      } catch (e) { canvas = null; }
+    }
+    if (!canvas) canvas = fitCanvas(video, video.videoWidth, video.videoHeight, 2600);
+    runDecode(canvas);
+  });
+
+  // ถ่ายด้วยแอปกล้องของเครื่อง (โฟกัสอัตโนมัติ/ความละเอียดเต็ม) หรือเลือกรูปจากเครื่อง
+  photoBtn.addEventListener('click', () => { photoInput.value = ''; photoInput.click(); });
+  photoInput.addEventListener('change', async () => {
+    const f = photoInput.files && photoInput.files[0];
+    if (!f) return;
+    showResults([]);
+    setScanMsg('⏳ กำลังโหลดรูป...');
+    try {
+      const bmp = await createImageBitmap(f);
+      runDecode(fitCanvas(bmp, bmp.width, bmp.height, 2600));
+    } catch (e) { setScanMsg('เปิดรูปไม่ได้: ' + (e && e.message || e), true); }
+  });
+
+  document.getElementById('closeScanBtn').addEventListener('click', closeScan);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeScan(); });
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  loadData();
+</script>
+</body>
+</html>
