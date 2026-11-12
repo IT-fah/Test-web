@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT Facilities Dept. — หน้าแรก</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Prompt:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1565c0;
+      --blue-mid:   #1976d2;
+      --blue-light: #42a5f5;
+      --blue-pale:  #e3f2fd;
+      --green:      #2e7d32;
+      --green-light:#43a047;
+      --orange:     #e65100;
+      --red:        #c62828;
+      --gray-bg:    #f5f7fa;
+      --gray-card:  #ffffff;
+      --gray-border:#dde3ec;
+      --gray-text:  #546e7a;
+      --text:       #1a2332;
+      --shadow-sm:  0 1px 6px rgba(21,101,192,.10);
+      --shadow-md:  0 4px 20px rgba(21,101,192,.13);
+      --shadow-lg:  0 8px 40px rgba(21,101,192,.18);
+    }
+
+    body { font-family: 'Sarabun', sans-serif; background: var(--gray-bg); color: var(--text); min-height: 100vh; }
+
+    /* ── Topnav ── */
+    .sites-topnav {
+      background: #ffffff; border-bottom: 1px solid #e0e0e0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 64px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    }
+    .sites-topnav .site-title {
+      font-family: 'Prompt', sans-serif; font-size: 1.15rem; font-weight: 700;
+      color: var(--blue); letter-spacing: .01em;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sites-topnav .site-title .icon-wrap {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.05rem;
+    }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-link {
+      padding: 7px 16px; border-radius: 20px;
+      font-size: 0.88rem; font-weight: 600; color: var(--gray-text);
+      cursor: pointer; transition: all .18s; text-decoration: none;
+      border: none; background: none;
+    }
+    .nav-link:hover { background: var(--blue-pale); color: var(--blue); }
+    .nav-link.active { background: var(--blue-pale); color: var(--blue); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 70%, #42a5f5 100%);
+      padding: 56px 40px 52px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-logo {
+      width: 90px; height: 90px; border-radius: 20px;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; font-size: 2.4rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .hero h1 {
+      font-family: 'Prompt', sans-serif; font-size: 2rem; font-weight: 800;
+      color: #ffffff; margin-bottom: 8px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2); position: relative;
+    }
+    .hero .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.82); font-weight: 400; position: relative; }
+    .hero-badges { display: flex; justify-content: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; position: relative; }
+    .hero-badge {
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25); color: white;
+      padding: 5px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+    }
+
+    /* ── Contact bar ── */
+    .contact-bar {
+      background: white; border-bottom: 2px solid var(--blue-pale);
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; padding: 14px 32px; flex-wrap: wrap;
+    }
+    .contact-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text); }
+    .contact-item .ci-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+    .ci-blue   { background: #e3f2fd; color: var(--blue); }
+    .ci-green  { background: #e8f5e9; color: var(--green); }
+    .ci-orange { background: #fff3e0; color: var(--orange); }
+    .contact-item strong { font-weight: 700; }
+    .divider { width: 1px; height: 28px; background: #e0e0e0; }
+
+    /* ── Main ── */
+    .main-content { max-width: 1100px; margin: 0 auto; padding: 32px 24px 60px; }
+
+    .section-title {
+      font-family: 'Prompt', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--blue);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right, var(--blue-pale), transparent); margin-left: 8px; }
+
+    /* ── Toolbar ── */
+    .data-toolbar {
+      background: white; border-radius: 12px; box-shadow: var(--shadow-sm);
+      padding: 14px 20px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 8px;
+      font-family: 'Sarabun', sans-serif; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; border: none; transition: all .18s; white-space: nowrap;
+    }
+    .btn-blue    { background: var(--blue); color: white; }
+    .btn-blue:hover { background: #0d47a1; }
+    .btn-green   { background: var(--green-light); color: white; }
+    .btn-green:hover { background: var(--green); }
+    .btn-outline { background: white; color: var(--blue); border: 1.5px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue-pale); }
+    .btn-gray    { background: #f0f0f0; color: #555; border: 1px solid #ddd; }
+    .btn-gray:hover { background: #e0e0e0; }
+
+    .search-box { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .search-input {
+      padding: 8px 14px; border-radius: 8px;
+      border: 1.5px solid var(--gray-border);
+      font-family: 'Sarabun', sans-serif; font-size: 0.88rem;
+      outline: none; transition: border .15s; min-width: 180px; background: #fafbfc;
+    }
+    .search-input:focus { border-color: var(--blue); background: white; }
+
+    /* ── แถบเลือกมุมมอง / เรียงลำดับ ── */
+    .view-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .seg { display: inline-flex; background: #fff; border: 1.5px solid var(--gray-border); border-radius: 10px; overflow: hidden; }
+    .seg button { border: none; background: none; padding: 8px 16px; font-family: 'Sarabun', sans-serif; font-size: .86rem; font-weight: 700; color: var(--gray-text); cursor: pointer; transition: all .15s; }
+    .seg button:hover { background: var(--blue-pale); color: var(--blue); }
+    .seg button.active { background: var(--blue); color: #fff; }
+    .sort-sel { display: flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600; color: var(--gray-text); }
+    .sel-sm { padding: 7px 10px; border: 1.5px solid var(--gray-border); border-radius: 8px; font-family: 'Sarabun', sans-serif; font-size: .86rem; color: var(--text); background: #fff; outline: none; cursor: pointer; }
+    .sel-sm:focus { border-color: var(--blue); }
+
+    /* ── Table ── */
+    .table-card { background: white; border-radius: 12px; box-shadow: var(--shadow-sm); }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    #mainTable { min-width: 880px; }
+    thead { background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 100%); color: white; }
+    thead th:first-child { border-top-left-radius: 12px; }
+    thead th:last-child  { border-top-right-radius: 12px; }
+    thead th { padding: 13px 16px; text-align: left; font-size: 0.88rem; font-weight: 600; white-space: nowrap; }
+    thead th.sortable { cursor: pointer; user-select: none; transition: background .15s; }
+    thead th.sortable:hover { background: rgba(255,255,255,0.15); }
+    thead th.sortable .th-inner { display: inline-flex; align-items: center; gap: 6px; }
+    .sort-icon { display: inline-flex; flex-direction: column; line-height: 1; font-size: 0.65rem; opacity: 0.5; transition: opacity .15s; gap: 1px; }
+    thead th.sortable:hover .sort-icon { opacity: 0.8; }
+    thead th.sort-asc .sort-icon, thead th.sort-desc .sort-icon { opacity: 1; }
+    thead th.sort-asc .sort-icon .arrow-up   { opacity: 1; color: #fff; }
+    thead th.sort-asc .sort-icon .arrow-down { opacity: 0.3; }
+    thead th.sort-desc .sort-icon .arrow-up  { opacity: 0.3; }
+    thead th.sort-desc .sort-icon .arrow-down { opacity: 1; color: #fff; }
+    thead th.sort-asc, thead th.sort-desc { background: rgba(255,255,255,0.18); }
+    td.sorted-col { background: #f0f6ff; }
+    tbody tr:hover td.sorted-col { background: #e3f0ff; }
+    tbody tr { border-bottom: 1px solid #eef2f8; transition: background .12s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #f0f6ff; }
+    tbody tr:nth-child(even) { background: #fafbfd; }
+    tbody tr:nth-child(even):hover { background: #eaf3ff; }
+    tbody tr.row-click { cursor: pointer; }
+    td { padding: 14px 16px; font-size: 0.88rem; vertical-align: middle; }
+    .td-no { color: var(--gray-text); font-weight: 700; width: 48px; }
+
+    .empty-state { text-align: center; padding: 64px 20px; color: var(--gray-text); }
+    .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 12px; opacity: .5; }
+    .empty-state p { font-size: 0.9rem; }
+
+    /* ── Status chips ── */
+    .chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+    .chip-green  { background: #e8f5e9; color: var(--green); }
+    .chip-red    { background: #ffebee; color: var(--red); }
+    .chip-orange { background: #fff3e0; color: var(--orange); }
+    .chip-blue   { background: var(--blue-pale); color: var(--blue); }
+
+    /* ── เซลล์แบบรวมก้อน ── */
+    .d1 { font-weight: 700; font-size: .9rem; }
+    .d2 { font-size: .78rem; color: var(--gray-text); margin-top: 2px; }
+    .p-name { font-weight: 700; font-size: .96rem; color: #0d47a1; line-height: 1.35; }
+    .p-id   { font-size: .78rem; color: var(--gray-text); margin-top: 1px; }
+    .pills  { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+    .tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 6px; font-size: .76rem; font-weight: 700; white-space: nowrap; }
+    .tag-dept { background: var(--blue-pale); color: var(--blue); }
+    .tag-type { background: #263238; color: #fff; }
+    .tag-mc   { background: #e0f2f1; color: #00695c; }
+    .loc-op   { font-size: .84rem; margin-top: 6px; font-weight: 600; }
+    .loc-sent { font-size: .78rem; color: var(--green); margin-top: 3px; font-weight: 600; }
+    .muted    { color: #9aa5b1; font-weight: 400; }
+
+    /* ── การ์ด ── */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+    .rec-card {
+      background: #fff; border: 1px solid var(--gray-border); border-radius: 14px;
+      box-shadow: var(--shadow-sm); padding: 14px 16px; cursor: pointer;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .rec-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--blue-light); }
+    .rc-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .rc-date { font-size: .8rem; color: var(--gray-text); font-weight: 600; }
+    .rc-loc { background: #f7f9fc; border-radius: 10px; padding: 9px 12px; }
+    .rc-loc .loc-op:first-child { margin-top: 0; }
+    .rc-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .rc-more { font-size: .82rem; font-weight: 700; color: var(--blue-light); }
+
+    /* ── Pagination ── */
+    .pager { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; font-size: .88rem; }
+    .pager-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .pager-left label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--gray-text); }
+    .pg { display: inline-flex; border: 1px solid #dee2e6; border-radius: 6px; overflow: hidden; background: #fff; }
+    .pg button { border: none; border-right: 1px solid #dee2e6; background: #fff; color: #0d6efd; padding: 7px 13px; min-width: 38px; cursor: pointer; font-family: 'Sarabun', sans-serif; font-size: .88rem; }
+    .pg button:last-child { border-right: none; }
+    .pg button:not(:disabled):not(.active):hover { background: #e9f0ff; }
+    .pg button.active { background: #0d6efd; color: #fff; font-weight: 700; }
+    .pg button:disabled { color: #9aa5b1; cursor: default; }
+
+    /* ── Info cards ── */
+    .info-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .info-card {
+      background: white; border-radius: 12px; box-shadow: var(--shadow-sm);
+      padding: 18px 20px; border-left: 4px solid var(--blue);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .info-card .ic-label { font-size: 0.78rem; font-weight: 600; color: var(--gray-text); text-transform: uppercase; letter-spacing: .04em; }
+    .info-card .ic-value { font-family: 'Prompt', sans-serif; font-size: 1.7rem; font-weight: 700; color: var(--blue); }
+    .info-card .ic-sub   { font-size: 0.78rem; color: var(--gray-text); }
+    .info-card.green  { border-left-color: var(--green-light); } .info-card.green  .ic-value { color: var(--green); }
+    .info-card.red    { border-left-color: var(--red); }         .info-card.red    .ic-value { color: var(--red); }
+    .info-card.orange { border-left-color: var(--orange); }      .info-card.orange .ic-value { color: var(--orange); }
+
+    /* ══════════════════════════════════════
+       3-DOT ACTION DROPDOWN
+    ══════════════════════════════════════ */
+    .action-wrap { position: relative; display: inline-block; }
+
+    .btn-dots {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: #f0f4ff; color: var(--blue);
+      border: 1.5px solid var(--gray-border);
+      cursor: pointer; font-size: 1.25rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s; user-select: none; line-height: 1;
+      letter-spacing: -1px; padding-bottom: 3px;
+    }
+    .btn-dots:hover { background: var(--blue-pale); border-color: var(--blue); }
+    .btn-dots.open  { background: var(--blue); color: white; border-color: var(--blue); }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0; top: calc(100% + 6px);
+      background: white; border-radius: 10px;
+      box-shadow: 0 6px 28px rgba(21,101,192,.18);
+      border: 1px solid #e3eaf5;
+      min-width: 152px; z-index: 300; overflow: hidden; text-align: left;
+    }
+    .dropdown-menu.up { top: auto; bottom: calc(100% + 6px); }
+    .dropdown-menu.open { display: block; animation: ddFadeIn .15s ease; }
+
+    @keyframes ddFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      font-size: 0.87rem; font-weight: 600; color: var(--text);
+      cursor: pointer; transition: background .13s;
+      border: none; background: none; width: 100%;
+      text-align: left; font-family: 'Sarabun', sans-serif;
+      border-bottom: 1px solid #f0f4fa;
+    }
+    .dropdown-item:last-child { border-bottom: none; }
+    .dropdown-item:hover { background: var(--blue-pale); }
+    .dropdown-item.del { color: var(--red); }
+    .dropdown-item.del:hover { background: #ffebee; }
+    .dropdown-item .di-icon {
+      width: 26px; height: 26px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+    }
+    .di-red    { background: #ffebee; }
+    .di-blue   { background: #e3f2fd; }
+    .di-orange { background: #fff3e0; }
+
+    /* ══════════════════════════════════════
+       MODALS — Generic overlay
+    ══════════════════════════════════════ */
+    .modal-overlay, .confirm-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,30,60,.45); backdrop-filter: blur(4px);
+      z-index: 500; align-items: center; justify-content: center;
+    }
+    .modal-overlay.active, .confirm-overlay.active { display: flex; animation: fadeIn .18s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .modal {
+      background: white; border-radius: 14px; box-shadow: var(--shadow-lg);
+      width: 540px; max-width: 95vw;
+      animation: slideUp .22s cubic-bezier(.4,0,.2,1); overflow: hidden;
+    }
+    @keyframes slideUp { from { transform: translateY(28px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .modal-header {
+      background: linear-gradient(90deg, var(--blue), var(--blue-mid));
+      color: white; padding: 16px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'Prompt', sans-serif; font-size: 1rem; font-weight: 700;
+    }
+    .modal-close { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; padding: 2px 7px; border-radius: 5px; transition: background .15s; }
+    .modal-close:hover { background: rgba(255,255,255,.2); }
+    .modal-body { padding: 24px 22px 16px; }
+    .form-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: #1a3a5c; }
+    .form-control {
+      padding: 9px 12px; border: 1.5px solid var(--gray-border); border-radius: 8px;
+      font-family: 'Sarabun', sans-serif; font-size: 0.88rem; color: var(--text);
+      outline: none; transition: border .15s, box-shadow .15s; background: #fafbfc;
+    }
+    .form-control:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(21,101,192,.1); }
+    select.form-control { cursor: pointer; }
+    .modal-footer { padding: 12px 22px 20px; display: flex; gap: 8px; }
+
+    /* ── Confirm modals ── */
+    .confirm-box {
+      background: white; border-radius: 14px; box-shadow: var(--shadow-lg);
+      width: 400px; max-width: 92vw; overflow: hidden;
+      animation: slideUp .2s cubic-bezier(.4,0,.2,1);
+    }
+    .confirm-header { color: white; padding: 14px 20px; font-family: 'Prompt', sans-serif; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .confirm-header.red  { background: linear-gradient(90deg, var(--red), #e53935); }
+    .confirm-header.blue { background: linear-gradient(90deg, var(--blue), var(--blue-mid)); }
+    .confirm-body { padding: 20px 22px 10px; font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+    .confirm-body .target-name { font-weight: 700; color: var(--red); }
+    .confirm-footer { padding: 10px 22px 18px; display: flex; gap: 8px; }
+    .btn-red { background: var(--red); color: white; }
+    .btn-red:hover { background: #b71c1c; }
+
+    /* ── Password modal ── */
+    .pw-wrap { position: relative; }
+    .pw-wrap .pw-toggle {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: var(--gray-text); font-size: 1rem; padding: 2px 4px; transition: color .15s;
+    }
+    .pw-wrap .pw-toggle:hover { color: var(--blue); }
+    .pw-wrap .form-control { padding-right: 38px; }
+
+    .attempt-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fff3e0; color: var(--orange);
+      border: 1px solid #ffe0b2; border-radius: 6px;
+      padding: 4px 10px; font-size: 0.78rem; font-weight: 700; margin-top: 8px;
+    }
+    .attempt-badge.danger { background: #ffebee; color: var(--red); border-color: #ffcdd2; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-8px); }
+      40%      { transform: translateX(8px); }
+      60%      { transform: translateX(-6px); }
+      80%      { transform: translateX(6px); }
+    }
+    .shake { animation: shake .4s ease; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── Lock overlay ── */
+    #lockOverlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,30,60,.85); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; z-index: 800;
+    }
+    #lockOverlay.active { display: flex; }
+    .lock-box { background: white; border-radius: 16px; box-shadow: var(--shadow-lg); width: 360px; max-width: 92vw; overflow: hidden; text-align: center; animation: slideUp .25s cubic-bezier(.4,0,.2,1); }
+    .lock-header { background: linear-gradient(90deg,#b71c1c,var(--red)); color: white; padding: 18px 20px; font-family:'Prompt',sans-serif; font-size:1rem; font-weight:700; }
+    .lock-body { padding: 28px 24px; }
+    .lock-icon { font-size: 3rem; margin-bottom: 10px; }
+    .lock-body p { font-size: 0.88rem; color: var(--gray-text); line-height: 1.7; }
+    .lock-countdown { font-family:'Prompt',sans-serif; font-size: 2.2rem; font-weight:800; color:var(--red); margin: 14px 0 4px; }
+    .lock-body .lock-sub { font-size: 0.78rem; color:#999; }
+
+    /* ── z-index layers ── */
+    #modalOverlay    { z-index: 500; }
+    #detailOverlay   { z-index: 500; }
+    #confirmOverlay  { z-index: 600; }
+    #passwordOverlay { z-index: 700; }
+    #lockOverlay     { z-index: 800; }
+    /* ── Clickable stat cards ── */
+    .info-card.clickable { cursor: pointer; transition: transform .15s, box-shadow .15s; position: relative; }
+    .info-card.clickable:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .info-card .ic-hint { font-size: 0.72rem; color: var(--blue-light); font-weight: 600; margin-top: 2px; }
+
+    /* ── Stat list modal ── */
+    #listOverlay { z-index: 500; }
+    .list-modal { width: 820px; }
+    .list-summary {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px; font-size: 0.95rem; font-weight: 600;
+    }
+    .list-count {
+      font-family: 'Prompt', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--blue);
+    }
+    .list-scroll { max-height: 52vh; overflow: auto; border: 1px solid var(--gray-border); border-radius: 10px; }
+    .list-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    .list-table th {
+      position: sticky; top: 0; background: var(--blue-pale); color: var(--blue);
+      padding: 10px 12px; font-size: 0.82rem; text-align: left; white-space: nowrap;
+    }
+    .list-table td { padding: 10px 12px; font-size: 0.86rem; border-top: 1px solid #eef2f8; }
+    /* ── Search suggest ── */
+    .search-wrap { position: relative; }
+    .suggest-box {
+      display: none; position: absolute; right: 0; top: calc(100% + 6px);
+      width: 440px; max-width: 90vw; max-height: 380px; overflow-y: auto;
+      background: white; border-radius: 10px; border: 1px solid #e3eaf5;
+      box-shadow: 0 6px 28px rgba(21,101,192,.18); z-index: 250;
+    }
+    .suggest-box.open { display: block; animation: ddFadeIn .15s ease; }
+    .suggest-group {
+      padding: 7px 14px; font-size: 0.74rem; font-weight: 700; letter-spacing: .03em;
+      color: var(--gray-text); background: #f5f8fc; border-bottom: 1px solid #eef2f8;
+      position: sticky; top: 0;
+    }
+    .suggest-group.near { color: var(--orange); background: #fff8f0; }
+    .suggest-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 14px; cursor: pointer; border-bottom: 1px solid #f0f4fa;
+    }
+    .suggest-item:last-child { border-bottom: none; }
+    .suggest-item:hover, .suggest-item.active { background: var(--blue-pale); }
+    .suggest-item .si-body { flex: 1; min-width: 0; }
+    .suggest-item .si-main { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .suggest-item .si-sub  { font-size: 0.76rem; color: var(--gray-text); margin-top: 2px; }
+    .suggest-item mark { background: #fff59d; color: inherit; border-radius: 3px; padding: 0 1px; }
+    .suggest-empty { padding: 18px; text-align: center; font-size: 0.85rem; color: var(--gray-text); }
+
+    /* บรรทัดรอง: ป้ายเบอร์เครื่อง + ตู้ที่ (เด่น) · แผนก/ประเภท (จาง) */
+    .si-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+    .pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 6px; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+    .pill-mc  { background: var(--blue-pale); color: var(--blue); }
+    .pill-cab { background: #eceff1; color: #455a64; }
+    .pill-cab.out { background: #fff3e0; color: var(--orange); }
+    .si-dept { font-size: .74rem; color: var(--gray-text); }
+
+    /* ── Footer ── */
+    .site-footer { background: #1a2332; color: #8fa3b8; text-align: center; padding: 20px 24px; font-size: 0.82rem; line-height: 1.7; }
+    .site-footer strong { color: #e3f2fd; }
+
+    /* ══ เพิ่มเติม: popup สรุป / ข้อผิดพลาด / ช่องกรอกส่งเครื่อง ══ */
+    #sendOverlay { z-index: 600; }
+    #doneOverlay { z-index: 650; }
+    #errOverlay  { z-index: 750; }
+    .req { color: var(--red); }
+    .dev-hint { font-size: .76rem; color: var(--gray-text); font-weight: 400; }
+    .modal-body { max-height: 70vh; overflow-y: auto; }
+    .form-group.full { grid-column: 1 / -1; }
+    .search-wrap { flex: 1; }
+    .search-wrap .search-input { width: 100%; }
+    .err-msg { white-space: pre-line; }
+    .send-fields { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+    .send-fields label { font-size: .85rem; font-weight: 600; color: #1a3a5c; display: flex; flex-direction: column; gap: 5px; }
+    .done-box { width: 440px; }
+    .done-head { background: linear-gradient(90deg, var(--green), var(--green-light)); color: #fff; padding: 14px 20px; font-family: 'Prompt', sans-serif; font-size: .95rem; font-weight: 700; }
+    .done-body { padding: 16px 20px 6px; max-height: 56vh; overflow-y: auto; }
+    .sum-text { background: #fafbfc; border: 1px solid var(--gray-border); border-radius: 10px; padding: 14px 16px; font-size: .93rem; line-height: 1.75; white-space: pre-wrap; word-break: break-word; }
+    .done-footer { padding: 10px 20px 18px; display: flex; gap: 8px; }
+    .done-footer .btn { flex: 1; justify-content: center; }
+
+    /* ── ฟอร์มเพิ่มหลายคน (บล็อกพนักงาน) ── */
+    .add-modal { width: 620px; }
+    .sec-label {
+      font-family: 'Prompt', sans-serif; font-size: .8rem; font-weight: 700; color: var(--blue);
+      margin: 20px 0 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .sec-label:first-child { margin-top: 0; }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-border); }
+    .dev-count { font-weight: 500; color: var(--gray-text); }
+    .emp-block { border: 1.5px solid var(--gray-border); background: #fbfcfe; border-radius: 12px; padding: 12px 14px 14px; margin-bottom: 10px; }
+    .emp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .emp-title { font-family: 'Prompt', sans-serif; font-weight: 700; font-size: .88rem; color: var(--blue); }
+    .emp-del { border: none; background: none; color: var(--red); font-size: .78rem; font-weight: 600; cursor: pointer; font-family: 'Sarabun', sans-serif; padding: 3px 8px; border-radius: 6px; }
+    .emp-del:hover { background: #ffebee; }
+    .btn-sm { padding: 6px 14px; font-size: .84rem; }
+
+    /* ── popup รายละเอียด ── */
+    .detail-modal { width: 600px; }
+    .detail-status { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .dt-item { background: #f7f9fc; border: 1px solid #eef2f8; border-radius: 10px; padding: 10px 12px; min-width: 0; }
+    .dt-item.full { grid-column: 1 / -1; }
+    .dt-label { font-size: .74rem; font-weight: 700; color: var(--gray-text); margin-bottom: 3px; }
+    .dt-val { font-size: .92rem; font-weight: 600; word-break: break-word; }
+    .detail-footer { padding: 12px 22px 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ══ รองรับโทรศัพท์ ══ */
+    @media (max-width: 720px) {
+      html { -webkit-text-size-adjust: 100%; }
+      .sites-topnav { padding: 0 12px; height: 54px; }
+      .sites-topnav .site-title { font-size: .92rem; gap: 8px; }
+      .sites-topnav .site-title .icon-wrap { width: 32px; height: 32px; font-size: .95rem; }
+      .nav-link { padding: 6px 10px; font-size: .78rem; }
+      .nav-links .nav-link:nth-child(5) { display: none; }
+      .hero { padding: 28px 16px 26px; }
+      .hero-logo { width: 64px; height: 64px; font-size: 1.8rem; margin-bottom: 12px; }
+      .hero h1 { font-size: 1.4rem; }
+      .hero .hero-sub { font-size: .88rem; }
+      .hero-badges { gap: 6px; margin-top: 14px; }
+      .hero-badge { padding: 4px 11px; font-size: .74rem; }
+      .contact-bar { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 16px; }
+      .contact-bar .divider { display: none; }
+      .contact-item { font-size: .84rem; flex-wrap: wrap; }
+      .main-content { padding: 18px 12px 40px; }
+      .section-title { font-size: .98rem; }
+      .info-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .info-card { padding: 12px; }
+      .info-card .ic-label { font-size: .72rem; }
+      .info-card .ic-value { font-size: 1.4rem; }
+      .info-card .ic-sub { font-size: .72rem; }
+
+      .data-toolbar { padding: 12px; gap: 8px; }
+      .data-toolbar > .btn { flex: 1 1 calc(50% - 8px); justify-content: center; padding: 10px 8px; }
+      .search-box { order: 9; width: 100%; margin-left: 0; }
+
+      /* มือถือ: ใช้การ์ดเสมอ */
+      .card-grid { grid-template-columns: 1fr; gap: 12px; }
+      .pager { flex-direction: column; align-items: stretch; gap: 12px; }
+      .pager-left { justify-content: space-between; }
+      .pg { align-self: center; }
+      .pg button { padding: 8px 11px; min-width: 36px; }
+      .pager select { font-size: 16px; }
+
+      /* popup */
+      .modal, .list-modal, .add-modal, .detail-modal { width: 100%; max-width: 96vw; }
+      .modal-body { padding: 18px 14px 10px; max-height: 68vh; }
+      .form-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .modal-footer, .confirm-footer, .done-footer { flex-wrap: wrap; }
+      .modal-footer .btn, .confirm-footer .btn { flex: 1; justify-content: center; padding: 11px 12px; }
+      .detail-footer { padding: 12px 14px 18px; }
+      .detail-footer .btn { flex: 1 1 calc(50% - 8px); justify-content: center; padding: 11px 8px; }
+      .confirm-box, .done-box { width: 96vw; max-width: 96vw; }
+      .done-body { padding: 14px; }
+      .list-scroll { max-height: 56vh; }
+      .suggest-box { width: 100%; max-width: 100%; }
+      input.form-control, select.form-control, .search-input { font-size: 16px; }
+      .site-footer { padding: 18px 14px; font-size: .78rem; }
+    }
+    @media (max-width: 380px) {
+      .info-cards { grid-template-columns: 1fr; }
+      .data-toolbar > .btn { flex: 1 1 100%; }
+    }
+
+    /* ── ช่องแผนก (พิมพ์ค้นหา + ดรอปดาว) ── */
+    .dept-combo { position: relative; }
+    .dept-combo .form-control { width: 100%; padding-right: 30px; }
+    .dept-caret { position: absolute; right: 11px; top: 50%; transform: translateY(-50%); color: var(--gray-text); pointer-events: none; font-size: .8rem; }
+    .dept-list { display: none; position: absolute; left: 0; right: 0; top: calc(100% + 4px); max-height: 250px; overflow-y: auto; background: #fff; border: 1px solid #e3eaf5; border-radius: 10px; box-shadow: 0 6px 28px rgba(21,101,192,.18); z-index: 50; }
+    .dept-list.open { display: block; }
+    .dept-opt { padding: 9px 14px; font-size: .88rem; cursor: pointer; border-bottom: 1px solid #f0f4fa; display: flex; justify-content: space-between; gap: 8px; }
+    .dept-opt:last-child { border-bottom: none; }
+    .dept-opt:hover, .dept-opt.active { background: var(--blue-pale); }
+    .dept-opt.sel { font-weight: 700; color: var(--blue); }
+    .dept-opt.group { font-weight: 700; background: #f5f8fc; }
+    .dept-opt.sub { padding-left: 30px; }
+    .dept-opt mark { background: #fff59d; color: inherit; border-radius: 3px; padding: 0 1px; }
+    .dept-gh { padding: 6px 14px; font-size: .74rem; font-weight: 700; color: var(--gray-text); background: #f5f8fc; position: sticky; top: 0; }
+    .dept-gh.near { color: var(--orange); background: #fff8f0; }
+    .dept-empty { padding: 14px; text-align: center; font-size: .85rem; color: var(--gray-text); }
+  </style>
+</head>
+<body>
+
+<!-- ── Topnav ── -->
+<nav class="sites-topnav">
+  <div class="site-title">
+    <div class="icon-wrap">💻</div>
+    IT Facilities Dept.
+  </div>
+  <div class="nav-links">
+        <a class="nav-link active" href="user.html" target="_top">หน้าแรก</a>
+    <a class="nav-link" href="อุปกรณ์เสริม.html" target="_top">อุปกรณ์เสริม</a>
+    <a class="nav-link" href="หน้าร้าน.html" target="_top">เครื่องหน้าร้าน</a>
+    
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="hero-logo">💻</div>
+  <h1>IT Facilities Department</h1>
+  
+</div>
+
+<!-- ── Contact bar ── -->
+<div class="contact-bar">
+  <div class="contact-item">
+    <div class="ci-icon ci-blue">📞</div>
+    <span><strong>Tel :</strong> . 7442</span>
+    <span style="color:#999;font-size:0.8rem">(office hours)</span>
+  </div>
+  <div class="divider"></div>
+  <div class="contact-item">
+    <div class="ci-icon ci-green">📱</div>
+    <span><strong>Hotline :</strong> 083-989-0894, 083-989-1551</span>
+  </div>
+  <div class="divider"></div>
+  <div class="contact-item">
+    <div class="ci-icon ci-orange">🕐</div>
+    <span><strong>เวลาทำการ :</strong> 09:00 – 18:00 น.</span>
+  </div>
+</div>
+
+<!-- ── Main content ── -->
+<div class="main-content">
+
+  <div class="section-title">📊 ภาพรวมระบบ</div>
+  <div class="info-cards">
+    <div class="info-card clickable" onclick="openStatList('total')">
+      <div class="ic-label">เครื่องทั้งหมด</div>
+      <div class="ic-value" id="stat-total">—</div>
+      <div class="ic-sub">รายการในระบบ</div>
+      <div class="ic-hint">👆 คลิกดูรายชื่อ</div>
+    </div>
+    <div class="info-card green clickable" onclick="openStatList('ready')">
+      <div class="ic-label">พร้อมใช้งาน</div>
+      <div class="ic-value" id="stat-ready">—</div>
+      <div class="ic-sub">สถานะปกติ</div>
+      <div class="ic-hint">👆 คลิกดูรายชื่อ</div>
+    </div>
+    <div class="info-card red clickable" onclick="openStatList('issue')">
+      <div class="ic-label">ขาดเมล์ / WiFi</div>
+      <div class="ic-value" id="stat-issue">—</div>
+      <div class="ic-sub">ต้องดำเนินการ</div>
+      <div class="ic-hint">👆 คลิกดูรายชื่อ</div>
+    </div>
+    <div class="info-card orange clickable" onclick="openStatList('repair')">
+      <div class="ic-label">รอดำเนินการ</div>
+      <div class="ic-value" id="stat-repair">—</div>
+      <div class="ic-sub">อยู่ระหว่างรอดำเนินการ</div>
+      <div class="ic-hint">👆 คลิกดูรายชื่อ</div>
+    </div>
+  </div>
+
+  <div class="section-title">📋 รายการส่งเครื่องพนักงาน</div>
+
+  <div class="data-toolbar">
+    <button class="btn btn-outline">👥 ข้อมูลทั้งหมด</button>
+    <button class="btn btn-green" id="openModal">👤+ เพิ่มข้อมูล</button>
+    <button class="btn btn-gray" id="resetSort">🔄 โหลดข้อมูลใหม่</button>
+        <div class="search-box">
+      <div class="search-wrap">
+        <input class="search-input" id="searchInput" type="text" placeholder="ค้นหาชื่อ / ID / เบอร์เครื่อง..." autocomplete="off"/>
+        <div class="suggest-box" id="suggestBox"></div>
+      </div>
+      <button class="btn btn-blue" id="searchBtn">🔍 ค้นหา</button>
+    </div>
+  </div>
+
+  <!-- แถบเลือกมุมมอง + เรียงลำดับ -->
+  <div id="viewTop"></div>
+
+  <!-- มุมมองตาราง -->
+  <div class="table-card" id="tableCard">
+    <div class="table-scroll">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="sortable" data-key="date">
+              <span class="th-inner">วันที่/เวลารับเครื่อง <span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></span>
+            </th>
+            <th class="sortable" data-key="idName">
+              <span class="th-inner">พนักงาน / เครื่อง <span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></span>
+            </th>
+            <th class="sortable" data-key="status">
+              <span class="th-inner">สถานะ <span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></span>
+            </th>
+            <th class="sortable" data-key="cabinet">
+              <span class="th-inner">เบอร์เครื่อง / ตำแหน่ง / ผู้ดำเนินการ <span class="sort-icon"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></span>
+            </th>
+            <th style="text-align:center;min-width:60px">จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- มุมมองการ์ด (มือถือใช้แบบนี้เสมอ) -->
+  <div class="card-grid" id="cardGrid" style="display:none"></div>
+
+  <!-- แบ่งหน้า -->
+  <div class="pager" id="pager">
+    <div class="pager-left">
+      <label>แสดง
+        <select class="sel-sm" id="pageSizeSel">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+        </select>
+        รายการ/หน้า
+      </label>
+      <span id="pagerInfo"></span>
+    </div>
+    <div class="pg" id="pgBtns"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <strong>IT Facilities Department</strong><br>
+  Tel : 02-017-7777 Ext. 7442 &nbsp;|&nbsp; Hotline : 083-989-0894, 083-989-1551<br>
+  เวลาทำการ 09:00 – 18:00 น.
+</footer>
+
+<!-- ══════════════════════════════════════════
+     🔎 DETAIL MODAL (ดูรายละเอียดเพิ่มเติม)
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="detailOverlay">
+  <div class="modal detail-modal">
+    <div class="modal-header">
+      <span>🔎 รายละเอียดเครื่อง</span>
+      <button class="modal-close" id="closeDetail">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="detail-status">
+        <div>
+          <div class="p-name" id="dtName" style="font-size:1.1rem"></div>
+          <div class="p-id" id="dtId"></div>
+        </div>
+        <div id="dtStatus"></div>
+      </div>
+      <div class="detail-grid" id="dtGrid"></div>
+    </div>
+    <div class="detail-footer">
+      <button class="btn btn-outline" id="dtEdit">✏️ แก้ไข</button>
+      <button class="btn btn-blue" id="dtSend">📤 ส่งเครื่อง</button>
+      <button class="btn btn-red" id="dtDelete">🗑️ ลบ</button>
+      <button class="btn btn-gray" id="dtClose">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     🔐 PASSWORD MODAL
+══════════════════════════════════════════ -->
+<div class="confirm-overlay" id="passwordOverlay">
+  <div class="confirm-box" id="passwordBox">
+    <div class="confirm-header blue">🔐 ยืนยันตัวตนผู้ดูแลระบบ</div>
+    <div class="confirm-body">
+      <p style="margin-bottom:14px;color:var(--gray-text);font-size:0.88rem">
+        กรุณากรอกรหัสผ่านเพื่อดำเนินการลบข้อมูล
+      </p>
+      <div class="pw-wrap">
+        <input id="deletePassword" type="password" class="form-control" placeholder="กรอกรหัสผ่าน..." autocomplete="off"/>
+        <button class="pw-toggle" id="pwToggle" title="แสดง/ซ่อนรหัสผ่าน">👁️</button>
+      </div>
+      <div id="pwError" style="display:none;margin-top:10px">
+        <div style="color:var(--red);font-size:0.83rem;font-weight:600">❌ รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่</div>
+        <div id="attemptBadge" class="attempt-badge"></div>
+      </div>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-blue" id="confirmPwBtn">✅ ยืนยัน</button>
+      <button class="btn btn-gray" id="cancelPwBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     🗑️ CONFIRM DELETE MODAL
+══════════════════════════════════════════ -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header red">🗑️ ยืนยันการลบข้อมูล</div>
+    <div class="confirm-body">
+      คุณต้องการลบข้อมูลของ<br>
+      <span class="target-name" id="confirmName"></span><br>
+      ออกจากระบบ? <strong>การดำเนินการนี้ไม่สามารถย้อนกลับได้</strong>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-red" id="confirmDeleteBtn">🗑️ ยืนยันลบข้อมูล</button>
+      <button class="btn btn-gray" id="cancelDeleteBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     🔒 LOCKED-OUT OVERLAY
+══════════════════════════════════════════ -->
+<div id="lockOverlay">
+  <div class="lock-box">
+    <div class="lock-header">🔒 ระบบถูกล็อค</div>
+    <div class="lock-body">
+      <div class="lock-icon">🚫</div>
+      <p>กรอกรหัสผ่านผิดเกิน 5 ครั้ง<br>ระบบจะปลดล็อคอัตโนมัติใน</p>
+      <div class="lock-countdown" id="lockCountdown">5:00</div>
+      <div class="lock-sub">นาที:วินาที</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ➕ ADD / EDIT RECORD MODAL (เพิ่มได้หลายคน)
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal add-modal">
+    <div class="modal-header">
+      <span id="modalTitle">➕ เพิ่มข้อมูลส่งเครื่องพนักงาน</span>
+      <button class="modal-close" id="closeModal">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- 1) พนักงานและเครื่อง (เพิ่มได้หลายคน) -->
+      <div class="sec-label">👥 พนักงานและเครื่อง <span class="dev-count" id="empCount"></span></div>
+      <div id="empList"></div>
+      <button type="button" class="btn btn-outline btn-sm" id="addEmpBtn">➕ เพิ่มพนักงานอีกคน</button>
+
+      <!-- 2) ผู้รับ / ผู้ดำเนินการ (ใช้ร่วมกันทุกคน) -->
+      <div class="sec-label">👤 ผู้รับ / ผู้ดำเนินการ <span class="dev-count" id="sharedHint"></span></div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>ชื่อผู้รับเครื่อง <span class="req" id="recvReq">*</span></label>
+          <input class="form-control" id="f-receiver" type="text" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label>ผู้ดำเนินการ</label>
+          <input class="form-control" id="f-operator" type="text" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label>วันที่ส่งเครื่อง <span class="dev-hint">(เว้นว่าง = ยังไม่ได้ส่ง)</span></label>
+          <input class="form-control" id="f-sentdate" type="date"/>
+        </div>
+        <div class="form-group">
+          <label>ชื่อคนส่งเครื่อง <span class="req" id="senderReq" style="display:none">*</span></label>
+          <input class="form-control" id="f-senderEdit" type="text" autocomplete="off"/>
+        </div>
+        <div class="form-group full">
+          <label>หมายเหตุ <span class="dev-hint">(ไม่บังคับ)</span></label>
+          <input class="form-control" id="f-note" type="text" autocomplete="off"/>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-green" id="addRowBtn">👤+ เพิ่มข้อมูล</button>
+      <button class="btn btn-gray" id="closeModal2">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     📤 SEND MACHINE MODAL
+══════════════════════════════════════════ -->
+<div class="confirm-overlay" id="sendOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header blue">📤 ส่งเครื่อง</div>
+    <div class="confirm-body" style="padding-bottom:16px">
+      <p style="margin-bottom:14px;color:var(--gray-text);font-size:0.88rem">ยืนยันการส่งเครื่องสำหรับ</p>
+      <p style="font-weight:700;font-size:0.95rem" id="sendName"></p>
+      <p style="margin-top:10px;font-size:0.85rem;color:var(--gray-text)">เบอร์เครื่อง: <strong id="sendMachine"></strong></p>
+      <p id="sendInfo" style="margin-top:10px;font-size:.85rem"></p>
+      <div class="send-fields">
+        <label><span>ผู้ส่ง <span class="req">*</span></span>
+          <input class="form-control" id="f-sender" type="text" placeholder="ชื่อผู้ส่งเครื่อง" autocomplete="off"/>
+        </label>
+        <label><span>ผู้ดำเนินการ <span class="req">*</span></span>
+          <input class="form-control" id="f-sendop" type="text" placeholder="ชื่อผู้ดำเนินการ" autocomplete="off"/>
+          <span class="dev-hint" id="sendOpHint"></span>
+        </label>
+        <label><span>หมายเหตุ <span class="dev-hint">(ไม่บังคับ)</span></span>
+          <input class="form-control" id="f-sendnote" type="text" autocomplete="off"/>
+        </label>
+      </div>
+    </div>
+    <div class="confirm-footer">
+      <button class="btn btn-blue" id="confirmSendBtn">📤 ยืนยันส่งเครื่อง</button>
+      <button class="btn btn-gray" id="cancelSendBtn">ยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ POPUP สรุป (หลังเพิ่มข้อมูล / หลังส่งเครื่อง) ══ -->
+<div class="confirm-overlay" id="doneOverlay">
+  <div class="confirm-box done-box">
+    <div class="done-head" id="doneTitle">📦 สรุป</div>
+    <div class="done-body"><div class="sum-text" id="doneText"></div></div>
+    <div class="done-footer">
+      <button class="btn btn-blue" id="copyBtn">📋 คัดลอก</button>
+      <button class="btn btn-green" id="doneCloseBtn">ตกลง</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ POPUP ข้อผิดพลาด ══ -->
+<div class="confirm-overlay" id="errOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header red" id="errTitle">⚠️ เกิดข้อผิดพลาด</div>
+    <div class="confirm-body"><div class="err-msg" id="errMsg"></div></div>
+    <div class="confirm-footer"><button class="btn btn-red" id="errCloseBtn">ตกลง</button></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════════════
+     📋 STAT LIST MODAL
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="listOverlay">
+  <div class="modal list-modal">
+    <div class="modal-header">
+      <span id="listTitle">รายชื่อเครื่อง</span>
+      <button class="modal-close" id="closeList">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="list-summary">
+        <span>จำนวน</span>
+        <span class="list-count" id="listCount">0</span>
+        <span>เครื่อง</span>
+      </div>
+      <div class="list-scroll">
+        <table class="list-table">
+          <thead>
+            <tr>
+              <th>#</th><th>ID / ชื่อ-สกุล</th><th>เบอร์เครื่อง</th>
+              <th>แผนก</th><th>ประเภท</th><th>สถานะ</th><th>ตู้ที่</th>
+            </tr>
+          </thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-gray" id="closeList2">ปิด</button>
+    </div>
+  </div>
+</div>
+<script>
+  // ── Config ────────────────────────────────────────────────────────────────
+  const API_URL         = 'https://script.google.com/macros/s/AKfycbxf0Z05ILyyQ2FMXLZ_JUQC5aFvgRwnI9Olhzgc1rINYA0ipuHaDUH4TQz5BC8Uahcy8g/exec';
+  const DELETE_PASSWORD = 'admin123';
+  const MAX_ATTEMPTS    = 5;
+  const LOCKOUT_MS      = 5 * 60 * 1000;
+
+  const PAGE_MIN = 5, PAGE_MAX = 30, PAGE_DEFAULT = 15;   // จำนวนรายการต่อหน้า (ต่ำสุด 5 · สูงสุด 30)
+
+  // ตัวเลือกในฟอร์มเพิ่ม/แก้ไข
+  const TYPE_LIST    = ['NB', 'PC', 'MACBook', 'IMAC'];
+  const STATUS_LIST  = ['พร้อมใช้งาน', 'ขาดเมล์+WiFi', 'อยู่ระหว่างรอดำเนินการ', 'ส่งเครื่องแล้ว'];
+  const CABINET_LIST = ['ตู้ที่1', 'ตู้ที่2', 'อยู่นอกตู้'];
+
+  // จำค่ามุมมอง / จำนวนต่อหน้า (ถ้าเบราว์เซอร์ไม่อนุญาตก็ข้ามไป)
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  let tableData        = [];
+  let sortKey          = 'date';
+  let sortDir          = 'desc';
+  let searchTerm       = '';
+  let pendingDeleteIdx = null;
+  let pendingSendIdx   = null;
+  let editingIdx       = null;   // ← index ที่กำลัง edit
+  let detailIdx        = null;   // ← index ที่เปิดดูรายละเอียด
+  let page             = 1;
+  let pageSize         = (() => {
+    const n = parseInt(lsGet('itf_ps'), 10);
+    return (n >= PAGE_MIN && n <= PAGE_MAX && n % 5 === 0) ? n : PAGE_DEFAULT;
+  })();
+
+  // ── Lockout state ─────────────────────────────────────────────────────────
+  let failCount   = parseInt(sessionStorage.getItem('pwFail') || '0');
+  let lockedUntil = parseInt(sessionStorage.getItem('pwLock') || '0');
+  let lockTimer   = null;
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  HELPERS
+  // ══════════════════════════════════════════════════════════════════════════
+  function escHtml(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function statusChip(s) {
+    const t = escHtml(s);
+    if (s === 'พร้อมใช้งาน')            return `<span class="chip chip-green">✅ ${t}</span>`;
+    if (s === 'ขาดเมล์+WiFi')           return `<span class="chip chip-red">⚠️ ${t}</span>`;
+    if (s === 'ซ่อม' || s === 'อยู่ระหว่างรอดำเนินการ') return `<span class="chip chip-orange">⏳ ${t}</span>`;
+    if (s === 'ส่งเครื่องแล้ว')          return `<span class="chip chip-blue">📤 ${t}</span>`;
+    return `<span class="chip chip-blue">${t || '—'}</span>`;
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '—';
+    const ym = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateStr));   // yyyy-MM-dd ล้วน (วันที่ส่ง)
+    if (ym) return `${ym[3]}/${ym[2]}/${ym[1]}`;
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    const dd  = String(d.getDate()).padStart(2,'0');
+    const mo  = String(d.getMonth()+1).padStart(2,'0');
+    return `${dd}/${mo}/${d.getFullYear()}`;
+  }
+
+  // เวลา HH:mm (คืนค่าว่างถ้าเป็นวันที่ล้วน)
+  function formatTime(v) {
+    if (!v || /^\d{4}-\d{2}-\d{2}$/.test(String(v))) return '';
+    const d = new Date(v);
+    if (isNaN(d.getTime())) return '';
+    return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+
+  function todayStr() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function toInputDate(v) {
+    if (!v) return '';
+    if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
+    const d = new Date(v);
+    return isNaN(d.getTime()) ? '' : `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function hasOp(r) { return !!(r.operator && String(r.operator).trim() && r.operator !== '—'); }
+  function isBlank(v) { return !v || String(v).trim() === '' || v === '—'; }
+
+  async function apiPost(body) {
+    const res  = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(body) });
+    const json = await res.json();
+    if (json.status !== 'ok') throw new Error(json.message || 'error');
+    return json;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  ช่องแผนก: พิมพ์ค้นหาได้ (มีตัวใกล้เคียง) · กด "TFF" ในรายการเพื่อกางแผนกย่อย TFF
+  //  (สร้างได้หลายช่อง — 1 ช่องต่อพนักงาน 1 คน)
+  // ══════════════════════════════════════════════════════════════════════════
+  const DEPT_MAIN = [
+    "iCare Operation",
+    "Human Resources Management",
+    "Human Resources Development",
+    "Talent Acquisition",
+    "Bakery Treasury",
+    "Banana Franchise",
+    "Banana Group,Adept",
+    "Operation Banana",
+    "Operation Apple",
+    "Operation BKK",
+    "Operation Standard",
+    "Operation Admin",
+    "Operation Data Support",
+    "See Know How",
+    "ROD",
+    "E-Commerce(Supports&Center)",
+    "Operation Tesco Lotus",
+    "Marketing Communication Banana",
+    "Marketing Communication Apple",
+    "Marketing BKK & Samsung",
+    "Online Marketing",
+    "Creative Marketing",
+    "Merchandising Support",
+    "Retail Buyer",
+    "Retail Merchandiser",
+    "Rebate Center",
+    "Sale and Retail",
+    "Case Club",
+    "Event Marketing",
+    "EV7",
+    "TFF",
+    "Account",
+    "Finance",
+    "Management Information System",
+    "IT Facilities",
+    "MIS Fin Tech",
+    "MIS ERP",
+    "Enterprise Risk Management",
+    "Executive Office",
+    "Store Checker",
+    "Event",
+    "Apple Education and Enterprise",
+    "Logistic&Warehouse + Online Fulfillment",
+    "Online Fulfillment",
+    "Business Development",
+    "Internal Audit",
+    "Legal Office",
+    "Innovation",
+    "General Affairs",
+    "NON IT",
+    "InterVision",
+    "ITEC",
+    "True Operation",
+    "Organic Zone",
+    "4Paws",
+    "Service Center",
+    "Logistic&Warehouse",
+    "Service",
+    "GI"
+  ];
+  const DEPT_TFF  = [
+    "TFF-Marketing",
+    "TFF-Strategy Project",
+    "TFF-Business & Operations",
+    "TFF-Commercial",
+    "TFF-Collection",
+    "TFF-Customer Service",
+    "TFF-Audit and Compliance",
+    "TFF-Credit Analysis",
+    "TFF-Executive Office",
+    "TFF-Accounting"
+  ];
+  const DEPT_ALL  = DEPT_MAIN.filter(d => d !== 'TFF').concat(DEPT_TFF);
+
+  function deptHl(text, q) {
+    const i = q ? text.toLowerCase().indexOf(q) : -1;
+    return i < 0 ? escHtml(text) : escHtml(text.slice(0, i)) + '<mark>' + escHtml(text.slice(i, i + q.length)) + '</mark>' + escHtml(text.slice(i + q.length));
+  }
+
+  // root = .dept-combo ของพนักงาน 1 คน · ผูก API ไว้ที่ root._dept (get / set)
+  function initDeptCombo(root, value) {
+    const input = root.querySelector('.dept-input');
+    const list  = root.querySelector('.dept-list');
+    const hid   = root.querySelector('.dept-val');
+    let filter = '', tffOpen = false, active = -1;
+    const isOpen = () => list.classList.contains('open');
+
+    function render() {
+      const cur = hid.value;
+      const q = filter.toLowerCase();
+      let html = '';
+      if (!q) {
+        const extra = (cur && !DEPT_ALL.includes(cur)) ? [cur] : [];           // ค่าเก่าที่ไม่อยู่ในรายการ
+        extra.concat(DEPT_MAIN).forEach(d => {
+          if (d === 'TFF') {
+            html += `<div class="dept-opt group" data-group="1"><span>TFF</span><span>${tffOpen ? '▾' : '▸'}</span></div>`;
+            if (tffOpen) DEPT_TFF.forEach(t => { html += `<div class="dept-opt sub${t === cur ? ' sel' : ''}" data-v="${escHtml(t)}">${escHtml(t)}</div>`; });
+          } else {
+            html += `<div class="dept-opt${d === cur ? ' sel' : ''}" data-v="${escHtml(d)}">${escHtml(d)}</div>`;
+          }
+        });
+      } else {
+        const res = DEPT_ALL.map(d => ({ d, sc: matchScore(q, d) })).filter(x => x.sc > 0).sort((x, y) => y.sc - x.sc);
+        const exact = res.filter(x => x.sc >= 60), near = res.filter(x => x.sc < 60).slice(0, 8);
+        if (exact.length) html += '<div class="dept-gh">✅ ตรงกัน</div>' + exact.map(x => `<div class="dept-opt${x.d === cur ? ' sel' : ''}" data-v="${escHtml(x.d)}"><span>${deptHl(x.d, q)}</span></div>`).join('');
+        if (near.length)  html += '<div class="dept-gh near">🔎 ใกล้เคียง</div>' + near.map(x => `<div class="dept-opt" data-v="${escHtml(x.d)}">${escHtml(x.d)}</div>`).join('');
+        if (!html) html = '<div class="dept-empty">📭 ไม่พบแผนกที่ตรงหรือใกล้เคียง</div>';
+      }
+      list.innerHTML = html;
+      active = -1;
+    }
+    function open()  { render(); list.classList.add('open'); }
+    function close() { list.classList.remove('open'); filter = ''; }
+    function pick(v) { hid.value = v; input.value = v; close(); }
+    function set(value) {
+      const v = (value || '').trim();
+      hid.value = v; input.value = v;
+      tffOpen = DEPT_TFF.includes(v);
+      close();
+    }
+
+    input.addEventListener('focus', () => { filter = ''; open(); input.select(); });
+    input.addEventListener('click', () => { if (!isOpen()) { filter = ''; open(); } });
+    input.addEventListener('input', () => { filter = input.value.trim(); open(); });
+    input.addEventListener('blur', () => {
+      const t = input.value.trim();
+      if (!t) hid.value = '';                                                   // ลบข้อความ = ไม่ระบุแผนก
+      else {
+        const hit = DEPT_ALL.find(d => d.toLowerCase() === t.toLowerCase());
+        if (hit) hid.value = hit;                                               // พิมพ์ตรงชื่อ
+      }
+      input.value = hid.value;                                                  // พิมพ์ไม่ตรงรายการ → กลับเป็นค่าที่เลือกไว้
+      close();
+    });
+    // mousedown (ไม่ใช่ click) เพื่อไม่ให้ช่องพิมพ์เสียโฟกัสก่อนเลือก
+    list.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const el = e.target.closest('.dept-opt');
+      if (!el) return;
+      if (el.dataset.group) { tffOpen = !tffOpen; render(); return; }
+      pick(el.dataset.v);
+    });
+    input.addEventListener('keydown', e => {
+      const opts = [...list.querySelectorAll('.dept-opt')];
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen()) { open(); return; }
+        if (!opts.length) return;
+        active = (active + (e.key === 'ArrowDown' ? 1 : -1) + opts.length) % opts.length;
+        opts.forEach((o, i) => o.classList.toggle('active', i === active));
+        opts[active].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        if (isOpen()) {
+          e.preventDefault();
+          const o = opts[active >= 0 ? active : 0];
+          if (!o) return;
+          if (o.dataset.group) { tffOpen = !tffOpen; render(); }
+          else pick(o.dataset.v);
+        }
+      } else if (e.key === 'Escape') {
+        if (isOpen()) { e.stopPropagation(); input.value = hid.value; close(); }
+      }
+    });
+
+    root._dept = { get: () => hid.value, set };
+    set(value);
+  }
+
+  // popup ข้อผิดพลาด (แทน alert)
+  function showAlert(title, msg) {
+    document.getElementById('errTitle').textContent = '⚠️ ' + title;
+    document.getElementById('errMsg').textContent = msg;
+    document.getElementById('errOverlay').classList.add('active');
+  }
+  document.getElementById('errCloseBtn').addEventListener('click', () => document.getElementById('errOverlay').classList.remove('active'));
+  document.getElementById('errOverlay').addEventListener('click', e => { if (e.target.id === 'errOverlay') e.currentTarget.classList.remove('active'); });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  มุมมอง (ตาราง/การ์ด) + ข้อความโหลด/ผิดพลาด
+  // ══════════════════════════════════════════════════════════════════════════
+  const mqMobile = window.matchMedia('(max-width: 720px)');
+  function effectiveView() { return mqMobile.matches ? 'card' : 'table'; }   // มือถือ = การ์ด · คอม = ตาราง
+
+  function applyViewVisibility() {
+    const v = effectiveView();
+    document.getElementById('tableCard').style.display = v === 'table' ? '' : 'none';
+    document.getElementById('cardGrid').style.display  = v === 'card'  ? '' : 'none';
+  }
+
+  function showMsg(html) {
+    applyViewVisibility();
+    document.getElementById('tableBody').innerHTML = `<tr><td colspan="6">${html}</td></tr>`;
+    document.getElementById('cardGrid').innerHTML  = `<div style="grid-column:1/-1;background:#fff;border-radius:12px;box-shadow:var(--shadow-sm)">${html}</div>`;
+    document.getElementById('pager').style.display = 'none';
+  }
+  function showLoading(msg) {
+    showMsg(`<div class="empty-state">
+        <div style="font-size:2rem;animation:spin 1s linear infinite;display:inline-block">⏳</div>
+        <p style="margin-top:10px">${msg}</p>
+      </div>`);
+  }
+  function showError(msg) {
+    showMsg(`<div class="empty-state"><div class="empty-icon">⚠️</div><p>${msg}</p></div>`);
+  }
+
+  const onMqChange = () => renderTable();
+  if (mqMobile.addEventListener) mqMobile.addEventListener('change', onMqChange);
+  else if (mqMobile.addListener) mqMobile.addListener(onMqChange);
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  DROPDOWN  (3-dot)
+  // ══════════════════════════════════════════════════════════════════════════
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-menu.open').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.btn-dots.open').forEach(b => b.classList.remove('open'));
+  }
+
+  function toggleDropdown(origIdx, e) {
+    e.stopPropagation();
+    const dd    = document.getElementById(`dd-${origIdx}`);
+    const btn   = e.currentTarget;
+    const isOpen = dd.classList.contains('open');
+    closeAllDropdowns();
+    if (!isOpen) {
+      dd.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  // ปิด dropdown เมื่อคลิกที่อื่น
+  document.addEventListener('click', closeAllDropdowns);
+
+  function actionMenu(origIdx, up) {
+    return `<div class="action-wrap" id="aw-${origIdx}" onclick="event.stopPropagation()">
+      <button class="btn-dots" onclick="toggleDropdown(${origIdx}, event)" title="จัดการ">⋮</button>
+      <div class="dropdown-menu${up ? ' up' : ''}" id="dd-${origIdx}">
+        <button class="dropdown-item" onclick="closeAllDropdowns(); openDetail(${origIdx})">
+          <span class="di-icon di-blue">🔎</span> ดูรายละเอียด
+        </button>
+        <button class="dropdown-item" onclick="closeAllDropdowns(); askSend(${origIdx})">
+          <span class="di-icon di-blue">📤</span> ส่งเครื่อง
+        </button>
+        <button class="dropdown-item" onclick="closeAllDropdowns(); openEdit(${origIdx})">
+          <span class="di-icon di-orange">✏️</span> แก้ไขข้อมูล
+        </button>
+        <button class="dropdown-item del" onclick="closeAllDropdowns(); askDelete(${origIdx})">
+          <span class="di-icon di-red">🗑️</span> ลบข้อมูล
+        </button>
+      </div>
+    </div>`;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  บล็อกข้อมูลที่รวมกลุ่มแล้ว
+  // ══════════════════════════════════════════════════════════════════════════
+  function splitIdName(r) {
+    const parts = String(r.idName || '').split(' / ');
+    if (parts.length < 2) return { id: '', name: (parts[0] || '').trim() };
+    return { id: parts[0].trim(), name: parts.slice(1).join(' / ').trim() };
+  }
+
+  function dateCell(v) {
+    const t = formatTime(v);
+    return `<div class="d1">${formatDate(v)}</div>${t ? `<div class="d2">🕐 ${t} น.</div>` : ''}`;
+  }
+
+  // ก้อน: ชื่อ + รหัส + (แผนก · ประเภท · เบอร์เครื่อง)
+  function personBlock(r) {
+    const p = splitIdName(r);
+    let h = `<div class="p-name">${escHtml(p.name) || '—'}</div>`;
+    if (p.id) h += `<div class="p-id">รหัสพนักงาน ${escHtml(p.id)}</div>`;
+    h += '<div class="pills">';
+    if (!isBlank(r.dept))    h += `<span class="tag tag-dept">🏢 ${escHtml(String(r.dept).trim())}</span>`;
+    if (!isBlank(r.type))    h += `<span class="tag tag-type">💻 ${escHtml(String(r.type).trim())}</span>`;
+    h += '</div>';
+    return h;
+  }
+
+  // ก้อน: ตู้ที่ + ผู้ดำเนินการ + (ถ้าส่งแล้ว) วันที่ส่ง
+  function locBlock(r) {
+    const cab = isBlank(r.cabinet) ? '' : String(r.cabinet).trim();
+    const mc = isBlank(r.machine) ? '' : String(r.machine).trim();
+    let h = '<div class="pills" style="margin-top:0">';
+    if (mc) h += `<span class="tag tag-mc">🖥️ เครื่อง ${escHtml(mc)}</span>`;
+    h += cab
+      ? `<span class="pill pill-cab${cab === 'อยู่นอกตู้' ? ' out' : ''}">🗄️ ${escHtml(cab)}</span>`
+      : `<span class="muted" style="font-size:.82rem">🗄️ ยังไม่ระบุตำแหน่ง</span>`;
+    h += '</div>';
+    h += hasOp(r)
+      ? `<div class="loc-op">👤 ${escHtml(r.operator)}</div>`
+      : `<div class="loc-op muted">👤 ยังไม่มีผู้ดำเนินการ</div>`;
+    if (r.sentDate) {
+      h += `<div class="loc-sent">📤 ส่งแล้ว ${formatDate(r.sentDate)}${isBlank(r.sender) ? '' : ' · โดย ' + escHtml(r.sender)}</div>`;
+    }
+    return h;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  กรอง + เรียง
+  // ══════════════════════════════════════════════════════════════════════════
+  function getFilteredSorted() {
+    let rows = tableData
+      .map((r, origIdx) => ({ ...r, origIdx }))
+      .filter(r => !r.deleted)
+      .filter(r => {
+        if (!searchTerm) return true;
+        const q = searchTerm.toLowerCase();
+        return [r.idName, r.machine, r.dept, r.receiver, r.operator, r.sender]
+          .some(v => String(v || '').toLowerCase().includes(q));
+      });
+
+    if (sortKey) {
+      rows = [...rows].sort((a, b) => {
+        let va = a[sortKey] || '', vb = b[sortKey] || '';
+        if (sortKey === 'date' || sortKey === 'sentDate') {
+          const ta = va ? new Date(va).getTime() : NaN, tb = vb ? new Date(vb).getTime() : NaN;
+          if (isNaN(ta) && isNaN(tb)) return 0;
+          if (isNaN(ta)) return 1;
+          if (isNaN(tb)) return -1;
+          return sortDir === 'asc' ? ta - tb : tb - ta;
+        }
+        va = String(va).toLowerCase(); vb = String(vb).toLowerCase();
+        if (va < vb) return sortDir === 'asc' ? -1 : 1;
+        if (va > vb) return sortDir === 'asc' ?  1 : -1;
+        return 0;
+      });
+    }
+    return rows;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  RENDER (ตาราง / การ์ด + แบ่งหน้า)
+  // ══════════════════════════════════════════════════════════════════════════
+  function renderTable() {
+    const all   = getFilteredSorted();
+    const total = all.length;
+    const pages = Math.max(1, Math.ceil(total / pageSize));
+    if (page > pages) page = pages;
+    if (page < 1) page = 1;
+    const start = (page - 1) * pageSize;
+    const rows  = all.slice(start, start + pageSize);
+
+    if (total === 0) {
+      showMsg(`<div class="empty-state"><div class="empty-icon">📭</div><p>ไม่พบข้อมูล</p></div>`);
+      updateStats(); return;
+    }
+
+    applyViewVisibility();
+    document.getElementById('pager').style.display = '';
+    const view = effectiveView();
+
+    if (view === 'table') {
+      document.getElementById('tableBody').innerHTML = rows.map((r, i) => {
+        const sc = k => sortKey === k ? 'sorted-col' : '';
+        const up = rows.length > 3 && i >= rows.length - 2;      // แถวท้ายๆ เปิดเมนูขึ้นด้านบน
+        return `<tr class="row-click" onclick="openDetail(${r.origIdx})">
+          <td class="td-no">${start + i + 1}</td>
+          <td class="${sc('date')}">${dateCell(r.date)}</td>
+          <td class="${sc('idName')}">${personBlock(r)}</td>
+          <td class="${sc('status')}">${statusChip(r.status)}</td>
+          <td class="${sc('cabinet')}">${locBlock(r)}</td>
+          <td class="cell-act" style="text-align:center" onclick="event.stopPropagation()">${actionMenu(r.origIdx, up)}</td>
+        </tr>`;
+      }).join('');
+    } else {
+      document.getElementById('cardGrid').innerHTML = rows.map(r => {
+        const t = formatTime(r.date);
+        return `<div class="rec-card" data-i="${r.origIdx}">
+          <div class="rc-top">
+            <span class="rc-date">🕐 รับเครื่อง ${formatDate(r.date)}${t ? ' ' + t + ' น.' : ''}</span>
+            ${statusChip(r.status)}
+          </div>
+          <div>${personBlock(r)}</div>
+          <div class="rc-loc">${locBlock(r)}</div>
+          <div class="rc-foot">
+            <span class="rc-more">ดูรายละเอียดเพิ่มเติม ›</span>
+            ${actionMenu(r.origIdx, true)}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    renderPager(total, start, rows.length, pages);
+    updateStats();
+  }
+
+  // คลิกการ์ด → เปิดรายละเอียด
+  document.getElementById('cardGrid').addEventListener('click', e => {
+    if (e.target.closest('.action-wrap')) return;
+    const card = e.target.closest('.rec-card');
+    if (card) openDetail(parseInt(card.dataset.i, 10));
+  });
+
+  // ── Pagination ────────────────────────────────────────────────────────────
+  function pageList(cur, total) {
+    const rng = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
+    if (total <= 7) return rng(1, total);
+    if (cur <= 4) return [...rng(1, 5), '…', total];
+    if (cur >= total - 3) return [1, '…', ...rng(total - 4, total)];
+    return [1, '…', cur - 1, cur, cur + 1, '…', total];
+  }
+
+  function renderPager(total, start, count, pages) {
+    document.getElementById('pagerInfo').textContent = `แสดง ${start + 1} ถึง ${start + count} จาก ${total} แถว`;
+    document.getElementById('pageSizeSel').value = String(pageSize);
+    let h = `<button type="button" data-p="${page - 1}" ${page <= 1 ? 'disabled' : ''}>ก่อนหน้า</button>`;
+    pageList(page, pages).forEach(p => {
+      h += p === '…'
+        ? `<button type="button" disabled>…</button>`
+        : `<button type="button" data-p="${p}" class="${p === page ? 'active' : ''}">${p}</button>`;
+    });
+    h += `<button type="button" data-p="${page + 1}" ${page >= pages ? 'disabled' : ''}>ถัดไป</button>`;
+    document.getElementById('pgBtns').innerHTML = h;
+  }
+
+  document.getElementById('pgBtns').addEventListener('click', e => {
+    const b = e.target.closest('button[data-p]');
+    if (!b || b.disabled) return;
+    page = parseInt(b.dataset.p, 10);
+    renderTable();
+    const top = document.getElementById('viewTop');
+    if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('pageSizeSel').addEventListener('change', e => {
+    let n = parseInt(e.target.value, 10);
+    if (!(n >= PAGE_MIN)) n = PAGE_MIN;
+    if (n > PAGE_MAX) n = PAGE_MAX;
+    pageSize = n; lsSet('itf_ps', n);
+    page = 1;
+    renderTable();
+  });
+
+  function updateHeaders() {
+    document.querySelectorAll('thead th.sortable').forEach(th => {
+      th.classList.remove('sort-asc','sort-desc');
+      if (sortKey === th.dataset.key)
+        th.classList.add(sortDir==='asc' ? 'sort-asc' : 'sort-desc');
+    });
+  }
+
+  function updateStats() {
+    const active = tableData.filter(r => !r.deleted);
+    document.getElementById('stat-total').textContent  = active.length;
+    document.getElementById('stat-ready').textContent  = active.filter(r => r.status==='พร้อมใช้งาน').length;
+    document.getElementById('stat-issue').textContent  = active.filter(r => r.status==='ขาดเมล์+WiFi').length;
+    document.getElementById('stat-repair').textContent = active.filter(r => r.status==='อยู่ระหว่างรอดำเนินการ').length;
+  }
+
+  // ── Sort ──────────────────────────────────────────────────────────────────
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.dataset.key;
+      if (sortKey===k) { sortDir==='asc' ? sortDir='desc' : (sortKey=sortDir=null); }
+      else { sortKey=k; sortDir='asc'; }
+      page = 1; updateHeaders(); renderTable();
+    });
+  });
+
+  // ── Search ────────────────────────────────────────────────────────────────
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    searchTerm = document.getElementById('searchInput').value.trim(); page = 1; renderTable();
+  });
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key==='Enter') { searchTerm = e.target.value.trim(); page = 1; renderTable(); }
+  });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  LOAD DATA (GET)
+  // ══════════════════════════════════════════════════════════════════════════
+  async function loadFromSheets() {
+    showLoading('กำลังโหลดข้อมูลจาก Google Sheets...');
+    try {
+      const res  = await fetch(API_URL);
+      const json = await res.json();
+      if (json.status !== 'ok') throw new Error(json.message || 'error');
+
+      tableData = json.data.map(row => ({
+        date: row.date || '', sentDate: row.sentDate || '',
+        idName: row.idName || '', machine: row.machine || '', dept: row.dept || '',
+        type: row.type || '', status: row.status || '', cabinet: row.cabinet || '',
+        receiver: row.receiver || '', operator: row.operator || '', sender: row.sender || '', note: row.note || '',
+        deleted: row.deleted === true
+      }));
+      renderTable();
+    } catch(err) {
+      showError(`โหลดข้อมูลไม่สำเร็จ: <small style="color:#e53935">${escHtml(err.message)}</small>`);
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  DETAIL MODAL
+  // ══════════════════════════════════════════════════════════════════════════
+  function openDetail(origIdx) {
+    const r = tableData[origIdx];
+    if (!r) return;
+    detailIdx = origIdx;
+    const p = splitIdName(r);
+    document.getElementById('dtName').textContent = p.name || '—';
+    document.getElementById('dtId').textContent   = p.id ? `รหัสพนักงาน ${p.id}` : '';
+    document.getElementById('dtStatus').innerHTML = statusChip(r.status);
+    const val = v => isBlank(v) ? '<span class="muted">—</span>' : escHtml(String(v).trim());
+    const rt = formatTime(r.date);
+    const items = [
+      ['🕐 วันที่/เวลารับเครื่อง', escHtml(formatDate(r.date)) + (rt ? ' ' + rt + ' น.' : '')],
+      ['📤 วันที่ส่งเครื่อง',      r.sentDate ? escHtml(formatDate(r.sentDate)) : '<span class="muted">ยังไม่ได้ส่ง</span>'],
+      ['🖥️ เบอร์เครื่อง',          val(r.machine)],
+      ['💻 ประเภทเครื่อง',         val(r.type)],
+      ['🏢 แผนก',                  val(r.dept), true],
+      ['🗄️ ตู้ที่ / ตำแหน่ง',      val(r.cabinet)],
+      ['👤 ผู้ดำเนินการ',          hasOp(r) ? escHtml(r.operator) : '<span class="muted">—</span>'],
+      ['📥 ผู้รับเครื่อง',          val(r.receiver)],
+      ['📦 คนส่งเครื่อง',          val(r.sender)],
+      ['📝 หมายเหตุ',              val(r.note), true]
+    ];
+    document.getElementById('dtGrid').innerHTML = items.map(it =>
+      `<div class="dt-item${it[2] ? ' full' : ''}"><div class="dt-label">${it[0]}</div><div class="dt-val">${it[1]}</div></div>`
+    ).join('');
+    document.getElementById('detailOverlay').classList.add('active');
+  }
+  function closeDetail() { document.getElementById('detailOverlay').classList.remove('active'); }
+  document.getElementById('closeDetail').addEventListener('click', closeDetail);
+  document.getElementById('dtClose').addEventListener('click', closeDetail);
+  document.getElementById('detailOverlay').addEventListener('click', e => { if (e.target.id === 'detailOverlay') closeDetail(); });
+  document.getElementById('dtEdit').addEventListener('click',   () => { const i = detailIdx; closeDetail(); if (i !== null) openEdit(i); });
+  document.getElementById('dtSend').addEventListener('click',   () => { const i = detailIdx; closeDetail(); if (i !== null) askSend(i); });
+  document.getElementById('dtDelete').addEventListener('click', () => { const i = detailIdx; closeDetail(); if (i !== null) askDelete(i); });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  LOCKOUT HELPERS
+  // ══════════════════════════════════════════════════════════════════════════
+  function isLockedOut() { return Date.now() < lockedUntil; }
+
+  function startLockDisplay() {
+    document.getElementById('lockOverlay').classList.add('active');
+    if (lockTimer) clearInterval(lockTimer);
+    lockTimer = setInterval(() => {
+      const rem = lockedUntil - Date.now();
+      if (rem <= 0) {
+        clearInterval(lockTimer);
+        failCount=0; lockedUntil=0;
+        sessionStorage.removeItem('pwFail'); sessionStorage.removeItem('pwLock');
+        document.getElementById('lockOverlay').classList.remove('active');
+        return;
+      }
+      const m = Math.floor(rem/60000), s = Math.floor((rem%60000)/1000);
+      document.getElementById('lockCountdown').textContent = `${m}:${String(s).padStart(2,'0')}`;
+    }, 500);
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  DELETE FLOW  (Password → Confirm → API)
+  // ══════════════════════════════════════════════════════════════════════════
+  function askDelete(origIdx) {
+    if (isLockedOut()) { startLockDisplay(); return; }
+    pendingDeleteIdx = origIdx;
+    const pwInput = document.getElementById('deletePassword');
+    pwInput.value=''; pwInput.type='password';
+    document.getElementById('pwToggle').textContent='👁️';
+    document.getElementById('pwError').style.display='none';
+    document.getElementById('passwordOverlay').classList.add('active');
+    setTimeout(() => pwInput.focus(), 120);
+  }
+
+  document.getElementById('pwToggle').addEventListener('click', () => {
+    const inp = document.getElementById('deletePassword');
+    const hidden = inp.type==='password';
+    inp.type = hidden ? 'text' : 'password';
+    document.getElementById('pwToggle').textContent = hidden ? '🙈' : '👁️';
+    inp.focus();
+  });
+
+  function validatePassword() {
+    if (isLockedOut()) { document.getElementById('passwordOverlay').classList.remove('active'); startLockDisplay(); return; }
+    const pw = document.getElementById('deletePassword').value;
+    if (pw === DELETE_PASSWORD) {
+      failCount=0; lockedUntil=0;
+      sessionStorage.removeItem('pwFail'); sessionStorage.removeItem('pwLock');
+      document.getElementById('passwordOverlay').classList.remove('active');
+      const r = tableData[pendingDeleteIdx];
+      document.getElementById('confirmName').textContent = `${r.idName||''} (${r.machine||''})`;
+      document.getElementById('confirmOverlay').classList.add('active');
+    } else {
+      failCount++;
+      sessionStorage.setItem('pwFail', failCount);
+      const rem = MAX_ATTEMPTS - failCount;
+      const box = document.getElementById('passwordBox');
+      box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+      document.getElementById('deletePassword').value='';
+      document.getElementById('pwError').style.display='block';
+      const badge = document.getElementById('attemptBadge');
+      if (rem <= 0) {
+        lockedUntil = Date.now() + LOCKOUT_MS;
+        sessionStorage.setItem('pwLock', lockedUntil);
+        document.getElementById('passwordOverlay').classList.remove('active');
+        startLockDisplay();
+      } else {
+        badge.className = 'attempt-badge' + (rem<=2 ? ' danger' : '');
+        badge.textContent = `⚠️ เหลือโอกาสอีก ${rem} ครั้ง`;
+      }
+    }
+  }
+
+  document.getElementById('confirmPwBtn').addEventListener('click', validatePassword);
+  document.getElementById('deletePassword').addEventListener('keydown', e => { if(e.key==='Enter') validatePassword(); });
+  document.getElementById('cancelPwBtn').addEventListener('click', () => {
+    pendingDeleteIdx=null; document.getElementById('passwordOverlay').classList.remove('active');
+  });
+  document.getElementById('passwordOverlay').addEventListener('click', e => {
+    if (e.target===document.getElementById('passwordOverlay')) { pendingDeleteIdx=null; document.getElementById('passwordOverlay').classList.remove('active'); }
+  });
+
+  document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+    if (pendingDeleteIdx===null) return;
+    const btn = document.getElementById('confirmDeleteBtn');
+    btn.disabled=true; btn.textContent='⏳ กำลังลบ...';
+    try {
+      await apiPost({ action:'delete', rowIndex: pendingDeleteIdx });
+      pendingDeleteIdx=null;
+      document.getElementById('confirmOverlay').classList.remove('active');
+      await loadFromSheets();
+    } catch(err) { showAlert('ลบไม่สำเร็จ', err.message); }
+    finally { btn.disabled=false; btn.innerHTML='🗑️ ยืนยันลบข้อมูล'; }
+  });
+  document.getElementById('cancelDeleteBtn').addEventListener('click', () => {
+    pendingDeleteIdx=null; document.getElementById('confirmOverlay').classList.remove('active');
+  });
+  document.getElementById('confirmOverlay').addEventListener('click', e => {
+    if (e.target===document.getElementById('confirmOverlay')) { pendingDeleteIdx=null; document.getElementById('confirmOverlay').classList.remove('active'); }
+  });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  SEND MACHINE FLOW
+  // ══════════════════════════════════════════════════════════════════════════
+  function askSend(origIdx) {
+    pendingSendIdx = origIdx;
+    const r = tableData[origIdx];
+    document.getElementById('sendName').textContent    = r.idName  || '—';
+    document.getElementById('sendMachine').textContent = r.machine || '—';
+    document.getElementById('sendInfo').innerHTML = r.sentDate
+      ? `<span style="color:var(--orange);font-weight:600">⚠️ ส่งไปแล้วเมื่อ ${formatDate(r.sentDate)} · ถ้ายืนยันจะเปลี่ยนเป็นวันนี้</span>`
+      : `<span style="color:var(--gray-text)">จะบันทึกวันที่ส่งเป็นวันนี้ (${formatDate(todayStr())})</span>`;
+    document.getElementById('f-sender').value   = '';            // ต้องกรอกชื่อผู้ส่งใหม่ทุกครั้ง
+    document.getElementById('f-sendop').value   = hasOp(r) ? r.operator : '';
+    document.getElementById('sendOpHint').textContent = hasOp(r) ? 'มีผู้ดำเนินการอยู่แล้ว — ใช้ชื่อเดิมได้เลย (แก้ไขได้ถ้าต้องการ)' : '';
+    document.getElementById('f-sendnote').value = '';
+    document.getElementById('sendOverlay').classList.add('active');
+    setTimeout(() => document.getElementById('f-sender').focus(), 120);
+  }
+
+  document.getElementById('confirmSendBtn').addEventListener('click', async () => {
+    if (pendingSendIdx===null) return;
+    const sender   = document.getElementById('f-sender').value.trim();
+    const operator = document.getElementById('f-sendop').value.trim();
+    const note     = document.getElementById('f-sendnote').value.trim();
+    if (!sender)   { showAlert('ส่งเครื่องไม่สำเร็จ', 'กรุณากรอกชื่อผู้ส่ง'); document.getElementById('f-sender').focus(); return; }
+    if (!operator) { showAlert('ส่งเครื่องไม่สำเร็จ', 'กรุณากรอกชื่อผู้ดำเนินการ'); document.getElementById('f-sendop').focus(); return; }
+    const btn = document.getElementById('confirmSendBtn');
+    btn.disabled=true; btn.textContent='⏳ กำลังบันทึก...';
+    try {
+      const r = { ...tableData[pendingSendIdx] };
+      const sendDate = todayStr();
+      const newNote = note ? (r.note ? r.note + ' | ' + note : note) : (r.note || '');
+      await apiPost({
+        action:'edit', rowIndex: pendingSendIdx,
+        date: r.date, sentDate: sendDate,
+        idName: r.idName, machine: r.machine,
+        dept: r.dept, type: r.type, status: 'ส่งเครื่องแล้ว',
+        cabinet: r.cabinet, receiver: r.receiver || '',
+        operator, sender, note: newNote
+      });
+      pendingSendIdx=null;
+      document.getElementById('sendOverlay').classList.remove('active');
+      await loadFromSheets();
+      showSummary('send', r, sender, sendDate, note);
+    } catch(err) { showAlert('ส่งเครื่องไม่สำเร็จ', err.message); }
+    finally { btn.disabled=false; btn.innerHTML='📤 ยืนยันส่งเครื่อง'; }
+  });
+  document.getElementById('cancelSendBtn').addEventListener('click', () => {
+    pendingSendIdx=null; document.getElementById('sendOverlay').classList.remove('active');
+  });
+  document.getElementById('sendOverlay').addEventListener('click', e => {
+    if (e.target===document.getElementById('sendOverlay')) { pendingSendIdx=null; document.getElementById('sendOverlay').classList.remove('active'); }
+  });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  ฟอร์มเพิ่ม/แก้ไข — บล็อกพนักงาน (เพิ่มได้หลายคนต่อครั้ง)
+  // ══════════════════════════════════════════════════════════════════════════
+  const empList   = document.getElementById('empList');
+  const addRowBtn = document.getElementById('addRowBtn');
+
+  function optHtml(list, sel, placeholder) {
+    const arr = (sel && sel !== '—' && !list.includes(sel)) ? [...list, sel] : list;   // คงค่าเดิมที่ไม่อยู่ในตัวเลือก
+    return `<option value="">${placeholder}</option>` +
+      arr.map(v => `<option${v === sel ? ' selected' : ''}>${escHtml(v)}</option>`).join('');
+  }
+
+  function addEmpBlock(d) {
+    d = d || {};
+    const block = document.createElement('div');
+    block.className = 'emp-block';
+    block.innerHTML =
+      `<div class="emp-head"><span class="emp-title"></span><button type="button" class="emp-del">🗑️ ลบคนนี้</button></div>` +
+      `<div class="form-grid">` +
+        `<div class="form-group"><label>ID พนักงาน</label><input class="form-control emp-id" type="text" autocomplete="off"/></div>` +
+        `<div class="form-group"><label>เบอร์เครื่อง</label><input class="form-control emp-machine" type="text" autocomplete="off"/></div>` +
+        `<div class="form-group"><label>ชื่อ – สกุล</label><input class="form-control emp-name" type="text" autocomplete="off"/></div>` +
+        `<div class="form-group"><label>แผนก</label>` +
+          `<div class="dept-combo">` +
+            `<input class="form-control dept-input" type="text" placeholder="พิมพ์ค้นหา หรือเลือกแผนก..." autocomplete="off"/>` +
+            `<span class="dept-caret">▾</span>` +
+            `<div class="dept-list"></div>` +
+            `<input class="dept-val" type="hidden"/>` +
+          `</div>` +
+        `</div>` +
+        `<div class="form-group"><label>ประเภทเครื่อง</label><select class="form-control emp-type">${optHtml(TYPE_LIST, d.type, '-- เลือกประเภทเครื่อง --')}</select></div>` +
+        `<div class="form-group"><label>สถานะ</label><select class="form-control emp-status">${optHtml(STATUS_LIST, d.status, '-- เลือกสถานะ --')}</select></div>` +
+        `<div class="form-group"><label>ตู้ที่</label><select class="form-control emp-cabinet">${optHtml(CABINET_LIST, d.cabinet, '-- เลือกตู้ --')}</select></div>` +
+      `</div>`;
+    block.querySelector('.emp-id').value      = d.id || '';
+    block.querySelector('.emp-name').value    = d.name || '';
+    block.querySelector('.emp-machine').value = d.machine || '';
+    empList.appendChild(block);
+    initDeptCombo(block.querySelector('.dept-combo'), d.dept || '');
+    return block;
+  }
+
+  function getEmpData(block) {
+    return {
+      id:      block.querySelector('.emp-id').value.trim(),
+      name:    block.querySelector('.emp-name').value.trim(),
+      machine: block.querySelector('.emp-machine').value.trim(),
+      dept:    block.querySelector('.dept-combo')._dept.get().trim(),
+      type:    block.querySelector('.emp-type').value,
+      status:  block.querySelector('.emp-status').value,
+      cabinet: block.querySelector('.emp-cabinet').value
+    };
+  }
+
+  function updateEmpUi() {
+    const isEdit = editingIdx !== null;
+    const blocks = [...empList.querySelectorAll('.emp-block')];
+    blocks.forEach((b, i) => {
+      b.querySelector('.emp-title').textContent = `👤 พนักงานคนที่ ${i + 1}`;
+      b.querySelector('.emp-head').style.display = (isEdit || blocks.length <= 1) ? 'none' : '';
+    });
+    document.getElementById('addEmpBtn').style.display = isEdit ? 'none' : '';
+    document.getElementById('empCount').textContent    = (isEdit || blocks.length <= 1) ? '' : `(${blocks.length} คน)`;
+    document.getElementById('sharedHint').textContent  = (!isEdit && blocks.length > 1) ? '(ใช้ร่วมกันทุกคน)' : '';
+    if (!addRowBtn.disabled) {
+      addRowBtn.innerHTML = isEdit ? '💾 บันทึกการแก้ไข'
+        : (blocks.length > 1 ? `➕ เพิ่ม ${blocks.length} คน` : '👤+ เพิ่มข้อมูล');
+    }
+  }
+
+  // คนใหม่คัดลอกแผนก/ประเภท/สถานะ/ตู้จากคนก่อนหน้า (ID / ชื่อ / เบอร์เครื่อง เว้นว่างให้กรอกใหม่)
+  document.getElementById('addEmpBtn').addEventListener('click', () => {
+    const blocks = empList.querySelectorAll('.emp-block');
+    const prev = blocks[blocks.length - 1];
+    const p = prev ? getEmpData(prev) : {};
+    const b = addEmpBlock({ dept: p.dept, type: p.type, status: p.status, cabinet: p.cabinet });
+    updateEmpUi();
+    b.querySelector('.emp-id').focus();
+    b.scrollIntoView({ block: 'nearest' });
+  });
+  empList.addEventListener('click', e => {
+    const del = e.target.closest('.emp-del');
+    if (!del) return;
+    del.closest('.emp-block').remove();
+    updateEmpUi();
+  });
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  EDIT FLOW
+  // ══════════════════════════════════════════════════════════════════════════
+  function openEdit(origIdx) {
+    editingIdx = origIdx;
+    const r    = tableData[origIdx];
+    const parts = (r.idName||'').split(' / ');
+    empList.innerHTML = '';
+    addEmpBlock({
+      id: parts[0] || '', name: parts.slice(1).join(' / ') || '',
+      machine: r.machine || '', dept: r.dept || '',
+      type: r.type, status: r.status, cabinet: r.cabinet
+    });
+    document.getElementById('f-operator').value   = hasOp(r) ? r.operator : '';
+    document.getElementById('f-receiver').value   = r.receiver || '';
+    document.getElementById('f-sentdate').value   = toInputDate(r.sentDate);
+    document.getElementById('f-senderEdit').value = r.sender || '';
+    document.getElementById('f-note').value       = r.note || '';
+    document.getElementById('recvReq').style.display = 'none';          // แก้ไขเก่า ไม่บังคับผู้รับ
+    syncSenderReq();
+
+    document.getElementById('modalTitle').textContent = '✏️ แก้ไขข้อมูล';
+    updateEmpUi();
+    document.getElementById('modalOverlay').classList.add('active');
+  }
+
+  // ── Reset modal to ADD mode ───────────────────────────────────────────────
+  function resetModal() {
+    editingIdx = null;
+    document.getElementById('modalTitle').textContent = '➕ เพิ่มข้อมูลส่งเครื่องพนักงาน';
+    ['f-operator','f-receiver','f-sentdate','f-senderEdit','f-note'].forEach(id => document.getElementById(id).value='');
+    empList.innerHTML = '';
+    addEmpBlock({});
+    document.getElementById('recvReq').style.display = '';
+    syncSenderReq();
+    updateEmpUi();
+  }
+  // มีวันที่ส่ง → ช่อง "ชื่อคนส่งเครื่อง" กลายเป็นบังคับ
+  function syncSenderReq() {
+    document.getElementById('senderReq').style.display = document.getElementById('f-sentdate').value ? '' : 'none';
+  }
+  document.getElementById('f-sentdate').addEventListener('input', syncSenderReq);
+
+  // ══════════════════════════════════════════════════════════════════════════
+  //  ADD / EDIT MODAL — open / close
+  // ══════════════════════════════════════════════════════════════════════════
+  const addOverlay = document.getElementById('modalOverlay');
+  const closeAdd = () => { resetModal(); addOverlay.classList.remove('active'); };
+  document.getElementById('openModal').addEventListener('click', () => {
+    resetModal(); addOverlay.classList.add('active');
+    setTimeout(() => { const f = empList.querySelector('.emp-id'); if (f) f.focus(); }, 120);
+  });
+  document.getElementById('closeModal').addEventListener('click',  closeAdd);
+  document.getElementById('closeModal2').addEventListener('click', closeAdd);
+  addOverlay.addEventListener('click', e => { if(e.target===addOverlay) closeAdd(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && addOverlay.classList.contains('active')) closeAdd(); });
+
+  // ── Save (ADD หลายคน หรือ EDIT 1 คน) ─────────────────────────────────────
+  addRowBtn.addEventListener('click', async () => {
+    const isEdit   = editingIdx !== null;
+    const receiver = document.getElementById('f-receiver').value.trim();
+    const operator = document.getElementById('f-operator').value.trim();
+    const sentDate = document.getElementById('f-sentdate').value;
+    const sender   = document.getElementById('f-senderEdit').value.trim();
+    const note     = document.getElementById('f-note').value.trim();
+    const ERR_T    = 'บันทึกไม่สำเร็จ';
+
+    // รวมพนักงานทุกคนเป็นรายการเดียว (1 คน = 1 แถวในชีท)
+    const blocks = [...empList.querySelectorAll('.emp-block')];
+    const items = [];
+    for (let bi = 0; bi < blocks.length; bi++) {
+      const b = blocks[bi];
+      const d = getEmpData(b);
+      const label = (isEdit || blocks.length === 1) ? '' : `คนที่ ${bi + 1}: `;
+      if (!isEdit && blocks.length > 1 && !d.id && !d.name && !d.machine) continue;   // ข้ามคนที่ปล่อยว่างทั้งบล็อก
+      if (!d.id || !d.name || !d.machine) {
+        showAlert(ERR_T, label + 'กรุณากรอก ID, ชื่อ-สกุล และเบอร์เครื่อง');
+        (b.querySelector(!d.id ? '.emp-id' : !d.name ? '.emp-name' : '.emp-machine')).focus();
+        return;
+      }
+      items.push({ ...d, block: b });
+    }
+    if (!items.length) { showAlert(ERR_T, 'กรุณากรอก ID, ชื่อ-สกุล และเบอร์เครื่องอย่างน้อย 1 คน'); return; }
+    if (!isEdit && !receiver) { showAlert(ERR_T, 'กรุณากรอกชื่อผู้รับเครื่อง'); document.getElementById('f-receiver').focus(); return; }
+    if (sentDate && !sender) { showAlert(ERR_T, 'มีวันที่ส่งเครื่องแล้ว กรุณากรอกชื่อคนส่งเครื่องด้วย'); document.getElementById('f-senderEdit').focus(); return; }
+
+    const t = new Date();
+    const dateStr = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}T${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}:00`;
+
+    addRowBtn.disabled = true;
+    let done = 0;
+    try {
+      for (const it of items) {
+        addRowBtn.textContent = (isEdit || items.length === 1) ? '⏳ กำลังบันทึก...' : `⏳ กำลังบันทึก ${done + 1}/${items.length}`;
+        const body = {
+          action:   isEdit ? 'edit' : 'add',
+          date:     isEdit ? tableData[editingIdx].date : dateStr,   // edit คงวันที่เดิม
+          idName:   `${it.id} / ${it.name}`,
+          machine:  it.machine, dept: it.dept,
+          type:     it.type    || '—',
+          status:   it.status  || '—',
+          cabinet:  it.cabinet || '—',
+          receiver, operator, sentDate, sender, note
+        };
+        if (isEdit) body.rowIndex = editingIdx;
+        await apiPost(body);
+        done++;
+      }
+      closeAdd();
+      page = 1;
+      await loadFromSheets();
+      if (!isEdit) showAddSummary(items, receiver, dateStr, note);
+    } catch(err) {
+      if (done > 0 && !isEdit) {
+        // เอาคนที่บันทึกสำเร็จแล้วออกจากฟอร์ม เหลือเฉพาะที่ยังไม่ได้บันทึก
+        items.slice(0, done).forEach(x => x.block.remove());
+        updateEmpUi();
+        showAlert(ERR_T, `บันทึกสำเร็จ ${done} จาก ${items.length} คน แล้วเกิดข้อผิดพลาด: ${err.message}\nคนที่เหลือยังอยู่ในฟอร์ม กดบันทึกอีกครั้งเพื่อลองใหม่`);
+        await loadFromSheets();
+      } else {
+        showAlert(ERR_T, err.message);
+      }
+    } finally { addRowBtn.disabled = false; updateEmpUi(); }
+  });
+
+  // ── Refresh ───────────────────────────────────────────────────────────────
+  document.getElementById('resetSort').addEventListener('click', () => {
+    sortKey='date'; sortDir='desc'; searchTerm=''; page=1;
+    document.getElementById('searchInput').value='';
+    updateHeaders(); loadFromSheets();
+  });
+  // ══════════════════════════════════════════════════════════════════════════
+  //  STAT CARD → LIST MODAL
+  // ══════════════════════════════════════════════════════════════════════════
+  const STAT_GROUPS = {
+    total:  { title: '💻 เครื่องทั้งหมด',       match: r => true },
+    ready:  { title: '✅ พร้อมใช้งาน',          match: r => r.status === 'พร้อมใช้งาน' },
+    issue:  { title: '⚠️ ขาดเมล์ / WiFi',        match: r => r.status === 'ขาดเมล์+WiFi' },
+    repair: { title: '🔧 รอดำเนินการ',          match: r => r.status === 'อยู่ระหว่างรอดำเนินการ' || r.status === 'ซ่อม' }
+  };
+
+  function openStatList(key) {
+    const g = STAT_GROUPS[key];
+    if (!g) return;
+    const rows = tableData.filter(r => !r.deleted).filter(g.match);
+
+    document.getElementById('listTitle').textContent = g.title;
+    document.getElementById('listCount').textContent = rows.length;
+
+    document.getElementById('listBody').innerHTML = rows.length === 0
+      ? `<tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📭</div><p>ไม่มีเครื่องในหมวดนี้</p></div></td></tr>`
+      : rows.map((r, i) => `<tr>
+          <td>${i + 1}</td>
+          <td>${escHtml(r.idName) || '—'}</td>
+          <td>${escHtml(r.machine) || '—'}</td>
+          <td>${escHtml(r.dept) || '—'}</td>
+          <td>${escHtml(r.type) || '—'}</td>
+          <td>${statusChip(r.status)}</td>
+          <td>${escHtml(r.cabinet) || '—'}</td>
+        </tr>`).join('');
+
+    document.getElementById('listOverlay').classList.add('active');
+  }
+
+  function closeStatList() { document.getElementById('listOverlay').classList.remove('active'); }
+
+  document.getElementById('closeList').addEventListener('click', closeStatList);
+  document.getElementById('closeList2').addEventListener('click', closeStatList);
+  document.getElementById('listOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('listOverlay')) closeStatList();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeStatList(); closeDetail(); } });
+    // ══════════════════════════════════════════════════════════════════════════
+  //  SEARCH SUGGEST  (ตรงกัน → ใกล้เคียง)
+  // ══════════════════════════════════════════════════════════════════════════
+  const searchInputEl = document.getElementById('searchInput');
+  const suggestBox    = document.getElementById('suggestBox');
+  let suggestItems  = [];
+  let suggestActive = -1;
+
+  // ระยะห่างระหว่างข้อความ 2 อัน (ยิ่งน้อยยิ่งคล้าย)
+  function lev(a, b) {
+    const m = a.length, n = b.length;
+    if (!m) return n; if (!n) return m;
+    let prev = Array.from({ length: n + 1 }, (_, j) => j);
+    for (let i = 1; i <= m; i++) {
+      const cur = [i];
+      for (let j = 1; j <= n; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j-1] + 1, prev[j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+      }
+      prev = cur;
+    }
+    return prev[n];
+  }
+
+  // ให้คะแนนความตรงกัน: 60 ขึ้นไป = ตรงกัน, ต่ำกว่านั้น = ใกล้เคียง
+  function matchScore(q, text) {
+    const t = String(text || '').toLowerCase();
+    if (!t) return 0;
+    if (t === q) return 100;
+    const tokens = t.split(/[\s\/]+/).filter(Boolean);
+    if (tokens.includes(q)) return 90;
+    if (t.startsWith(q)) return 85;
+    if (tokens.some(x => x.startsWith(q))) return 75;
+    if (t.includes(q)) return 60;
+
+    // พิมพ์ตัวอักษรครบตามลำดับ แต่ไม่ติดกัน
+    let i = 0;
+    for (const ch of t) { if (i < q.length && ch === q[i]) i++; }
+    if (q.length >= 2 && i === q.length) return 35;
+
+    // พิมพ์ผิดเล็กน้อย
+    if (q.length >= 3) {
+      const limit = q.length >= 6 ? 2 : 1;
+      let best = 99;
+      tokens.forEach(tok => {
+        best = Math.min(best, lev(q, tok), lev(q, tok.slice(0, q.length)));
+      });
+      if (best <= limit) return 30 - best;
+    }
+    return 0;
+  }
+
+  function getSuggestions(q) {
+    return tableData
+      .filter(r => !r.deleted)
+      .map(r => ({
+        row: r,
+        score: Math.max(matchScore(q, r.idName), matchScore(q, r.machine), matchScore(q, r.dept))
+      }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+  }
+
+  function hl(text, q) {
+    const s = String(text || '');
+    const idx = s.toLowerCase().indexOf(q);
+    if (idx < 0 || !q) return escHtml(s) || '—';
+    return escHtml(s.slice(0, idx)) + '<mark>' + escHtml(s.slice(idx, idx + q.length)) + '</mark>' + escHtml(s.slice(idx + q.length));
+  }
+
+  function hideSuggest() {
+    suggestBox.classList.remove('open');
+    suggestActive = -1;
+  }
+
+  function renderSuggest() {
+    const raw = searchInputEl.value.trim();
+    if (!raw) { hideSuggest(); return; }
+    const q = raw.toLowerCase();
+    suggestItems = getSuggestions(q);
+    suggestActive = -1;
+
+    if (suggestItems.length === 0) {
+      suggestBox.innerHTML = `<div class="suggest-empty">📭 ไม่พบข้อมูลที่ตรงหรือใกล้เคียง</div>`;
+      suggestBox.classList.add('open');
+      return;
+    }
+
+    let html = '', lastGroup = '';
+    suggestItems.forEach((it, i) => {
+      const group = it.score >= 60 ? 'exact' : 'near';
+      if (group !== lastGroup) {
+        html += group === 'exact'
+          ? `<div class="suggest-group">✅ ตรงกัน</div>`
+          : `<div class="suggest-group near">🔎 ใกล้เคียง</div>`;
+        lastGroup = group;
+      }
+      const r = it.row;
+      const mc  = isBlank(r.machine) ? '' : String(r.machine).trim();
+      const cab = isBlank(r.cabinet) ? '' : String(r.cabinet).trim();
+      const rest = [isBlank(r.dept) ? '' : hl(r.dept, q), isBlank(r.type) ? '' : escHtml(String(r.type).trim())].filter(Boolean).join(' · ');
+      html += `<div class="suggest-item" data-i="${i}">
+        <div class="si-body">
+          <div class="si-main">${hl(r.idName, q)}</div>
+          <div class="si-meta">
+            ${mc  ? `<span class="pill pill-mc">🖥️ เครื่อง ${hl(mc, q)}</span>` : ''}
+            ${cab ? `<span class="pill pill-cab${cab === 'อยู่นอกตู้' ? ' out' : ''}">🗄️ ${escHtml(cab)}</span>` : ''}
+            ${rest ? `<span class="si-dept">${rest}</span>` : ''}
+          </div>
+        </div>
+        ${statusChip(r.status)}
+      </div>`;
+    });
+    suggestBox.innerHTML = html;
+    suggestBox.classList.add('open');
+  }
+
+  function setSuggestActive(n) {
+    const els = suggestBox.querySelectorAll('.suggest-item');
+    if (!els.length) return;
+    suggestActive = (n + els.length) % els.length;
+    els.forEach((el, i) => el.classList.toggle('active', i === suggestActive));
+    els[suggestActive].scrollIntoView({ block: 'nearest' });
+  }
+
+  function pickSuggest(i) {
+    const it = suggestItems[i];
+    if (!it) return;
+    const r = it.row;
+    const key = (r.idName || '').split(' / ')[0].trim() || r.machine || '';
+    searchInputEl.value = key;
+    searchTerm = key;
+    page = 1;
+    hideSuggest();
+    renderTable();
+  }
+
+  searchInputEl.addEventListener('input', renderSuggest);
+  searchInputEl.addEventListener('focus', () => { if (searchInputEl.value.trim()) renderSuggest(); });
+
+  searchInputEl.addEventListener('keydown', e => {
+    if (!suggestBox.classList.contains('open')) return;
+    if (e.key === 'ArrowDown')      { e.preventDefault(); setSuggestActive(suggestActive + 1); }
+    else if (e.key === 'ArrowUp')   { e.preventDefault(); setSuggestActive(suggestActive - 1); }
+    else if (e.key === 'Enter' && suggestActive >= 0) { e.preventDefault(); pickSuggest(suggestActive); }
+    else if (e.key === 'Escape')    { hideSuggest(); }
+  });
+
+  suggestBox.addEventListener('click', e => {
+    e.stopPropagation();
+    const el = e.target.closest('.suggest-item');
+    if (el) pickSuggest(parseInt(el.dataset.i));
+  });
+
+  document.getElementById('searchBtn').addEventListener('click', hideSuggest);
+  document.addEventListener('click', e => { if (!e.target.closest('.search-wrap')) hideSuggest(); });
+  // ══════════════════════════════════════════════════════════════════════════
+  //  POPUP สรุป + ปุ่มคัดลอก   (mode: 'add' = รับเครื่อง · 'send' = ส่งเครื่อง)
+  // ══════════════════════════════════════════════════════════════════════════
+  let summaryText = '';
+  function openDone(lines) {
+    summaryText = lines.join('\n');
+    document.getElementById('doneTitle').textContent = lines[0];
+    document.getElementById('doneText').textContent  = lines.slice(2).join('\n');
+    document.getElementById('copyBtn').innerHTML = '📋 คัดลอก';
+    document.getElementById('doneOverlay').classList.add('active');
+  }
+  function showSummary(mode, r, person, dateIso, note) {
+    const isSend = mode === 'send';
+    openDone([
+      isSend ? '📦 สรุปการส่งเครื่องพนักงาน' : '📦 สรุปการรับเครื่องพนักงาน', '',
+      `พนักงาน: ${r.idName || '—'}`,
+      `เบอร์เครื่อง: ${r.machine || '—'}`,
+      `ประเภท: ${r.type || '—'}`,
+      `${isSend ? 'ผู้ส่ง' : 'ผู้รับ'}: ${person}`,
+      `${isSend ? 'วันที่ส่ง' : 'วันที่รับ'}: ${formatDate(dateIso)}`,
+      `หมายเหตุ: ${note || '-'}`
+    ]);
+  }
+  // สรุปการเพิ่ม: 1 คน = รูปแบบเดิม · หลายคน = ไล่เป็นข้อๆ
+  function showAddSummary(items, person, dateIso, note) {
+    if (items.length === 1) {
+      const x = items[0];
+      showSummary('add', { idName: `${x.id} / ${x.name}`, machine: x.machine, type: x.type }, person, dateIso, note);
+      return;
+    }
+    const lines = ['📦 สรุปการรับเครื่องพนักงาน', ''];
+    items.forEach((x, i) => {
+      lines.push(`${i + 1}. ${x.id} / ${x.name}`);
+      lines.push(`   เบอร์เครื่อง: ${x.machine}${x.type ? ' · ' + x.type : ''}`);
+    });
+    lines.push('');
+    lines.push(`ผู้รับ: ${person}`);
+    lines.push(`วันที่รับ: ${formatDate(dateIso)}`);
+    lines.push(`หมายเหตุ: ${note || '-'}`);
+    openDone(lines);
+  }
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy'); ta.remove(); return ok;
+    } catch (e) { return false; }
+  }
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const cb = document.getElementById('copyBtn');
+    cb.innerHTML = (await copyText(summaryText)) ? '✅ คัดลอกแล้ว' : '⚠️ คัดลอกไม่ได้';
+    setTimeout(() => { cb.innerHTML = '📋 คัดลอก'; }, 2000);
+  });
+  const closeDone = () => document.getElementById('doneOverlay').classList.remove('active');
+  document.getElementById('doneCloseBtn').addEventListener('click', closeDone);
+  document.getElementById('doneOverlay').addEventListener('click', e => { if (e.target.id === 'doneOverlay') closeDone(); });
+
+  // ── Check lockout on load ─────────────────────────────────────────────────
+  if (isLockedOut()) startLockDisplay();
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  document.getElementById('pageSizeSel').value = String(pageSize);
+  applyViewVisibility();
+  updateHeaders();
+  resetModal();
+  loadFromSheets();
+</script>
+</body>
+</html>
